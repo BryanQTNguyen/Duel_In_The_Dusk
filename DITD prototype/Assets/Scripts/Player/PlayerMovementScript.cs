@@ -35,8 +35,19 @@ public class PlayerMovementScript : MonoBehaviour
         }
         if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
+            int i = 0;
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
+            if(i <= 0)
+            {
+                AudManager.Instance.PlaySFX("Walk");
+                i++;
+            }
+
+        }
+        else
+        {
+            
         }
 
     }
@@ -48,6 +59,10 @@ public class PlayerMovementScript : MonoBehaviour
            movement.Normalize(); //makes it so that diagonal walk is not faster
            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); //moves the rigidbody
         }
-
+        if(rb.velocity.magnitude > 0)
+        {
+            AudManager.Instance.PlaySFX("Walk");
+            Debug.Log("Hi");
+        }
     }
 }
