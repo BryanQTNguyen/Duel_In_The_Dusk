@@ -8,6 +8,7 @@ public class justSayingHi : MonoBehaviour
     void Start()
     {
             //YOOOOO IM FROM ANOTHER COMPUTER WITHOUT THE STORAGE DEVICE SO I AM ONLY USING GITHUB!!!! CRAZYYY OMGGGG 
+            //little change
     }
 
     // Update is called once per frame
