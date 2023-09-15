@@ -15,8 +15,14 @@ public class PlayerMovementScript : MonoBehaviour
 
     public DialgoueManager manager;
 
+    public AudioSource walkSoundStuff;
+    
+    int i = 0;
+
+
     void Start()
     {
+        i = 0;
 
     }
 
@@ -33,36 +39,35 @@ public class PlayerMovementScript : MonoBehaviour
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
         }
+
         if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
-            int i = 0;
+            walkSoundStuff.mute = false; 
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
             if(i <= 0)
             {
-                AudManager.Instance.PlaySFX("Walk");
+                AudManager.Instance.PlayWalk("Walk");
                 i++;
             }
 
         }
         else
         {
-            
+            walkSoundStuff.mute = true;
+            i = 0;
         }
 
     }
 
     void FixedUpdate() //movement
     {
+
         if(manager.isActive == false)
         {
            movement.Normalize(); //makes it so that diagonal walk is not faster
            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); //moves the rigidbody
         }
-        if(rb.velocity.magnitude > 0)
-        {
-            AudManager.Instance.PlaySFX("Walk");
-            Debug.Log("Hi");
-        }
+
     }
 }

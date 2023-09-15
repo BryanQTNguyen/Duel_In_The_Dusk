@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     public DialgoueManager manager;
     public FadeScript fadeScript;
     public GameObject pressF;
+    public string[] audios; 
 
     private void Start()
     {
@@ -17,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void StartDialogue()
     {
-        FindObjectOfType<DialgoueManager>().OpenDialogue(messages, actors);
+        FindObjectOfType<DialgoueManager>().OpenDialogue(messages, actors, audios);
     }
 
     void Update()

@@ -7,21 +7,24 @@ public class DialgoueManager : MonoBehaviour
 {
     public Image actorImage;
     public TMP_Text actorName;
+    public string AudioToPlay;
     public TMP_Text messageText;
     public RectTransform backgroundBox;
 
     Message[] currentMessages;
     Actor[] currentActor;
+    string[] currentAudio;
     int activeMessage = 0;
     public bool isActive = false;
 
     public FadeScript fadeScript;
 
-    public void OpenDialogue(Message[] messages, Actor[] actors)
+    public void OpenDialogue(Message[] messages, Actor[] actors, string[] audios)
     {
         fadeScript.ShowDialogue();
         currentMessages = messages;
         currentActor = actors;
+        currentAudio = audios;
         activeMessage = 0;
         isActive = true;
         DisplayMessage();
@@ -32,6 +35,9 @@ public class DialgoueManager : MonoBehaviour
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
 
+        AudioToPlay = currentAudio[activeMessage];
+        AudManager.Instance.PlayDialogue(AudioToPlay);
+        
         Actor actorToDisplay = currentActor[messageToDisplay.actorId];
         actorName.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;

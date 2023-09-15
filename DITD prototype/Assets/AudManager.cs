@@ -7,8 +7,8 @@ public class AudManager : MonoBehaviour
 {
     public static AudManager Instance;
 
-    public Sound[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public Sound[] musicSounds, sfxSounds, walkSound, dialogueSound;
+    public AudioSource musicSource, sfxSource, walkSource, dialogueSource;
 
     private void Awake()
     {
@@ -52,6 +52,36 @@ public class AudManager : MonoBehaviour
         else
         {
             sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlayWalk(string name)
+    {
+        Sound s = Array.Find(walkSound, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Walk sound not found!!!");
+        }
+        else
+        {
+            walkSource.clip = s.clip;
+            walkSource.Play();
+        }
+    }
+
+    public void PlayDialogue(string name)
+    {
+        Sound s = Array.Find(dialogueSound, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Dialgoue sound not found!!!");
+        }
+        else
+        {
+            dialogueSource.clip = s.clip;
+            dialogueSource.Play();
         }
     }
 }
