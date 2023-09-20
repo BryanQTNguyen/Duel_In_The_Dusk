@@ -311,7 +311,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 104
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -328,6 +328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSlider: {fileID: 226756380}
+  index: 0
+  markerSpeed: 10
+  playerShot: 0
+  playerAccuracy: 0
 --- !u!1 &249229083
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 9.4, y: 0}
+  m_AnchoredPosition: {x: 9.399963, y: 0}
   m_SizeDelta: {x: 9.78417, y: 18.08891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984348639
