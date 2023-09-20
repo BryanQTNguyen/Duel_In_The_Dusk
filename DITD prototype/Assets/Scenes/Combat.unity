@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 226756379}
   - component: {fileID: 226756380}
   - component: {fileID: 226756381}
+  - component: {fileID: 226756382}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -332,6 +333,19 @@ MonoBehaviour:
   markerSpeed: 10
   playerShot: 0
   playerAccuracy: 0
+  canvasGroup: {fileID: 226756382}
+--- !u!225 &226756382
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226756378}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &249229083
 GameObject:
   m_ObjectHideFlags: 0
