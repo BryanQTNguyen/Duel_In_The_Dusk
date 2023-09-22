@@ -18,6 +18,8 @@ public class SkillCheck : MonoBehaviour
     public int drawTime;
     private float timer;
     private bool timerActive;
+    public float xPositionShot;
+    public GameObject shotArea;
 
 
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
@@ -31,6 +33,13 @@ public class SkillCheck : MonoBehaviour
         playerShot = false;
         index = false;
         timerActive = true;
+        generateShotArea();
+    }
+
+    public void generateShotArea()
+    {
+        xPositionShot = Random.Range(-88.7f, 88.518f);
+        shotArea.GetComponent<RectTransform>().anchoredPosition = new Vector3(xPositionShot, 0.8536f, 0f);
     }
 
     // Update is called once per frame
@@ -78,9 +87,13 @@ public class SkillCheck : MonoBehaviour
         else if(playerShot == true)
         {
             playerAccuracy = mSlider.value;
-            Debug.Log("Player Shot with an accuracy of: " + playerAccuracy);
         }
 
+    }
+
+    public void checkAccuracy()
+    {
+        
     }
 
     public void Draw()
