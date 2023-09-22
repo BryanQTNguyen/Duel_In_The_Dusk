@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Security.Cryptography;
+
 public class SkillCheck : MonoBehaviour
 {
     public Slider mSlider;
@@ -11,6 +13,7 @@ public class SkillCheck : MonoBehaviour
     public bool playerShot;
     public float playerAccuracy;
     public GameObject drawText;
+    public GameObject reloadingText;
     
     
     //varibles to control the draw function (timers mainly)
@@ -23,6 +26,10 @@ public class SkillCheck : MonoBehaviour
     public bool fireTime; //should be the same value as the canvas group this is made for other scripts to reference
     int drawIndex = 0; //so the draw function doesn't run constantly
 
+    //variables and etc for reload function
+    public bool timerReloadTime;
+    float timerReload;
+    public checkScript CheckScript;
 
 
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
@@ -30,6 +37,7 @@ public class SkillCheck : MonoBehaviour
     void Start()
     {
         drawText.SetActive(false);
+        reloadingText.SetActive(false);
         drawTime = Random.Range(2, 10);
         canvasGroup.alpha = 0;
         fireTime = false;
@@ -38,6 +46,9 @@ public class SkillCheck : MonoBehaviour
         index = false;
         timerActive = true;
         generateShotArea();
+        timerReloadTime = false;
+
+
     }
 
     public void generateShotArea() //controls shoot area (orange thing)
@@ -64,7 +75,6 @@ public class SkillCheck : MonoBehaviour
             if (Input.GetKeyDown("space")) //Player shoot
             {
                 playerShot = true;
-                hideDraw();
             }
 
             if (mSlider.value == mSlider.maxValue)
@@ -74,6 +84,23 @@ public class SkillCheck : MonoBehaviour
             if (mSlider.value == mSlider.minValue)
             {
                 index = false;
+            }
+        }
+
+        //controls the main reload mechanic
+        if (timerReloadTime == true)
+        {
+            timerReload = timerReload + Time.deltaTime;
+            reloadingText.SetActive(true);
+            if (timerReload >= 1.5)
+            {
+                reloadingText.SetActive(false);
+                drawIndex = 0;
+                Draw();
+                timerReload = 0;
+                timerReloadTime = false;
+                playerShot = false;
+                CheckScript.shotIndex = 0;
             }
         }
     }
@@ -100,7 +127,7 @@ public class SkillCheck : MonoBehaviour
             drawText.SetActive(true);
             canvasGroup.alpha = 1;
             fireTime = true;
-            drawIndex++;
+            drawIndex=1;
         }
 
     }

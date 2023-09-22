@@ -24,13 +24,15 @@ public class checkScript : MonoBehaviour
             Debug.Log("Shot Landed!");
             skillCheck.hideDraw();
             playerShotAcc = true;
-            shotIndex++;
+            shotIndex=1;
         }
-        else if (notAccurate == true && skillCheck.playerShot == true &&shotIndex ==0)
+        else if (notAccurate == true && skillCheck.playerShot == true && shotIndex ==0)
         {
             Debug.Log("Skill issue you missed");
+            skillCheck.hideDraw();
+            skillCheck.timerReloadTime = true; 
             playerShotAcc = false;
-            shotIndex++;
+            shotIndex=1;
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)

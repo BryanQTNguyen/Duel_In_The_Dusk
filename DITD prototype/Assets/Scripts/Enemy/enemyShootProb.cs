@@ -21,18 +21,18 @@ public class enemyShootProb : MonoBehaviour
     {
         if(CheckScript.playerShotAcc == false)
         {
-            if (skillCheck.fireTime == true && fireIndex == 0)
+            if ((skillCheck.timerReloadTime || skillCheck.fireTime == true) && fireIndex == 0)
             {
                 timer = timer + Time.deltaTime;
                 if (timer > 1.5f)
                 {
                     probOfShooting = Random.Range(0, 100);
-                    if (probOfShooting < 50)
+                    if (probOfShooting < 70)
                     {
                         enemyFire();
                         fireIndex++;
                     }
-                    else if (probOfShooting > 50)
+                    else if (probOfShooting > 70)
                     {
                         fireIndex = 0;
                         timer = 0;
@@ -47,11 +47,17 @@ public class enemyShootProb : MonoBehaviour
     private void enemyFire()
     {
         probOfLanding = Random.Range(0, 100);
-        if(probOfLanding < 60)
+        if(probOfLanding <= 10)
         {
-            Debug.Log("PlayerGotShot");
+            Debug.Log("Player got head shotted");
             skillCheck.playerDeath();
-            fireIndex++;
+
+        }
+        else if(probOfLanding >10 && probOfLanding <= 70)
+        {
+            Debug.Log("Player got hit with a crippling shot");
+            skillCheck.playerDeath();
+
         }
         else
         {
