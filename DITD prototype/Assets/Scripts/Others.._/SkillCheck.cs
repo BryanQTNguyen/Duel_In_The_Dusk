@@ -20,6 +20,9 @@ public class SkillCheck : MonoBehaviour
     private bool timerActive;
     public float xPositionShot;
     public GameObject shotArea;
+    public bool fireTime; //should be the same value as the canvas group this is made for other scripts to reference
+    int drawIndex = 0; //so the draw function doesn't run constantly
+
 
 
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
@@ -29,14 +32,15 @@ public class SkillCheck : MonoBehaviour
         drawText.SetActive(false);
         drawTime = Random.Range(2, 10);
         canvasGroup.alpha = 0;
+        fireTime = false;
         mSlider.value = 100;
-        playerShot = false;
+        playerShot = false; //did they shoot?
         index = false;
         timerActive = true;
         generateShotArea();
     }
 
-    public void generateShotArea()
+    public void generateShotArea() //controls shoot area (orange thing)
     {
         xPositionShot = Random.Range(-88.7f, 88.518f);
         shotArea.GetComponent<RectTransform>().anchoredPosition = new Vector3(xPositionShot, 0.8536f, 0f);
@@ -45,7 +49,7 @@ public class SkillCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timerActive == true)
+        if(timerActive == true) //controls when the draw will happen
         {
             timer = timer + Time.deltaTime;
         }
@@ -54,11 +58,13 @@ public class SkillCheck : MonoBehaviour
             timerActive = false;
             Draw();
         }
-        if (canvasGroup.alpha == 1)
+
+        if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened 
         {
             if (Input.GetKeyDown("space")) //Player shoot
             {
                 playerShot = true;
+                hideDraw();
             }
 
             if (mSlider.value == mSlider.maxValue)
@@ -73,7 +79,8 @@ public class SkillCheck : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(playerShot == false && canvasGroup.alpha == 1)
+
+        if(playerShot == false && canvasGroup.alpha == 1) //control the marker movement at a fixed rate
         {
             if (index == false)
             {
@@ -84,22 +91,33 @@ public class SkillCheck : MonoBehaviour
                 mSlider.value -= markerSpeed;
             }
         }
-        else if(playerShot == true)
-        {
-            playerAccuracy = mSlider.value;
-        }
-
-    }
-
-    public void checkAccuracy()
-    {
-        
     }
 
     public void Draw()
     {
-        drawText.SetActive(true);
-        canvasGroup.alpha = 1;
+        if(drawIndex == 0)
+        {
+            drawText.SetActive(true);
+            canvasGroup.alpha = 1;
+            fireTime = true;
+            drawIndex++;
+        }
+
+    }
+
+    public void hideDraw()
+    {
+        drawText.SetActive(false);
+        canvasGroup.alpha = 0;
+        fireTime = false;
+    }
+
+    public void playerDeath()
+    {
+        canvasGroup.alpha = 0;
+        drawText.SetActive(false);
+        fireTime = false;
+        Debug.Log("Player Has fallen");
     }
 
 }
