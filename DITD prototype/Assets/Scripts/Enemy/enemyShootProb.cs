@@ -10,6 +10,7 @@ public class enemyShootProb : MonoBehaviour
     public int probOfShooting;
     public int probOfLanding;
     public int fireIndex;
+    public bool kill;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class enemyShootProb : MonoBehaviour
                     if (probOfShooting < 70)
                     {
                         enemyFire();
-                        fireIndex++;
+                        fireIndex = 1;
                     }
                     else if (probOfShooting > 70)
                     {
@@ -50,13 +51,15 @@ public class enemyShootProb : MonoBehaviour
         if(probOfLanding <= 10)
         {
             Debug.Log("Player got head shotted");
-            skillCheck.playerDeath();
+            kill = true;
+            skillCheck.PlayerDamage();
 
         }
         else if(probOfLanding >10 && probOfLanding <= 70)
         {
             Debug.Log("Player got hit with a crippling shot");
-            skillCheck.playerDeath();
+            kill = false; 
+            skillCheck.PlayerDamage();
 
         }
         else
