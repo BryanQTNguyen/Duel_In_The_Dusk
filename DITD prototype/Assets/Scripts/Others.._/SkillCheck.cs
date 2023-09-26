@@ -81,6 +81,7 @@ public class SkillCheck : MonoBehaviour
                 if (Input.GetKeyDown("space")) //Player shoot
                 {
                     playerShot = true;
+                    anim.SetTrigger("shot");
                 }
 
                 if (mSlider.value == mSlider.maxValue)
@@ -160,7 +161,7 @@ public class SkillCheck : MonoBehaviour
         else if(EnemyShootProb.kill == false)
         {
             //player got damaged
-            anim.SetBool("isDamage", true);
+            anim.SetTrigger("isDamage");
         }
 
     }

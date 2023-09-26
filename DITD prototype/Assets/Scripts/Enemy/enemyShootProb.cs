@@ -9,8 +9,9 @@ public class enemyShootProb : MonoBehaviour
     public checkScript CheckScript; 
     public int probOfShooting;
     public int probOfLanding;
-    public int fireIndex;
+    [SerializeField] private int fireIndex;
     public bool kill;
+    [SerializeField] private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +31,14 @@ public class enemyShootProb : MonoBehaviour
                     probOfShooting = Random.Range(0, 100);
                     if (probOfShooting < 70)
                     {
+                        anim.SetTrigger("isShootEnemy");
                         enemyFire();
-                        fireIndex = 1;
+                        fireIndex++;
                     }
                     else if (probOfShooting > 70)
                     {
                         fireIndex = 0;
-                        timer = 0;
+                        timer = 0f;
                         Debug.Log("Enemy did not decide to shoot this time, maybe soon");
                     }
                 }
@@ -55,18 +57,21 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.PlayerDamage();
 
         }
-        else if(probOfLanding >10 && probOfLanding <= 70)
+        else if(probOfLanding > 10 && probOfLanding <= 70)
         {
+            timer = 0f;
+            fireIndex = 0;
             Debug.Log("Player got hit with a crippling shot");
             kill = false; 
             skillCheck.PlayerDamage();
+            
 
         }
         else
         {
-            Debug.Log("Miss!");
+            timer = 0f;
             fireIndex = 0;
-            timer = 0;
+            Debug.Log("Miss!");
         }
     }
 }
