@@ -535,6 +535,7 @@ MonoBehaviour:
   probOfLanding: 0
   fireIndex: 0
   kill: 0
+  anim: {fileID: 599392583}
 --- !u!95 &599392583
 Animator:
   serializedVersion: 5
@@ -1321,6 +1322,7 @@ MonoBehaviour:
   playerIsDead: 0
   EnemyShootProb: {fileID: 599392582}
   anim: {fileID: 1369560916}
+  ShotsToKill: 0
   drawTime: 0
   xPositionShot: 0
   shotArea: {fileID: 1303441546}

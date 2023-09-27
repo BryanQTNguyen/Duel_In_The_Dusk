@@ -16,6 +16,7 @@ public class enemyShootProb : MonoBehaviour
     void Start()
     {
         fireIndex = 0;
+
     }
 
     // Update is called once per frame
@@ -33,7 +34,6 @@ public class enemyShootProb : MonoBehaviour
                     {
                         anim.SetTrigger("isShootEnemy");
                         enemyFire();
-                        fireIndex++;
                     }
                     else if (probOfShooting > 70)
                     {
@@ -44,13 +44,20 @@ public class enemyShootProb : MonoBehaviour
                 }
             }
         }
+        if(CheckScript.playerShotAcc == true)
+        {
+            anim.SetBool("isDeadEnemy", true);
+        }
 
     }
 
+    
     private void enemyFire()
     {
+        timer = 0f;
+        fireIndex++;
         probOfLanding = Random.Range(0, 100);
-        if(probOfLanding <= 10)
+        if (probOfLanding <= 10)
         {
             Debug.Log("Player got head shotted");
             kill = true;
@@ -59,13 +66,10 @@ public class enemyShootProb : MonoBehaviour
         }
         else if(probOfLanding > 10 && probOfLanding <= 70)
         {
-            timer = 0f;
             fireIndex = 0;
             Debug.Log("Player got hit with a crippling shot");
             kill = false; 
             skillCheck.PlayerDamage();
-            
-
         }
         else
         {
@@ -74,4 +78,5 @@ public class enemyShootProb : MonoBehaviour
             Debug.Log("Miss!");
         }
     }
+   
 }

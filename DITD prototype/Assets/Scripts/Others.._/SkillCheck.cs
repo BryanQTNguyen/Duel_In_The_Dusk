@@ -17,7 +17,7 @@ public class SkillCheck : MonoBehaviour
     public bool playerIsDead;
     [SerializeField] private enemyShootProb EnemyShootProb;
     public Animator anim;
-    
+    public int ShotsToKill; //how many shots did the player take (3 will kill them)
     
     //varibles to control the draw function (timers mainly)
     private float timeDuration = 11f;
@@ -149,19 +149,25 @@ public class SkillCheck : MonoBehaviour
 
     public void PlayerDamage()
     {
-        if (EnemyShootProb.kill == true)
+        if (EnemyShootProb.kill == true || ShotsToKill == 3)
         {
             anim.SetBool("isDead", true);
             playerIsDead = true;
             canvasGroup.alpha = 0;
             drawText.SetActive(false);
             fireTime = false;
+            drawText.SetActive(false);
             Debug.Log("Player Has fallen");
         }
         else if(EnemyShootProb.kill == false)
         {
             //player got damaged
             anim.SetTrigger("isDamage");
+            ShotsToKill++;
+            if(ShotsToKill == 3)
+            {
+                PlayerDamage();
+            }
         }
 
     }
