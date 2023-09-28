@@ -6,7 +6,7 @@ using System;
 public class AudManager : MonoBehaviour
 {
     public static AudManager Instance;
-
+    public bool playBackgroundMusic;
     public Sound[] musicSounds, sfxSounds, walkSound, dialogueSound;
     public AudioSource musicSource, sfxSource, walkSource, dialogueSource;
 
@@ -24,7 +24,11 @@ public class AudManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayMusic("TownBG");
+        if(playBackgroundMusic == true)
+        {
+            PlayMusic("TownBG");
+
+        }
     }
     public void PlayMusic(string name)
     {

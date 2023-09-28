@@ -100,7 +100,7 @@ public class SkillCheck : MonoBehaviour
         {
             timerReload = timerReload + Time.deltaTime;
             reloadingText.SetActive(true);
-            if (timerReload >= 1.5)
+            if (timerReload >= 1.3)
             {
                 reloadingText.SetActive(false);
                 drawIndex = 0;
@@ -145,18 +145,16 @@ public class SkillCheck : MonoBehaviour
         drawText.SetActive(false);
         canvasGroup.alpha = 0;
         fireTime = false;
+        reloadingText.SetActive(false);
     }
 
     public void PlayerDamage()
     {
         if (EnemyShootProb.kill == true || ShotsToKill == 3)
         {
+            hideDraw();
             anim.SetBool("isDead", true);
             playerIsDead = true;
-            canvasGroup.alpha = 0;
-            drawText.SetActive(false);
-            fireTime = false;
-            drawText.SetActive(false);
             Debug.Log("Player Has fallen");
         }
         else if(EnemyShootProb.kill == false)
