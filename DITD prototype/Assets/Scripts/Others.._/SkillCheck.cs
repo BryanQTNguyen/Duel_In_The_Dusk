@@ -7,16 +7,26 @@ using System.Security.Cryptography;
 
 public class SkillCheck : MonoBehaviour
 {
+    // objects referenced from the unity project
+    public GameObject drawText;
+    public GameObject reloadingText;
     public Slider mSlider;
+    [SerializeField] private enemyShootProb EnemyShootProb;
+    [SerializeField] shake Shake;
+    public Animator anim;
+    public GameObject shotArea;
+    public checkScript CheckScript;
+    [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
+
+
+
+
     public bool index; //this is used to determine which direction the marker faces
+    private int barIndex = 0;
     public float markerSpeed;
     public bool playerShot; // this is used to know if the player shot the gun
     public float playerAccuracy;
-    public GameObject drawText;
-    public GameObject reloadingText;
     public bool playerIsDead;
-    [SerializeField] private enemyShootProb EnemyShootProb;
-    public Animator anim;
     public int ShotsToKill; //how many shots did the player take (3 will kill them)
     
     //varibles to control the draw function (timers mainly)
@@ -25,17 +35,14 @@ public class SkillCheck : MonoBehaviour
     private float timer;
     private bool timerActive;
     public float xPositionShot;
-    public GameObject shotArea;
     public bool fireTime; //should be the same value as the canvas group this is made for other scripts to reference
     int drawIndex = 0; //so the draw function doesn't run constantly
 
     //variables and etc for reload function
     public bool timerReloadTime;
     float timerReload;
-    public checkScript CheckScript;
 
 
-    [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +51,7 @@ public class SkillCheck : MonoBehaviour
         drawTime = Random.Range(2, 10);
         canvasGroup.alpha = 0;
         fireTime = false;
-        mSlider.value = 100;
+        mSlider.value = 0;
         playerShot = false; //did they shoot?
         index = false;
         timerActive = true;
@@ -73,6 +80,12 @@ public class SkillCheck : MonoBehaviour
             timerActive = false;
             Draw();
         }
+        
+        //controls it so that the player has a certain cycle of the bar to shoot
+        if(barIndex == 2)
+        {
+            hideDraw();
+        }
 
         if(playerIsDead == false)
         {
@@ -82,6 +95,7 @@ public class SkillCheck : MonoBehaviour
                 {
                     playerShot = true;
                     anim.SetTrigger("shot");
+                    Shake.playerRevolverShot();
                 }
 
                 if (mSlider.value == mSlider.maxValue)
@@ -91,6 +105,7 @@ public class SkillCheck : MonoBehaviour
                 if (mSlider.value == mSlider.minValue)
                 {
                     index = false;
+                    barIndex++; //this index is used to control the count of how many times it had reached the min value
                 }
             }
         }

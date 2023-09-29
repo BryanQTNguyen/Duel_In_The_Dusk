@@ -6,8 +6,13 @@ public class shake : MonoBehaviour
 {
     public Animator camAnim;
 
-    public void CamShake()
+    public void enemyShotShake()
     {
-        camAnim.SetTrigger("Condition");
+        camAnim.SetTrigger("enemyShootShake");
+    }
+
+    public void playerRevolverShot()
+    {
+        camAnim.SetTrigger("RegularShoot");
     }
 }

@@ -13,11 +13,12 @@ public class enemyShootProb : MonoBehaviour
     public bool kill;
     [SerializeField] private Animator anim;
     [SerializeField] private shake Shake;
+    public float waitUntilNextShot;
     // Start is called before the first frame update
     void Start()
     {
         fireIndex = 0;
-
+        waitUntilNextShot = 1.5f;
     }
 
     // Update is called once per frame
@@ -28,15 +29,15 @@ public class enemyShootProb : MonoBehaviour
             if ((skillCheck.timerReloadTime || skillCheck.fireTime == true) && fireIndex == 0)
             {
                 timer = timer + Time.deltaTime;
-                if (timer > 1.5f)
+                if (timer > waitUntilNextShot)
                 {
                     probOfShooting = Random.Range(0, 100);
-                    if (probOfShooting < 70 && timer >1.5f)
+                    if (probOfShooting < 70 && timer > waitUntilNextShot)
                     {
                         anim.SetTrigger("isShootEnemy");
                         enemyFire();
                     }
-                    else if (probOfShooting > 70 && timer >1.5f)
+                    else if (probOfShooting > 70 && timer > waitUntilNextShot)
                     {
                         fireIndex = 0;
                         timer = 0f;
@@ -61,7 +62,7 @@ public class enemyShootProb : MonoBehaviour
         if (probOfLanding <= 10)
         {
             Debug.Log("Player got head shotted");
-            Shake.CamShake();
+            Shake.enemyShotShake();
             kill = true;
             skillCheck.PlayerDamage();
 
@@ -70,7 +71,7 @@ public class enemyShootProb : MonoBehaviour
         {
             fireIndex = 0;
             Debug.Log("Player got hit with a crippling shot");
-            Shake.CamShake();
+            Shake.enemyShotShake();
             kill = false; 
             skillCheck.PlayerDamage();
         }
