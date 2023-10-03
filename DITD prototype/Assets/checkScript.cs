@@ -11,9 +11,9 @@ public class checkScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        notAccurate = true;
-        shotIndex = 0;
-        playerShotAcc = false;
+        notAccurate = true; 
+        shotIndex = 0; //makes it so that the player only shoots like once
+        playerShotAcc = false; //is the shot accurate
     }
 
     // Update is called once per frame
@@ -30,7 +30,6 @@ public class checkScript : MonoBehaviour
         {
             Debug.Log("Skill issue you missed");
             skillCheck.hideDraw();
-            skillCheck.timerReloadTime = true; 
             playerShotAcc = false;
             shotIndex=1;
         }

@@ -5,14 +5,14 @@ using UnityEngine;
 public class enemyShootProb : MonoBehaviour
 {
     public float timer;
-    public SkillCheck skillCheck; //reference to the skill check script
-    public checkScript CheckScript; 
+    [SerializeField] SkillCheck skillCheck; //reference to the skill check script
+    [SerializeField] checkScript CheckScript; 
     public int probOfShooting;
     public int probOfLanding;
-    [SerializeField] private int fireIndex;
+    [SerializeField] int fireIndex;
     public bool kill;
-    [SerializeField] private Animator anim;
-    [SerializeField] private shake Shake;
+    [SerializeField] Animator anim;
+    [SerializeField] shake Shake;
     public float waitUntilNextShot;
     // Start is called before the first frame update
     void Start()
@@ -24,30 +24,27 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CheckScript.playerShotAcc == false)
+        if(skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
-            if ((skillCheck.timerReloadTime || skillCheck.fireTime == true) && fireIndex == 0)
+            probOfShooting = Random.Range(0, 100);
+            if (probOfShooting < 70 && timer > waitUntilNextShot)
             {
-                timer = timer + Time.deltaTime;
-                if (timer > waitUntilNextShot)
-                {
-                    probOfShooting = Random.Range(0, 100);
-                    if (probOfShooting < 70 && timer > waitUntilNextShot)
-                    {
-                        anim.SetTrigger("isShootEnemy");
-                        enemyFire();
-                    }
-                    else if (probOfShooting > 70 && timer > waitUntilNextShot)
-                    {
-                        fireIndex = 0;
-                        timer = 0f;
-                        Debug.Log("Enemy did not decide to shoot this time, maybe soon");
-                    }
-                }
+                anim.SetTrigger("isShootEnemy");
+                enemyFire();
+            }
+            else if (probOfShooting > 70 && timer > waitUntilNextShot)
+            {
+                fireIndex = 0;
+                timer = 0f;
+                Debug.Log("Gun Jammed");
+                skillCheck.enemyTurnToShoot = false;
+
             }
         }
-        if(CheckScript.playerShotAcc == true)
+
+        if (CheckScript.playerShotAcc == true)
         {
+            skillCheck.enemyTurnToShoot = false;
             anim.SetBool("isDeadEnemy", true);
         }
 
@@ -56,8 +53,6 @@ public class enemyShootProb : MonoBehaviour
     
     private void enemyFire()
     {
-        timer = 0f;
-        fireIndex++;
         probOfLanding = Random.Range(0, 100);
         if (probOfLanding <= 10)
         {
@@ -67,6 +62,7 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.PlayerDamage();
 
         }
+
         else if(probOfLanding > 10 && probOfLanding <= 70)
         {
             fireIndex = 0;
@@ -77,9 +73,9 @@ public class enemyShootProb : MonoBehaviour
         }
         else
         {
-            timer = 0f;
-            fireIndex = 0;
             Debug.Log("Miss!");
+            skillCheck.enemyTurnToShoot = false;
+
         }
     }
    

@@ -19,28 +19,28 @@ public class SkillCheck : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
 
 
-
-
     public bool index; //this is used to determine which direction the marker faces
     private int barIndex = 0;
     public float markerSpeed;
     public bool playerShot; // this is used to know if the player shot the gun
-    public float playerAccuracy;
     public bool playerIsDead;
     public int ShotsToKill; //how many shots did the player take (3 will kill them)
     
     //varibles to control the draw function (timers mainly)
-    private float timeDuration = 11f;
     public int drawTime;
     private float timer;
     private bool timerActive;
     public float xPositionShot;
+
     public bool fireTime; //should be the same value as the canvas group this is made for other scripts to reference
     int drawIndex = 0; //so the draw function doesn't run constantly
 
     //variables and etc for reload function
     public bool timerReloadTime;
     float timerReload;
+
+
+    public bool enemyTurnToShoot = false;
 
 
     // Start is called before the first frame update
@@ -85,11 +85,14 @@ public class SkillCheck : MonoBehaviour
         if(barIndex == 2)
         {
             hideDraw();
+            enemyTurnToShoot = true;
+
+            //call some sort of boolean that will que the enemy to fire
         }
 
-        if(playerIsDead == false)
+        if (playerIsDead == false) //is player alive? only run when they are alive
         {
-            if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened 
+            if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened
             {
                 if (Input.GetKeyDown("space")) //Player shoot
                 {
@@ -98,7 +101,7 @@ public class SkillCheck : MonoBehaviour
                     Shake.playerRevolverShot();
                 }
 
-                if (mSlider.value == mSlider.maxValue)
+                if (mSlider.value == mSlider.maxValue) //controls the movement of the marker
                 {
                     index = true;
                 }
@@ -110,7 +113,9 @@ public class SkillCheck : MonoBehaviour
             }
         }
 
-        //controls the main reload mechanic
+
+        /*
+        controls the main reload mechanic
         if (timerReloadTime == true && playerIsDead == false)
         {
             timerReload = timerReload + Time.deltaTime;
@@ -126,11 +131,11 @@ public class SkillCheck : MonoBehaviour
                 CheckScript.shotIndex = 0;
             }
         }
+        */
     }
     void FixedUpdate()
     {
-
-        if(playerShot == false && canvasGroup.alpha == 1 && playerIsDead == false) //control the marker movement at a fixed rate
+        if(playerShot == false && canvasGroup.alpha == 1 && playerIsDead == false) //this just moves the marker on the bar
         {
             if (index == false)
             {
@@ -143,7 +148,7 @@ public class SkillCheck : MonoBehaviour
         }
     }
 
-    public void Draw()
+    public void Draw() //turns on the bar and marker mechanic (skill check)
     {
         if(drawIndex == 0)
         {
@@ -155,7 +160,7 @@ public class SkillCheck : MonoBehaviour
 
     }
 
-    public void hideDraw()
+    public void hideDraw() //turns off the bar and marker mechanic (skill check)
     {
         drawText.SetActive(false);
         canvasGroup.alpha = 0;
@@ -163,7 +168,7 @@ public class SkillCheck : MonoBehaviour
         reloadingText.SetActive(false);
     }
 
-    public void PlayerDamage()
+    public void PlayerDamage() //damage mechanic
     {
         if (EnemyShootProb.kill == true || ShotsToKill == 3)
         {
