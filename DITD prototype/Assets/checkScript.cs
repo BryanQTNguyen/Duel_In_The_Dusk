@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class checkScript : MonoBehaviour
 {
+    [SerializeField] SkillCheck skillCheck;
+
     public bool notAccurate = true;
-    public SkillCheck skillCheck;
     public int shotIndex;
     public bool playerShotAcc; //the player shot but did they do so accurately?
     // Start is called before the first frame update
@@ -29,9 +30,11 @@ public class checkScript : MonoBehaviour
         else if (notAccurate == true && skillCheck.playerShot == true && shotIndex ==0)
         {
             Debug.Log("Skill issue you missed");
+            skillCheck.playerShot = false;
             skillCheck.hideDraw();
             playerShotAcc = false;
-            shotIndex=1;
+            shotIndex=0;
+            skillCheck.enemyTurnToShoot = true;
         }
     }
     public void OnTriggerEnter2D(Collider2D collision)
