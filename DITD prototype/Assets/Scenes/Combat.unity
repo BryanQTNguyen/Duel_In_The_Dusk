@@ -550,16 +550,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fc072f716d4194abe606154bce3fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   skillCheck: {fileID: 1609624497}
   CheckScript: {fileID: 946410198}
-  probOfShooting: 0
-  probOfLanding: 0
   fireIndex: 0
-  kill: 0
   anim: {fileID: 599392583}
   Shake: {fileID: 1608906749}
-  waitUntilNextShot: 0
+  probOfShooting: 0
+  probOfLanding: 0
+  kill: 0
 --- !u!95 &599392583
 Animator:
   serializedVersion: 5
@@ -716,8 +714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a012eb2473ca49abb3797ca0b0eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notAccurate: 1
   skillCheck: {fileID: 1609624497}
+  missText: {fileID: 1913305364}
+  notAccurate: 1
   shotIndex: 0
   playerShotAcc: 0
 --- !u!50 &946410199
@@ -1391,15 +1390,17 @@ MonoBehaviour:
   CheckScript: {fileID: 946410198}
   canvasGroup: {fileID: 1609624496}
   index: 0
+  barIndex: 0
   markerSpeed: 10
   playerShot: 0
-  playerAccuracy: 0
   playerIsDead: 0
   ShotsToKill: 0
   drawTime: 0
   xPositionShot: 0
   fireTime: 0
+  drawIndex: 0
   timerReloadTime: 0
+  enemyTurnToShoot: 0
 --- !u!1 &1913305364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1413,7 @@ GameObject:
   - component: {fileID: 1913305367}
   - component: {fileID: 1913305366}
   m_Layer: 5
-  m_Name: reloadingText
+  m_Name: missText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

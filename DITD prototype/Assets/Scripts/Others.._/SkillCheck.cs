@@ -169,7 +169,6 @@ public class SkillCheck : MonoBehaviour
         drawText.SetActive(false);
         canvasGroup.alpha = 0;
         fireTime = false;
-        reloadingText.SetActive(false);
     }
 
     public void PlayerDamage() //damage mechanic
