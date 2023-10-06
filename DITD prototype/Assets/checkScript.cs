@@ -42,6 +42,7 @@ public class checkScript : MonoBehaviour
             playerShotAcc = false;
             shotIndex=1;
             timerMiss = true;
+            skillCheck.playerShot = false;
         }
     }
 
@@ -62,7 +63,6 @@ public class checkScript : MonoBehaviour
                 skillCheck.enemyTurnToShoot = true;
                 timerMiss = false;
                 timerMissValue = 0f;
-
             }
 
         }

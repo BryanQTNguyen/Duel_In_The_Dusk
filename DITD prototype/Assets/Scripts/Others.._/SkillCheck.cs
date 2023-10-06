@@ -35,11 +35,6 @@ public class SkillCheck : MonoBehaviour
     public bool fireTime; //should be the same value as the canvas group this is made for other scripts to reference
     public int drawIndex = 0; //so the draw function doesn't run constantly
 
-    //variables and etc for reload function
-    public bool timerReloadTime;
-    float timerReload;
-
-
     public bool enemyTurnToShoot = false;
 
 
@@ -56,7 +51,6 @@ public class SkillCheck : MonoBehaviour
         index = false;
         timerActive = true;
         generateShotArea();
-        timerReloadTime = false;
         playerIsDead = false;
 
 
@@ -94,11 +88,11 @@ public class SkillCheck : MonoBehaviour
                     Shake.playerRevolverShot();
                 }
 
-                if (mSlider.value == mSlider.maxValue && fireTime == true) //controls the movement of the marker
+                if (mSlider.value == mSlider.maxValue) //controls the movement of the marker
                 {
                     index = true;
                 }
-                if (mSlider.value == mSlider.minValue && fireTime == true)
+                if (mSlider.value == mSlider.minValue)
                 {
                     index = false;
                     barIndex++; //this index is used to control the count of how many times it had reached the min value
@@ -109,9 +103,9 @@ public class SkillCheck : MonoBehaviour
                 //controls it so that the player has a certain cycle of the bar to shoot
                 if (barIndex == 2)
                 {
+                    Debug.Log("I am the problem");
                     hideDraw();
                     enemyTurnToShoot = true;
-                    Debug.Log("I am the problem");
                     //call some sort of boolean that will que the enemy to fire
                 }
             }
@@ -156,6 +150,7 @@ public class SkillCheck : MonoBehaviour
     {
         if(drawIndex == 0)
         {
+            Debug.Log("hi i am draw");
             drawText.SetActive(true);
             canvasGroup.alpha = 1;
             fireTime = true;
@@ -166,9 +161,10 @@ public class SkillCheck : MonoBehaviour
 
     public void hideDraw() //turns off the bar and marker mechanic (skill check)
     {
-        drawText.SetActive(false);
+        Debug.Log("bye draw");
         canvasGroup.alpha = 0;
         fireTime = false;
+        drawText.SetActive(false);
     }
 
     public void PlayerDamage() //damage mechanic
@@ -195,7 +191,8 @@ public class SkillCheck : MonoBehaviour
 
     public void secondChance()
     {
-        mSlider.value = 0;
+        Debug.Log("hi i am working the second chance");
+        mSlider.value = 1;
         barIndex = 0;
         drawIndex = 0;
         Draw();
