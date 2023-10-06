@@ -62,7 +62,7 @@ public class checkScript : MonoBehaviour
                 skillCheck.enemyTurnToShoot = true;
                 timerMiss = false;
                 timerMissValue = 0f;
-            
+
             }
 
         }
