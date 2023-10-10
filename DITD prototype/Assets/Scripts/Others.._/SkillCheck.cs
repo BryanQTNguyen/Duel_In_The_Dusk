@@ -84,6 +84,10 @@ public class SkillCheck : MonoBehaviour
                 if (Input.GetKeyDown("space")) //Player shoot
                 {
                     playerShot = true;
+                    barIndex = 0;
+                    hideDraw();
+
+
                     anim.SetTrigger("shot");
                     Shake.playerRevolverShot();
                 }
@@ -92,11 +96,11 @@ public class SkillCheck : MonoBehaviour
                 {
                     index = true;
                 }
+
                 if (mSlider.value == mSlider.minValue)
                 {
                     index = false;
                     barIndex++; //this index is used to control the count of how many times it had reached the min value
-                    Debug.Log("I am part of the problem");
 
                 }
 
@@ -105,6 +109,7 @@ public class SkillCheck : MonoBehaviour
                 {
                     Debug.Log("I am the problem");
                     hideDraw();
+                    EnemyShootProb.fireIndex = 0;
                     enemyTurnToShoot = true;
                     //call some sort of boolean that will que the enemy to fire
                 }
@@ -161,7 +166,6 @@ public class SkillCheck : MonoBehaviour
 
     public void hideDraw() //turns off the bar and marker mechanic (skill check)
     {
-        Debug.Log("bye draw");
         canvasGroup.alpha = 0;
         fireTime = false;
         drawText.SetActive(false);
@@ -175,6 +179,7 @@ public class SkillCheck : MonoBehaviour
             anim.SetBool("isDead", true);
             playerIsDead = true;
             Debug.Log("Player Has fallen");
+            //game over 
         }
         else if(EnemyShootProb.kill == false)
         {

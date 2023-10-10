@@ -9,12 +9,11 @@ public class enemyShootProb : MonoBehaviour
     // references to other objects in the game
     [SerializeField] SkillCheck skillCheck;
     [SerializeField] checkScript CheckScript;
-    [SerializeField] int fireIndex;
     [SerializeField] Animator anim;
     [SerializeField] shake Shake;
 
-
-
+    public int lives;
+    public int fireIndex;
     public int probOfShooting; //will they shoot the gun?
     public int probOfLanding; //will their shot land?
     public bool kill; //the player is dead que
@@ -32,7 +31,6 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             probOfShooting = Random.Range(0, 100);

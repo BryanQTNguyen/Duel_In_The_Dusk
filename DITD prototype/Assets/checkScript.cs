@@ -13,6 +13,7 @@ public class checkScript : MonoBehaviour
     public bool playerShotAcc; //the player shot but did they do so accurately?
     private bool timerMiss;
     private float timerMissValue;
+    int i = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,21 +29,22 @@ public class checkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (notAccurate == false && skillCheck.playerShot == true && shotIndex ==0)
+        if(skillCheck.playerShot == true && shotIndex == 0)
         {
-            Debug.Log("Shot Landed!");
-            skillCheck.hideDraw();
-            playerShotAcc = true;
-            shotIndex=1;
-        }
-        else if (notAccurate == true && skillCheck.playerShot == true && shotIndex ==0)
-        {
-            Debug.Log("Skill issue you missed");
-            skillCheck.hideDraw();
-            playerShotAcc = false;
-            shotIndex=1;
-            timerMiss = true;
-            skillCheck.playerShot = false;
+            if (notAccurate == false)
+            {
+                Debug.Log("Shot Landed!");
+                playerShotAcc = true;
+                shotIndex = 1;
+            }
+            else if (notAccurate == true)
+            {
+                Debug.Log("Skill issue you missed");
+                skillCheck.playerShot = false;
+                playerShotAcc = false;
+                shotIndex++;
+                timerMiss = true;
+            }
         }
     }
 
@@ -50,7 +52,6 @@ public class checkScript : MonoBehaviour
     {
         if (timerMiss == true)
         {
-            int i =0;
             timerMissValue = timerMissValue + Time.deltaTime;
             if(timerMissValue > 0.6f && i == 0)
             {
