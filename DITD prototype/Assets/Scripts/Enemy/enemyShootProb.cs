@@ -34,18 +34,21 @@ public class enemyShootProb : MonoBehaviour
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             probOfShooting = Random.Range(0, 100);
-            if (probOfShooting < 70)
+            if (probOfShooting < 70 && fireIndex == 0)
             {
+                fireIndex++;
                 anim.SetTrigger("isShootEnemy");
+                probOfLanding = Random.Range(0, 100);
                 enemyFire();
-                fireIndex++;
             }
-            else if (probOfShooting > 70)
+            else if (probOfShooting > 70 && fireIndex ==0)
             {
-                skillCheck.enemyTurnToShoot = false;
                 fireIndex++;
+                skillCheck.enemyTurnToShoot = false;
                 Debug.Log("Gun Jammed");
                 secondChanceTime = true;
+                skillCheck.enemyTurnToShoot = false;
+
             }
         }
 
@@ -54,7 +57,6 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.enemyTurnToShoot = false;
             anim.SetBool("isDeadEnemy", true);
         }
-
     }
 
     void FixedUpdate()
@@ -66,6 +68,7 @@ public class enemyShootProb : MonoBehaviour
             if(secondChanceTimer >= 2f)
             {
                 skillCheck.secondChance();
+                enemyShootReset();
                 secondChanceTime = false;
                 secondChanceTimer = 0f;
             }
@@ -75,22 +78,25 @@ public class enemyShootProb : MonoBehaviour
 
     private void enemyFire()
     {
-        probOfLanding = Random.Range(0, 100);
         if (probOfLanding <= 10)
         {
             Debug.Log("Player got head shotted");
             Shake.enemyShotShake();
             kill = true;
             skillCheck.PlayerDamage();
+            skillCheck.enemyTurnToShoot = true;
+
         }
 
         else if(probOfLanding > 10 && probOfLanding <= 70)
         {
             Debug.Log("Player got hit with a crippling shot");
-            Shake.enemyShotShake();
+            Shake.enemyShotShake(); //shakes the screen
             kill = false;
             secondChanceTime = true;
             skillCheck.PlayerDamage();
+            skillCheck.enemyTurnToShoot = false;
+
         }
         else
         {
@@ -98,6 +104,7 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.enemyTurnToShoot = false;
             secondChanceTime = true;
             enemyShootReset();
+
 
         }
     }

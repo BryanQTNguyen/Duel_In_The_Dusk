@@ -107,9 +107,8 @@ public class SkillCheck : MonoBehaviour
                 //controls it so that the player has a certain cycle of the bar to shoot
                 if (barIndex == 2)
                 {
-                    Debug.Log("I am the problem");
+                    Debug.Log("The time to shoot is over");
                     hideDraw();
-                    EnemyShootProb.fireIndex = 0;
                     enemyTurnToShoot = true;
                     //call some sort of boolean that will que the enemy to fire
                 }
@@ -166,6 +165,7 @@ public class SkillCheck : MonoBehaviour
 
     public void hideDraw() //turns off the bar and marker mechanic (skill check)
     {
+        Debug.Log("bye draw");
         canvasGroup.alpha = 0;
         fireTime = false;
         drawText.SetActive(false);

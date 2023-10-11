@@ -33,7 +33,7 @@ public class checkScript : MonoBehaviour
         {
             if (notAccurate == false)
             {
-                Debug.Log("Shot Landed!");
+                Debug.Log("Shot Landed!"); //player accuracy descr
                 playerShotAcc = true;
                 shotIndex = 1;
             }
