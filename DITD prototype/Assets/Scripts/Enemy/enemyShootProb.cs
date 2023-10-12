@@ -38,7 +38,6 @@ public class enemyShootProb : MonoBehaviour
             {
                 fireIndex++;
                 anim.SetTrigger("isShootEnemy");
-                probOfLanding = Random.Range(0, 100);
                 enemyFire();
             }
             else if (probOfShooting > 70 && fireIndex ==0)
@@ -78,6 +77,7 @@ public class enemyShootProb : MonoBehaviour
 
     private void enemyFire()
     {
+        probOfLanding = Random.Range(0, 100);
         if (probOfLanding <= 10)
         {
             Debug.Log("Player got head shotted");

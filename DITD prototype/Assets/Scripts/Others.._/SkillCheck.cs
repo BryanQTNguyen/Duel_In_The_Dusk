@@ -152,7 +152,7 @@ public class SkillCheck : MonoBehaviour
 
     public void Draw() //turns on the bar and marker mechanic (skill check)
     {
-        if(drawIndex == 0)
+        if(drawIndex == 0 && playerIsDead == false)
         {
             Debug.Log("hi i am draw");
             drawText.SetActive(true);
@@ -175,10 +175,10 @@ public class SkillCheck : MonoBehaviour
     {
         if (EnemyShootProb.kill == true || ShotsToKill == 3)
         {
-            hideDraw();
             anim.SetBool("isDead", true);
             playerIsDead = true;
             Debug.Log("Player Has fallen");
+            hideDraw();
             //game over 
         }
         else if(EnemyShootProb.kill == false)
