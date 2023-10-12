@@ -552,9 +552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillCheck: {fileID: 1609624497}
   CheckScript: {fileID: 946410198}
-  fireIndex: 0
   anim: {fileID: 599392583}
   Shake: {fileID: 1608906749}
+  lives: 0
+  fireIndex: 0
   probOfShooting: 0
   probOfLanding: 0
   kill: 0
@@ -718,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillCheck: {fileID: 1609624497}
   missText: {fileID: 1913305364}
+  EnemyShootProb: {fileID: 599392582}
   notAccurate: 1
   shotIndex: 0
   playerShotAcc: 0
@@ -1387,9 +1389,9 @@ MonoBehaviour:
   mSlider: {fileID: 1609624495}
   EnemyShootProb: {fileID: 599392582}
   Shake: {fileID: 1608906749}
+  CheckScript: {fileID: 946410198}
   anim: {fileID: 1369560916}
   shotArea: {fileID: 1303441546}
-  CheckScript: {fileID: 946410198}
   canvasGroup: {fileID: 1609624496}
   index: 0
   barIndex: 0

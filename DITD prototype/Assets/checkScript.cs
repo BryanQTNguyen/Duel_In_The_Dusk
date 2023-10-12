@@ -6,6 +6,7 @@ public class checkScript : MonoBehaviour
 {
     [SerializeField] SkillCheck skillCheck;
     [SerializeField] GameObject missText;
+    [SerializeField] enemyShootProb EnemyShootProb;
 
 
     public bool notAccurate = true;
@@ -61,6 +62,7 @@ public class checkScript : MonoBehaviour
             if(timerMissValue > 1.6f && i == 1)
             {
                 missText.SetActive(false);
+                EnemyShootProb.fireIndex = 0;
                 skillCheck.enemyTurnToShoot = true;
                 timerMiss = false;
                 timerMissValue = 0f;

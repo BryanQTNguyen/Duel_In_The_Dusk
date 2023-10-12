@@ -13,9 +13,9 @@ public class SkillCheck : MonoBehaviour
     public Slider mSlider;
     [SerializeField] private enemyShootProb EnemyShootProb;
     [SerializeField] shake Shake;
+    [SerializeField] checkScript CheckScript;
     public Animator anim;
     public GameObject shotArea;
-    public checkScript CheckScript;
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
 
 
@@ -197,9 +197,13 @@ public class SkillCheck : MonoBehaviour
     public void secondChance()
     {
         Debug.Log("hi i am working the second chance");
-        mSlider.value = 1;
+        mSlider.value = 0;
         barIndex = 0;
         drawIndex = 0;
+        index = false;
+        CheckScript.shotIndex = 0;
+        playerShot = false;
+        playerIsDead = false;
         Draw();
     }
 
