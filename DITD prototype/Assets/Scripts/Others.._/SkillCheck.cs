@@ -25,6 +25,7 @@ public class SkillCheck : MonoBehaviour
     public bool playerShot; // this is used to know if the player shot the gun
     public bool playerIsDead;
     public int ShotsToKill; //how many shots did the player take (3 will kill them)
+    public float pressureLevel;
     
     //varibles to control the draw function (timers mainly)
     public int drawTime;
@@ -36,6 +37,11 @@ public class SkillCheck : MonoBehaviour
     public int drawIndex = 0; //so the draw function doesn't run constantly
 
     public bool enemyTurnToShoot = false;
+
+    //types of enemies and marker speed
+    public bool npcEnemy; //default
+    public bool copEnemy;
+    public bool bossEnemy;
 
 
     // Start is called before the first frame update
@@ -52,6 +58,23 @@ public class SkillCheck : MonoBehaviour
         timerActive = true;
         generateShotArea();
         playerIsDead = false;
+
+
+        //control the speed for different enemies
+        if (npcEnemy)
+        {
+            markerSpeed = 7f;
+        }
+        if (copEnemy)
+        {
+            markerSpeed = 9f;
+        }
+        if (bossEnemy)
+        {
+            markerSpeed = 10.5f;
+        }
+
+        //control the speed of the marker as the pressure increases
 
 
     }

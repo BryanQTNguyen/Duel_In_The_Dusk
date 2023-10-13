@@ -556,7 +556,6 @@ MonoBehaviour:
   Shake: {fileID: 1608906749}
   lives: 0
   fireIndex: 0
-  probOfShooting: 0
   probOfLanding: 0
   kill: 0
   secondChanceTime: 0
@@ -1399,11 +1398,15 @@ MonoBehaviour:
   playerShot: 0
   playerIsDead: 0
   ShotsToKill: 0
+  pressureLevel: 0
   drawTime: 0
   xPositionShot: 0
   fireTime: 0
   drawIndex: 0
   enemyTurnToShoot: 0
+  npcEnemy: 0
+  copEnemy: 0
+  bossEnemy: 1
 --- !u!1 &1913305364
 GameObject:
   m_ObjectHideFlags: 0
