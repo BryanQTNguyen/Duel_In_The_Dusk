@@ -14,7 +14,6 @@ public class enemyShootProb : MonoBehaviour
 
     public int lives;
     public int fireIndex;
-    public int probOfShooting; //will they shoot the gun?
     public int probOfLanding; //will their shot land?
     public bool kill; //the player is dead que
     public bool secondChanceTime;
@@ -33,21 +32,11 @@ public class enemyShootProb : MonoBehaviour
     {
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
-            probOfShooting = Random.Range(0, 100);
-            if (probOfShooting < 70 && fireIndex == 0)
+            if (fireIndex == 0)
             {
                 fireIndex++;
                 anim.SetTrigger("isShootEnemy");
                 enemyFire();
-            }
-            else if (probOfShooting > 70 && fireIndex ==0)
-            {
-                fireIndex++;
-                skillCheck.enemyTurnToShoot = false;
-                Debug.Log("Gun Jammed");
-                secondChanceTime = true;
-                skillCheck.enemyTurnToShoot = false;
-
             }
         }
 
@@ -64,7 +53,7 @@ public class enemyShootProb : MonoBehaviour
         {
             secondChanceTimer = secondChanceTimer + Time.deltaTime;
 
-            if(secondChanceTimer >= 2f)
+            if(secondChanceTimer >= 1.3f)
             {
                 skillCheck.secondChance();
                 enemyShootReset();
@@ -112,7 +101,6 @@ public class enemyShootProb : MonoBehaviour
     private void enemyShootReset()
     {
         fireIndex = 0;
-        probOfShooting = 0;
         probOfLanding = 0;
     }
 }

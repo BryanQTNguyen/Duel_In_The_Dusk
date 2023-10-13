@@ -203,7 +203,6 @@ public class SkillCheck : MonoBehaviour
         index = false;
         CheckScript.shotIndex = 0;
         playerShot = false;
-        playerIsDead = false;
         Draw();
     }
 

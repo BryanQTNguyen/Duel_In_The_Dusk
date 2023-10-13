@@ -59,13 +59,14 @@ public class checkScript : MonoBehaviour
                 missText.SetActive(true);
                 i++;
             }
-            if(timerMissValue > 1.6f && i == 1)
+            if(timerMissValue > 1.3f && i == 1)
             {
                 missText.SetActive(false);
                 EnemyShootProb.fireIndex = 0;
                 skillCheck.enemyTurnToShoot = true;
                 timerMiss = false;
                 timerMissValue = 0f;
+                i = 0;
             }
 
         }
