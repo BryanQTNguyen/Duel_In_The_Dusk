@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Accuracy
+  - WayPointOne
   layers:
   - Default
   - TransparentFX

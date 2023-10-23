@@ -28,11 +28,13 @@ public class NPCRoam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialize the needed variables
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         seeker = GetComponent<Seeker>();
-        target = GameObject.FindWithTag("WayPointOne").transform;
+        
 
+        //making them always have a path
         InvokeRepeating("UpdatePath", 0f, .5f);
         
     }
