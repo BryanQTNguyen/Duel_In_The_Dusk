@@ -24,7 +24,7 @@ namespace Pathfinding {
 		/// <summary>Current target index</summary>
 		int index;
 
-		IAstarAI agent;
+		public IAstarAI agent;
 		float switchTime = float.PositiveInfinity;
 
 		protected override void Awake () {
@@ -38,11 +38,14 @@ namespace Pathfinding {
 
 			bool search = false;
 
-			// Note: using reachedEndOfPath and pathPending instead of reachedDestination here because
-			// if the destination cannot be reached by the agent, we don't want it to get stuck, we just want it to get as close as possible and then move on.
-			if (agent.reachedEndOfPath && !agent.pathPending && float.IsPositiveInfinity(switchTime)) {
+            // Note: using reachedEndOfPath and pathPending instead of reachedDestination here because
+            // if the destination cannot be reached by the agent, we don't want it to get stuck, we just want it to get as close as possible and then move on.
+			
+            if (agent.reachedEndOfPath && !agent.pathPending && float.IsPositiveInfinity(switchTime))
+            {
 				switchTime = Time.time + delay;
 			}
+			
 
 			if (Time.time >= switchTime) {
 				index = index + 1;

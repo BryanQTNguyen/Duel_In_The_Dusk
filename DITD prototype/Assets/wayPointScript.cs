@@ -7,7 +7,7 @@ public class wayPointScript : MonoBehaviour
 {
     float randomX;
     float randomY;
-    Vector2 pos;
+    Vector3 pos;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,11 @@ public class wayPointScript : MonoBehaviour
 
     private void RandomPos()
     {
-        randomX = Random.Range(-25.91405f, 37.06403f);
-        randomY = Random.Range(-4.207f, 43.62354f);
-        pos = new Vector2(randomX, randomY);
+        randomX = Random.Range(36.431f, 98.337f);
+        Debug.Log(randomX);
+        randomY = Random.Range(-21.051f, 25.116f);
+        Debug.Log(randomY);
+        pos = new Vector3(randomX, randomY, 0);
         transform.position = pos;
     }
 }
