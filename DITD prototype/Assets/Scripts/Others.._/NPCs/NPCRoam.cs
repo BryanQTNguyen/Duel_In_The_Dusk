@@ -63,7 +63,6 @@ public class NPCRoam : MonoBehaviour
     {
         if (manager.isActive == false)
         {
-            isInStopToTalkRange = Physics2D.OverlapCircle(transform.position, stopToTalkRadius, whatIsPoint);
 
             dir = target.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -86,23 +85,35 @@ public class NPCRoam : MonoBehaviour
             reachedEndOfPath = false;
         }
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * speed;
 
-        rb.AddForce(force);
+        rb.velocity = force;
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
 
         if (distance < nextWayPointDistance)
         {
             currentWayPoint++;
         }
-        else if (isInStopToTalkRange == true)
-        {
-            rb.velocity = Vector2.zero;
-        }
+
         if (manager.isActive == true)
         {
             rb.velocity = Vector2.zero;
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            speed = 0;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            speed = 1;
         }
     }
 }

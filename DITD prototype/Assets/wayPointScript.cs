@@ -18,6 +18,10 @@ public class wayPointScript : MonoBehaviour
     {
         RandomPos();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        RandomPos();
+    }
 
     private void RandomPos()
     {
