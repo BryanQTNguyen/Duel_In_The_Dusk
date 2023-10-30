@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
             reachedEndOfPath = false;
         }
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        Vector2 force = direction * speed;
 
         rb.AddForce(force);
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
@@ -104,11 +104,11 @@ public class EnemyAI : MonoBehaviour
             currentWayPoint++;
         }else if(isInChaseRange == false)
         {
-            rb.velocity = Vector2.zero;
+            speed = 0;
         }
         if(manager.isActive == true)
         {
-            rb.velocity = Vector2.zero;
+            speed = 0;
             anim.SetBool("isRunning", false);
 
         }

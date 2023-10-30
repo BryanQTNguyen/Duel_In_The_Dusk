@@ -16,14 +16,26 @@ public class wayPointScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        RandomPos();
+        if (collision.gameObject.tag == "Player")
+        {
+        }
+        else
+        {
+            RandomPos();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        RandomPos();
+        if (collision.gameObject.tag == "Player")
+        {
+        }
+        else
+        {
+            RandomPos();
+        }
     }
 
-    private void RandomPos()
+    public void RandomPos()
     {
         randomX = Random.Range(36.431f, 98.337f);
         Debug.Log(randomX);

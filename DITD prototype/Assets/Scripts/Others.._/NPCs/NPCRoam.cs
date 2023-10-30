@@ -16,10 +16,8 @@ public class NPCRoam : MonoBehaviour
     public float speed;
     public float stopToTalkRadius;
 
-    public LayerMask whatIsPoint;
-
-
     public Transform target;
+    public GameObject Target;
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
@@ -27,6 +25,7 @@ public class NPCRoam : MonoBehaviour
 
     private bool isInStopToTalkRange;
     public DialgoueManager manager;
+    private bool isWalking;
 
 
     // Start is called before the first frame update
@@ -35,6 +34,7 @@ public class NPCRoam : MonoBehaviour
         //initialize the needed variables
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        anim = GetComponent<Animator>();
 
 
         //making them always have a path
@@ -63,12 +63,28 @@ public class NPCRoam : MonoBehaviour
     {
         if (manager.isActive == false)
         {
-
+            speed = 1f;
+            anim.SetBool("isWalking", isWalking);
             dir = target.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             dir.Normalize();
             movement = dir;
+        } else
+        {
+            speed = 0f;
+            anim.SetBool("isWalking", isWalking);
         }
+        anim.SetFloat("x", dir.x);
+        anim.SetFloat("y", dir.y);
+        if (speed == 0f)
+        {
+            isWalking = false;
+        } else if(speed == 1f)
+        {
+            isWalking = true;
+        }
+        
+
     }
 
     private void FixedUpdate()
@@ -94,12 +110,11 @@ public class NPCRoam : MonoBehaviour
         {
             currentWayPoint++;
         }
+    }
 
-        if (manager.isActive == true)
-        {
-            rb.velocity = Vector2.zero;
-
-        }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Target.GetComponent<wayPointScript>().RandomPos();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
