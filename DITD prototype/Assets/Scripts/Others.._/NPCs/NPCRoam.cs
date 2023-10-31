@@ -26,6 +26,7 @@ public class NPCRoam : MonoBehaviour
     private bool isInStopToTalkRange;
     public DialgoueManager manager;
     private bool isWalking;
+    public bool uwu = false;
 
 
     // Start is called before the first frame update
@@ -61,30 +62,33 @@ public class NPCRoam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (manager.isActive == false)
+        if(uwu == false)
         {
-            speed = 1f;
-            anim.SetBool("isWalking", isWalking);
-            dir = target.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            dir.Normalize();
-            movement = dir;
-        } else
-        {
-            speed = 0f;
-            anim.SetBool("isWalking", isWalking);
+            if (manager.isActive == false)
+            {
+                speed = 1f;
+                dir = target.position - transform.position;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                dir.Normalize();
+                movement = dir;
+            }
+            else
+            {
+                speed = 0f;
+            }
+
         }
-        anim.SetFloat("x", dir.x);
-        anim.SetFloat("y", dir.y);
+        anim.SetBool("isWalking", isWalking);
         if (speed == 0f)
         {
             isWalking = false;
-        } else if(speed == 1f)
+        }
+        else if (speed == 1f)
         {
             isWalking = true;
         }
-        
-
+        anim.SetFloat("x", dir.x);
+        anim.SetFloat("y", dir.y);
     }
 
     private void FixedUpdate()
@@ -114,13 +118,24 @@ public class NPCRoam : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Target.GetComponent<wayPointScript>().RandomPos();
+        if(collision.gameObject.tag == "Player")
+        {
+            uwu = true;
+            isWalking = false;
+            speed = 0;
+        }
+        else
+        {
+            Target.GetComponent<wayPointScript>().RandomPos();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+            uwu = true;
+            isWalking = false;
             speed = 0;
         }
     }
@@ -128,6 +143,8 @@ public class NPCRoam : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            uwu = false;
+            isWalking = true;
             speed = 1;
         }
     }

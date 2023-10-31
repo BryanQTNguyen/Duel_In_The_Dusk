@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
 
     public float speed;
+    public float maxSpeed = 2f;
     public float checkRadius;
     public float attackRadius;
 
@@ -96,17 +97,20 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized;
         Vector2 force = direction * speed;
 
-        rb.AddForce(force);
+        rb.velocity=force;
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
 
         if (distance < nextWayPointDistance && isInChaseRange)
         {
+            speed = maxSpeed;
             currentWayPoint++;
+
         }else if(isInChaseRange == false)
         {
             speed = 0;
+            anim.SetBool("isRunning", false);
         }
-        if(manager.isActive == true)
+        if (manager.isActive == true)
         {
             speed = 0;
             anim.SetBool("isRunning", false);
