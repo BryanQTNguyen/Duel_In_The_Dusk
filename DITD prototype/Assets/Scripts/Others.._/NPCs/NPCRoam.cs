@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using System;
+using UnityEditor;
 
 public class NPCRoam : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class NPCRoam : MonoBehaviour
     private bool isInStopToTalkRange;
     public DialgoueManager manager;
     private bool isWalking;
-    public bool uwu = false;
+    public bool uwu = false; //omg senpai is here i must stop
+    private bool randomPosIndex = false; 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        randomPosIndex = false; 
         //initialize the needed variables
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
@@ -62,7 +65,8 @@ public class NPCRoam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(uwu == false)
+
+        if (uwu == false)
         {
             if (manager.isActive == false)
             {
@@ -93,6 +97,10 @@ public class NPCRoam : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (randomPosIndex == true)
+        {
+            Target.GetComponent<wayPointScript>().RandomPos();
+        }
         if (path == null)
             return;
         if (currentWayPoint >= path.vectorPath.Count)
@@ -124,10 +132,18 @@ public class NPCRoam : MonoBehaviour
             isWalking = false;
             speed = 0;
         }
-        else
+        if(collision.gameObject.tag == "npc" || collision.gameObject.tag == "staticObject")
         {
-            Target.GetComponent<wayPointScript>().RandomPos();
+            randomPosIndex = true;
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            randomPosIndex = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        randomPosIndex = false; 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

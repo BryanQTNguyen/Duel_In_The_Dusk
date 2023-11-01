@@ -16,20 +16,11 @@ public class wayPointScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-        }
-        else
+        if(collision.gameObject.tag == "staticObject")
         {
             RandomPos();
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-        }
-        else
+        if(collision.gameObject.tag == "npc")
         {
             RandomPos();
         }
