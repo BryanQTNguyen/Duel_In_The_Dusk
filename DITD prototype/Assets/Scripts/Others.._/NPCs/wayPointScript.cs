@@ -28,9 +28,9 @@ public class wayPointScript : MonoBehaviour
 
     public void RandomPos()
     {
-        randomX = Random.Range(36.431f, 98.337f);
+        randomX = Random.Range(36.431f, 92.8f);
         Debug.Log(randomX);
-        randomY = Random.Range(-21.051f, 25.116f);
+        randomY = Random.Range(-21.051f, 17.64f);
         Debug.Log(randomY);
         pos = new Vector3(randomX, randomY, 0);
         transform.position = pos;

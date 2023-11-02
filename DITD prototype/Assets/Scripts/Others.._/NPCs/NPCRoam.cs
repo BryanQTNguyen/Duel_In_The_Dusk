@@ -91,8 +91,12 @@ public class NPCRoam : MonoBehaviour
         {
             isWalking = true;
         }
-        anim.SetFloat("x", dir.x);
-        anim.SetFloat("y", dir.y);
+        if(randomPosIndex == false)
+        {
+            anim.SetFloat("x", dir.x);
+            anim.SetFloat("y", dir.y);
+        }
+        
     }
 
     private void FixedUpdate()
@@ -145,7 +149,11 @@ public class NPCRoam : MonoBehaviour
     {
         randomPosIndex = false; 
     }
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "npc" || collision.gameObject.tag == "enemy" || collision.gameObject.tag == "staticObject")
+            randomPosIndex = true;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -153,6 +161,18 @@ public class NPCRoam : MonoBehaviour
             uwu = true;
             isWalking = false;
             speed = 0;
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            randomPosIndex = true; 
+        }
+        if (collision.gameObject.tag == "npc")
+        {
+            randomPosIndex = true;
+        }
+        if(collision.gameObject.tag == "statcObject")
+        {
+            randomPosIndex = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -163,5 +183,6 @@ public class NPCRoam : MonoBehaviour
             isWalking = true;
             speed = 1;
         }
+        randomPosIndex = false;
     }
 }
