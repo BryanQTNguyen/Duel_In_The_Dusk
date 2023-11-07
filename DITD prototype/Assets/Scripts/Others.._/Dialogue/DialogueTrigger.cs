@@ -11,7 +11,9 @@ public class DialogueTrigger : MonoBehaviour
     public DialgoueManager manager;
     public FadeScript fadeScript;
     public GameObject pressF;
-    public string[] audios; 
+    public string[] audios;
+    public bool agressiveStart; // this is for auto dialogue appear if you get close
+    private int index = 0; // this index is used to make sure aggressive dialogue doesn't happen multiple times
 
     private void Start()
     {
@@ -24,21 +26,30 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("f") && isInTalkingRange && manager.isActive == false && fadeScript.doneFadingOut == true)
+        if (Input.GetKeyDown("f") && isInTalkingRange && manager.isActive == false && fadeScript.doneFadingOut == true && agressiveStart == false)
         {
             StartDialogue();
         }
+        if(isInTalkingRange == true && agressiveStart == true && index ==0)
+        {
+            StartDialogue();
+            index = 1;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
         isInTalkingRange = true;
-        pressF.SetActive(true);
+        if(agressiveStart == false)
+            pressF.SetActive(true);
 
     }
     private void OnTriggerExit2D(Collider2D col)
     {
         isInTalkingRange = false;
-        pressF.SetActive(false);
+        index = 0;
+        if (agressiveStart == false)
+            pressF.SetActive(true);
 
     }
 }

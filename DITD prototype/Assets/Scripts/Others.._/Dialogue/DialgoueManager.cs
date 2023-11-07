@@ -10,6 +10,7 @@ public class DialgoueManager : MonoBehaviour
     public string AudioToPlay;
     public TMP_Text messageText;
     public RectTransform backgroundBox;
+    public AudioSource audioSource;
 
     Message[] currentMessages;
     Actor[] currentActor;
@@ -32,6 +33,7 @@ public class DialgoueManager : MonoBehaviour
 
     void DisplayMessage()
     {
+        audioSource.volume = 1;
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
 
@@ -53,6 +55,7 @@ public class DialgoueManager : MonoBehaviour
         {
             isActive = false;
             fadeScript.HideDialogueFade();
+            audioSource.volume = 0;
         }
     }
     // Start is called before the first frame update
