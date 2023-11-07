@@ -37,7 +37,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1419679018967255291}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 40, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2579333413147512608}
     m_Position: {x: 235, y: 65, z: 0}
@@ -67,7 +67,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Backwards
+  m_Name: 8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -80,7 +80,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87106f23dbaab42479c32d1b77bc99b1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 429d8f168dc2dd543bb5f32d8852a9ef, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -94,7 +94,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: RoamingNPC4
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: IsWalking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
