@@ -7,6 +7,11 @@ public class AudManager : MonoBehaviour
 {
     public static AudManager Instance;
     public bool playBackgroundMusic;
+    public bool saloonMusic;
+    public bool townMusic;
+    public bool bankMusic;
+    public bool stationMusic;
+    public bool horseMusic;
     public Sound[] musicSounds, sfxSounds, walkSound, dialogueSound;
     public AudioSource musicSource, sfxSource, walkSource, dialogueSource;
 
@@ -26,7 +31,16 @@ public class AudManager : MonoBehaviour
     {
         if(playBackgroundMusic == true)
         {
-            PlayMusic("TownBG");
+            if (saloonMusic == true)
+                PlayMusic("SaloonBG");
+            if (townMusic == true)
+                PlayMusic("SaloonBG");
+            if (bankMusic == true)
+                PlayMusic("SaloonBG");
+            if (stationMusic == true)
+                PlayMusic("SaloonBG");
+            if (horseMusic == true)
+                PlayMusic("SaloonBG");
 
         }
     }
