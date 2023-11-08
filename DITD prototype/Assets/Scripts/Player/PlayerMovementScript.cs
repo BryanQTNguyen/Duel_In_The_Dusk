@@ -31,6 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         if (manager.isActive == false)
         {
+            animator.SetBool("forcedTransition", false);
             movement.x = Input.GetAxisRaw("Horizontal"); //tells us which horizontal direciton I am planning to face
             movement.y = Input.GetAxisRaw("Vertical");
 
@@ -38,6 +39,12 @@ public class PlayerMovementScript : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+        else
+        {
+            animator.SetBool("forcedTransition", true);
+            animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
         }
 
         if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
