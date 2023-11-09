@@ -35,23 +35,23 @@ public class wayPointScript : MonoBehaviour
     {
         if (roamOne)
         {
-            randomX = Random.Range(36.431f, 92.8f);
-            randomY = Random.Range(-21.051f, 17.64f);
+            randomX = Random.Range(55.03f, 84.39f);
+            randomY = Random.Range(-21.92f, 4.5f);
         }
         if (roamTwo)
         {
-            randomX = Random.Range(36.431f, 92.8f);
-            randomY = Random.Range(-21.051f, 17.64f);
+            randomX = Random.Range(73.28f, 92.25f);
+            randomY = Random.Range(-6.28f, 17.64f);
         }
         if (roamThree)
         {
-            randomX = Random.Range(36.431f, 92.8f);
-            randomY = Random.Range(-21.051f, 17.64f);
+            randomX = Random.Range(36.07f, 57.55f);
+            randomY = Random.Range(-13.98f, 7.34f);
         }
         if (roamFour)
         {
-            randomX = Random.Range(62.6f, 86.37f);
-            randomY = Random.Range(-16.12f, -21.98f);
+            randomX = Random.Range(36.07f, 93.32f);
+            randomY = Random.Range(9.97f, 17.13f);
         }
         if (roamFive)
         {
