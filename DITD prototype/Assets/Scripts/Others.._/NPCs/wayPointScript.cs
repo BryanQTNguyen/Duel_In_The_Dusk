@@ -41,7 +41,7 @@ public class wayPointScript : MonoBehaviour
         if (roamTwo)
         {
             randomX = Random.Range(73.28f, 92.25f);
-            randomY = Random.Range(-6.28f, 17.64f);
+            randomY = Random.Range(-5.7f, 12.2f);
         }
         if (roamThree)
         {
