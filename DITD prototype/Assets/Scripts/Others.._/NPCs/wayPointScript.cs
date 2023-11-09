@@ -50,8 +50,8 @@ public class wayPointScript : MonoBehaviour
         }
         if (roamFour)
         {
-            randomX = Random.Range(36.431f, 92.8f);
-            randomY = Random.Range(-21.051f, 17.64f);
+            randomX = Random.Range(62.6f, 86.37f);
+            randomY = Random.Range(-16.12f, -21.98f);
         }
         if (roamFive)
         {

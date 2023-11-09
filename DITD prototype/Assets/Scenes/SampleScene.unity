@@ -646,7 +646,7 @@ Animator:
   m_GameObject: {fileID: 94275054}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf7a93609aef78e4e843296fdb977940, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0daa71fd921d6cd42a6da74bd341ada3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roamOne: 0
   roamTwo: 0
-  roamThree: 0
+  roamThree: 1
   roamFour: 0
   roamFive: 0
 --- !u!1 &119091713
@@ -1085,7 +1085,7 @@ Transform:
   m_GameObject: {fileID: 119091713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.8, y: -21.6, z: -0.2695575}
+  m_LocalPosition: {x: 65.72, y: -15.58, z: -0.2695575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1414,7 +1414,7 @@ Animator:
   m_GameObject: {fileID: 172052592}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf7a93609aef78e4e843296fdb977940, type: 2}
+  m_Controller: {fileID: 9100000, guid: f37ec8ea059e8b448bf4583ce3417777, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1641,7 +1641,7 @@ Transform:
   m_GameObject: {fileID: 172052592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39, y: 1.554, z: 0}
+  m_LocalPosition: {x: 64.75, y: -6.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamOne: 0
-  roamTwo: 0
+  roamTwo: 1
   roamThree: 0
   roamFour: 0
   roamFive: 0
@@ -2689,7 +2689,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.45, y: 1.76, z: -10}
+  m_LocalPosition: {x: 75.12651, y: -2.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4875,7 +4875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76639dfc29d4f7c45ae2ce54cb5e58ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roamOne: 0
+  roamOne: 1
   roamTwo: 0
   roamThree: 0
   roamFour: 0
@@ -6782,7 +6782,7 @@ MonoBehaviour:
   roamOne: 0
   roamTwo: 0
   roamThree: 0
-  roamFour: 0
+  roamFour: 1
   roamFive: 0
 --- !u!4 &2088211986
 Transform:
@@ -6914,7 +6914,7 @@ Animator:
   m_GameObject: {fileID: 2124125676}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf7a93609aef78e4e843296fdb977940, type: 2}
+  m_Controller: {fileID: 9100000, guid: a42313a8fea43b74f8d5d871d3d9521d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7141,7 +7141,7 @@ Transform:
   m_GameObject: {fileID: 2124125676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58.18, y: 17.83, z: 0}
+  m_LocalPosition: {x: 73.77, y: -5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7157,11 +7157,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83.45
+      value: 86.46
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8501,11 +8501,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83.45
+      value: 86.46
       objectReference: {fileID: 0}
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.z
