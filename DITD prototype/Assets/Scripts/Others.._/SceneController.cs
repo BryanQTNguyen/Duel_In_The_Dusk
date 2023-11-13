@@ -14,6 +14,14 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void trainStation()
+    {
+        //load trainStation
+    }
+    public void saloon()
+    {
+        //load saloon
+    }
 
     public void quitGame()
     {
