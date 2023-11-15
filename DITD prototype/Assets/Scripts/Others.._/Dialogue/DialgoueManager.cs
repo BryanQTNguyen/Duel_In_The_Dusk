@@ -11,12 +11,14 @@ public class DialgoueManager : MonoBehaviour
     public TMP_Text messageText;
     public RectTransform backgroundBox;
     public AudioSource audioSource;
+    [SerializeField] private DialogueTrigger dialogueTrigger; 
 
     Message[] currentMessages;
     Actor[] currentActor;
     string[] currentAudio;
     int activeMessage = 0;
     public bool isActive = false;
+
 
     public FadeScript fadeScript;
 
@@ -53,9 +55,17 @@ public class DialgoueManager : MonoBehaviour
         }
         else
         {
-            isActive = false;
-            fadeScript.HideDialogueFade();
-            audioSource.volume = 0;
+            if (dialogueTrigger.isCutScene == false)
+            {
+                isActive = false;
+                fadeScript.HideDialogueFade();
+                audioSource.volume = 0;
+            }
+            else
+            {
+                //show button to continue to next scene
+            }
+
         }
     }
     // Start is called before the first frame update
