@@ -9,6 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 17155fb60bd83e24bbc89af45c8a9897
   - enabled: 1
+    path: Assets/Scenes/characterSelect.unity
+    guid: beef29de12635e34baec97096167eecf
+  - enabled: 1
+    path: Assets/Scenes/cutSceneFirst.unity
+    guid: ad9c01d544e81b04c9b75ac458784efc
+  - enabled: 1
+    path: Assets/Scenes/Train Station.unity
+    guid: 6b7ab22902d14bf488ea72ff5743e7f3
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Saloon.unity
+    guid: 2f49100cf199db544a0e604f8eacf183
+  - enabled: 1
+    path: Assets/Scenes/Bank Interrior.unity
+    guid: bae0f102622bed94db26991c639b3c0e
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: b6f43f8aa64ede84498b4c26818e294d
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 4c88932d00efe4a4ca8bd87c82c859e8
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 89955c4baabf1334cbaaacad838212e9
   m_configObjects: {}

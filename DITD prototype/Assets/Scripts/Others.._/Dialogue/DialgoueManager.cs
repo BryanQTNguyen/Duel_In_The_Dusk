@@ -11,7 +11,8 @@ public class DialgoueManager : MonoBehaviour
     public TMP_Text messageText;
     public RectTransform backgroundBox;
     public AudioSource audioSource;
-    [SerializeField] private DialogueTrigger dialogueTrigger; 
+    [SerializeField] private DialogueTrigger dialogueTrigger;
+    [SerializeField] private GameObject continueButton;
 
     Message[] currentMessages;
     Actor[] currentActor;
@@ -61,9 +62,9 @@ public class DialgoueManager : MonoBehaviour
                 fadeScript.HideDialogueFade();
                 audioSource.volume = 0;
             }
-            else
+            else if(dialogueTrigger.isCutScene == true)
             {
-                //show button to continue to next scene
+                continueButton.gameObject.SetActive(true);
             }
 
         }
@@ -73,6 +74,7 @@ public class DialgoueManager : MonoBehaviour
     {
         isActive = false;
         fadeScript.HideDialogue();
+        continueButton.gameObject.SetActive(false);
     }
 
 // Update is called once per frame
