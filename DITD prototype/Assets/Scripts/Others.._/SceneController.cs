@@ -5,49 +5,68 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
+    public Animator transitionAnim;
+    public int sceneID;
+    
     public void mainMenu()
     {
-        SceneManager.LoadScene(0);
+        sceneID = 0; 
+        StartCoroutine(LoadScene());
     }
     public void playGame()
     {
-        SceneManager.LoadScene(1);
+        sceneID = 1;
+        StartCoroutine(LoadScene());
     }
     public void toFirstCutScene()
     {
-        SceneManager.LoadScene(2);
+        sceneID = 2;
+        StartCoroutine(LoadScene());
     }
     public void trainStation()
     {
-        //load trainStation
-        SceneManager.LoadScene(3);
+        sceneID = 3;
+        StartCoroutine(LoadScene());
     }
     public void outsideWorld()
     {
-        SceneManager.LoadScene(4);
+        sceneID = 4;
+        StartCoroutine(LoadScene());
     }
     public void saloon()
     {
-        SceneManager.LoadScene(5);
+        sceneID = 5;
+        StartCoroutine(LoadScene());
     }
     public void bank()
     {
-        SceneManager.LoadScene(6);
+        sceneID = 6;
+        StartCoroutine(LoadScene());
     }
     public void combat()
     {
-        SceneManager.LoadScene(7);
+        sceneID = 7;
+        StartCoroutine(LoadScene());
     }
     public void death()
     {
-        SceneManager.LoadScene(8);
+        sceneID = 8;
+        StartCoroutine(LoadScene());
     }
     public void win()
     {
-        SceneManager.LoadScene(9);
+        sceneID = 9;
+        StartCoroutine(LoadScene());
     }
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneID);
     }
 }

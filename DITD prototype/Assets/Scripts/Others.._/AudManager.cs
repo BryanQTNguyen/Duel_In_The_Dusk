@@ -23,12 +23,12 @@ public class AudManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        /*
+        
         else
         {
             Destroy(gameObject);
         }
-        */
+       
     }
     private void Start()
     {

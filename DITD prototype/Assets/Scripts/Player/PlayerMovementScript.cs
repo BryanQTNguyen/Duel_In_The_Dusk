@@ -15,7 +15,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     public DialgoueManager manager;
 
-    public AudioSource walkSoundStuff;
     
     int i = 0;
 
@@ -49,7 +48,6 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
-            walkSoundStuff.mute = false; 
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
             if(i <= 0)
@@ -61,7 +59,6 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else
         {
-            walkSoundStuff.mute = true;
             i = 0;
         }
 
