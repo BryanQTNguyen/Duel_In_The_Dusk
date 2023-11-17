@@ -12,6 +12,7 @@ public class AudManager : MonoBehaviour
     public bool bankMusic;
     public bool stationMusic;
     public bool horseMusic;
+    public bool mainMenusBG;
     public Sound[] musicSounds, sfxSounds, walkSound, dialogueSound;
     public AudioSource musicSource, sfxSource, walkSource, dialogueSource;
 
@@ -36,13 +37,15 @@ public class AudManager : MonoBehaviour
             if (saloonMusic == true)
                 PlayMusic("SaloonBG");
             if (townMusic == true)
-                PlayMusic("SaloonBG");
+                PlayMusic("TownBG");
             if (bankMusic == true)
-                PlayMusic("SaloonBG");
+                PlayMusic("BankBG");
             if (stationMusic == true)
-                PlayMusic("SaloonBG");
+                PlayMusic("stationBG");
             if (horseMusic == true)
-                PlayMusic("SaloonBG");
+                PlayMusic("HorseBG");
+            if (mainMenusBG == true)
+                PlayMusic("MenusBG");
 
         }
     }

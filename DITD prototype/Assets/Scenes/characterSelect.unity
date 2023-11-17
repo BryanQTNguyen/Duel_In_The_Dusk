@@ -726,6 +726,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
+--- !u!1 &1244205096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6474650864040919891, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
+  m_PrefabInstance: {fileID: 1244205095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269829186
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +812,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269829189}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1244205096}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269829189
 MonoBehaviour:
   m_ObjectHideFlags: 0

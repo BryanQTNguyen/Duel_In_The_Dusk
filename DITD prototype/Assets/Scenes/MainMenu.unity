@@ -630,6 +630,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549267601}
   m_CullTransparentMesh: 1
+--- !u!1001 &687097348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2313010567672235665, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_Name
+      value: AudioManage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1963649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07964685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04261005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215249925976100882, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: townMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: horseMusic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: playBackgroundMusic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[0].name
+      value: SaloonBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[1].name
+      value: TownBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[2].name
+      value: BankBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[3].name
+      value: StationBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: musicSounds.Array.data[4].name
+      value: HorseBG
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
 --- !u!1 &1024690901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,3 +1338,4 @@ SceneRoots:
   - {fileID: 1963339957}
   - {fileID: 226256329}
   - {fileID: 1675409829}
+  - {fileID: 687097348}
