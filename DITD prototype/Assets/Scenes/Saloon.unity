@@ -2180,7 +2180,7 @@ Transform:
   m_GameObject: {fileID: 871139920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0319488, y: 2.8979907, z: 0}
+  m_LocalPosition: {x: -1.0319488, y: 3.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3204,6 +3204,7 @@ GameObject:
   - component: {fileID: 1674072255}
   - component: {fileID: 1674072254}
   - component: {fileID: 1674072257}
+  - component: {fileID: 1674072258}
   m_Layer: 0
   m_Name: bartender
   m_TagString: Untagged
@@ -3344,6 +3345,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.50980806, y: 0.9987292}
   m_EdgeRadius: 0
+--- !u!114 &1674072258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674072253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff173d9c81d7881479ab73102260d3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCutScene: 0
+  messages:
+  - actorId: 0
+    message: 
+  - actorId: 0
+    message: 
+  - actorId: 0
+    message: 
+  - actorId: 0
+    message: 
+  - actorId: 0
+    message: 
+  actors:
+  - name: bartender
+    sprite: {fileID: 21300000, guid: 56b8268b81d00954aa78989f5765123a, type: 3}
+  - name: MainCharacter
+    sprite: {fileID: 21300000, guid: 8c21d1563b61f864da1db5fc9187169f, type: 3}
+  isInTalkingRange: 0
+  manager: {fileID: 472803732}
+  fadeScript: {fileID: 1232927901}
+  pressF: {fileID: 0}
+  audios: []
+  agressiveStart: 0
 --- !u!1 &1706575254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,7 +3767,7 @@ Transform:
   m_GameObject: {fileID: 1721119693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56, y: 3.03, z: 0}
+  m_LocalPosition: {x: 0.56, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
