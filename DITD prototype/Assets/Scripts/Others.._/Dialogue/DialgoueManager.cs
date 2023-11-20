@@ -10,15 +10,16 @@ public class DialgoueManager : MonoBehaviour
     public string AudioToPlay;
     public TMP_Text messageText;
     public RectTransform backgroundBox;
-    public AudioSource audioSource;
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private GameObject continueButton;
+    public bool muteDialogueAudio;
 
     Message[] currentMessages;
     Actor[] currentActor;
     string[] currentAudio;
     int activeMessage = 0;
     public bool isActive = false;
+    public float typingSpeed;
 
 
     public FadeScript fadeScript;
@@ -36,7 +37,7 @@ public class DialgoueManager : MonoBehaviour
 
     void DisplayMessage()
     {
-        audioSource.volume = 1;
+        muteDialogueAudio = false;
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
 
@@ -60,7 +61,8 @@ public class DialgoueManager : MonoBehaviour
             {
                 isActive = false;
                 fadeScript.HideDialogueFade();
-                audioSource.volume = 0;
+                muteDialogueAudio = true;
+
             }
             else if(dialogueTrigger.isCutScene == true)
             {
@@ -74,7 +76,10 @@ public class DialgoueManager : MonoBehaviour
     {
         isActive = false;
         fadeScript.HideDialogue();
-        continueButton.gameObject.SetActive(false);
+        if (dialogueTrigger.isCutScene == true)
+        {
+            continueButton.gameObject.SetActive(false);
+        }
     }
 
 // Update is called once per frame

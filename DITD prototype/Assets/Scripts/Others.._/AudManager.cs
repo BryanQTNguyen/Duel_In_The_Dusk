@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudManager : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class AudManager : MonoBehaviour
     public bool mainMenusBG;
     public Sound[] musicSounds, sfxSounds, walkSound, dialogueSound;
     public AudioSource musicSource, sfxSource, walkSource, dialogueSource;
+    [SerializeField] DialgoueManager dialogueManager;
+    [SerializeField] GameObject dialogueObject;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -28,11 +31,11 @@ public class AudManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       
+        
     }
     private void Start()
     {
-        if(playBackgroundMusic == true)
+        if (playBackgroundMusic == true)
         {
             if (saloonMusic == true)
                 PlayMusic("SaloonBG");
@@ -47,6 +50,30 @@ public class AudManager : MonoBehaviour
             if (mainMenusBG == true)
                 PlayMusic("MenusBG");
 
+        }
+    }
+    public void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "cutSceneFirst" || SceneManager.GetActiveScene().name == "Train Station")
+        {
+            dialogueObject = GameObject.FindWithTag("dialogueManager");
+            dialogueManager = dialogueObject.GetComponent<DialgoueManager>();
+            if (dialogueManager != null)
+            {
+                if (dialogueManager.muteDialogueAudio == true)
+                {
+                    dialogueSource.volume = 0;
+                }
+                else if (dialogueManager.muteDialogueAudio == false)
+                {
+                    dialogueSource.volume = 1;
+                }
+
+            }
+            else
+            {
+                Debug.Log("Cannot find the Dialogue Manager (line 73)");
+            }
         }
     }
     public void PlayMusic(string name)

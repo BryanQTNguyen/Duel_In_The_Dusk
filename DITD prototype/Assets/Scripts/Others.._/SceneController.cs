@@ -7,56 +7,127 @@ public class SceneController : MonoBehaviour
 {
     public Animator transitionAnim;
     public int sceneID;
+    [SerializeField] nextScene NextScene;
     
     public void mainMenu()
     {
         sceneID = 0; 
-        StartCoroutine(LoadScene());
+        if(NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void playGame()
     {
         sceneID = 1;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void toFirstCutScene()
     {
         sceneID = 2;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void trainStation()
     {
         sceneID = 3;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void outsideWorld()
     {
         sceneID = 4;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void saloon()
     {
         sceneID = 5;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void bank()
     {
         sceneID = 6;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void combat()
     {
         sceneID = 7;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void death()
     {
         sceneID = 8;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void win()
     {
         sceneID = 9;
-        StartCoroutine(LoadScene());
+        if (NextScene.SceneAdditive == true)
+        {
+            StartCoroutine(LoadSceneAdditive());
+        }
+        else
+        {
+            StartCoroutine(LoadScene());
+        }
     }
     public void quitGame()
     {
@@ -66,7 +137,13 @@ public class SceneController : MonoBehaviour
     IEnumerator LoadScene()
     {
         transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(sceneID);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadSceneAsync(sceneID);
+    }
+    IEnumerator LoadSceneAdditive()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadSceneAsync(sceneID, LoadSceneMode.Additive);
     }
 }

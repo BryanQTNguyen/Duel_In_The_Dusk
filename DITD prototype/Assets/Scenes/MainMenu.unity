@@ -712,6 +712,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: musicSounds.Array.data[0].name
       value: SaloonBG
       objectReference: {fileID: 0}
@@ -746,6 +750,22 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: musicSounds.Array.data[4].name
       value: HorseBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b2385e8d373dc548ae919a9e1fbf5c2, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[4].name
+      value: intro
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e05953e2d575e9041b39b9c6a6ef9119, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[5].name
+      value: intro2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

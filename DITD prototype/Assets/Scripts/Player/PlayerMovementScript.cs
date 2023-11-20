@@ -16,12 +16,10 @@ public class PlayerMovementScript : MonoBehaviour
     public DialgoueManager manager;
 
     
-    int i = 0;
 
 
     void Start()
     {
-        i = 0;
 
     }
 
@@ -50,16 +48,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
-            if(i <= 0)
-            {
-                AudManager.Instance.PlayWalk("Walk");
-                i++;
-            }
 
-        }
-        else
-        {
-            i = 0;
         }
 
     }

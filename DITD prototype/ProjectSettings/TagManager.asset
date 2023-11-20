@@ -9,6 +9,8 @@ TagManager:
   - WayPointOne
   - staticObject
   - npc
+  - dialogueManager
+  - sceneManager
   layers:
   - Default
   - TransparentFX

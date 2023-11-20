@@ -63,7 +63,7 @@ public class DialogueTrigger : MonoBehaviour
         isInTalkingRange = false;
         index = 0;
         if (agressiveStart == false)
-            pressF.SetActive(true);
+            pressF.SetActive(false);
 
     }
 }
