@@ -68,6 +68,11 @@ public class DialgoueManager : MonoBehaviour
             {
                 continueButton.gameObject.SetActive(true);
             }
+            else if(dialogueTrigger.fightingWords == true)
+            {
+                //check what type of enemy it is
+                //load the combat scene
+            }
 
         }
     }
