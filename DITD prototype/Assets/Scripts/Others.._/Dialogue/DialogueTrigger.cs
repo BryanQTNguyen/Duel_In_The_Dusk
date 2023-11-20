@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public bool isCutScene;
+    public bool isCutScene; //the main difference between isCutScene and a regular dialogue is that it starts up automatically and utilizes the continue button
     public Message[] messages;
     public Actor[] actors;
     public bool isInTalkingRange = false;
@@ -16,6 +16,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool agressiveStart; // this is for auto dialogue appear if you get close
     private int index = 0; // this index is used to make sure aggressive dialogue doesn't happen multiple times
     private int indexTwo = 0; //this index is used to make sure the cutscene start dialogue doesn't happen multiple times
+    public bool fightingWords; //this is used for dialogue that ends with combat
 
     private void Start()
     {
