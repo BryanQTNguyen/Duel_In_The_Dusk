@@ -2034,7 +2034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[1].name
-      value: Racist Deputy
+      value: Racist Reginald Deputy
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].sprite

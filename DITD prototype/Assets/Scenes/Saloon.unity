@@ -4166,11 +4166,11 @@ MonoBehaviour:
   - actorId: 0
     message: Get yo goofy ahh out of here.
   - actorId: 1
-    message: My fault Original Gangster
+    message: My fault Original Gangster.
   actors:
-  - name: sherif
+  - name: Deku
     sprite: {fileID: 21300000, guid: ceee22a4e9a434b409f3ad26a469faf9, type: 3}
-  - name: player
+  - name: Carter
     sprite: {fileID: 21300000, guid: 8c21d1563b61f864da1db5fc9187169f, type: 3}
   isInTalkingRange: 0
   manager: {fileID: 472803732}
@@ -4180,6 +4180,7 @@ MonoBehaviour:
   - d1
   - d2
   agressiveStart: 1
+  fightingWords: 0
 --- !u!1 &1992369212
 GameObject:
   m_ObjectHideFlags: 0
