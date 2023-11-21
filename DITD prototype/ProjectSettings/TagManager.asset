@@ -11,6 +11,10 @@ TagManager:
   - npc
   - dialogueManager
   - sceneManager
+  - Deputy
+  - Ranger
+  - Banker Boss
+  - Sheriff Boss
   layers:
   - Default
   - TransparentFX
