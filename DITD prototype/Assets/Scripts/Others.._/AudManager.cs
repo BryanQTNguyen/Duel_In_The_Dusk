@@ -54,7 +54,8 @@ public class AudManager : MonoBehaviour
     }
     public void Update()
     {
-        if (SceneManager.GetActiveScene().name == "cutSceneFirst" || SceneManager.GetActiveScene().name == "Train Station")
+        if (SceneManager.GetActiveScene().name == "cutSceneFirst" || SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
+            == "Bank Interrior")
         {
             dialogueObject = GameObject.FindWithTag("dialogueManager");
             dialogueManager = dialogueObject.GetComponent<DialgoueManager>();

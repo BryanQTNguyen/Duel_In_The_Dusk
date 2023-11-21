@@ -13,7 +13,8 @@ public class DialgoueManager : MonoBehaviour
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private GameObject continueButton;
     public bool muteDialogueAudio;
-
+    private string enemyTag;
+    public bool callToCombatInGameManager;
     Message[] currentMessages;
     Actor[] currentActor;
     string[] currentAudio;
@@ -70,6 +71,8 @@ public class DialgoueManager : MonoBehaviour
             }
             else if(dialogueTrigger.fightingWords == true)
             {
+                enemyTag = gameObject.tag;
+                callToCombatInGameManager = true;
                 //check what type of enemy it is
                 //load the combat scene
             }
