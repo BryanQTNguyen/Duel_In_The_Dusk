@@ -14,55 +14,55 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadScene());
         
     }
-    public void playGame()
+    public void toFirstCutScene()
     {
         sceneID = 1;
         StartCoroutine(LoadScene());
         
     }
-    public void toFirstCutScene()
+    public void trainStation()
     {
         sceneID = 2;
         StartCoroutine(LoadScene());
         
     }
-    public void trainStation()
+    public void outsideWorld()
     {
         sceneID = 3;
         StartCoroutine(LoadScene());
         
     }
-    public void outsideWorld()
+    public void saloon()
     {
         sceneID = 4;
         StartCoroutine(LoadScene());
         
     }
-    public void saloon()
+    public void bank()
     {
         sceneID = 5;
         StartCoroutine(LoadScene());
         
     }
-    public void bank()
+    public void combat()
     {
         sceneID = 6;
         StartCoroutine(LoadScene());
         
     }
-    public void combat()
+    public void lose()
     {
         sceneID = 7;
         StartCoroutine(LoadScene());
         
     }
-    public void death()
+    public void win()
     {
         sceneID = 8;
         StartCoroutine(LoadScene());
         
     }
-    public void win()
+    public void instructions()
     {
         sceneID = 9;
         StartCoroutine(LoadScene());
