@@ -611,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: messages.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: audios.Array.data[0]
@@ -619,15 +619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: audios.Array.data[1]
-      value: d1
+      value: Carter1
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: audios.Array.data[2]
-      value: d1
+      value: bartender2
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: audios.Array.data[3]
-      value: d1
+      value: Carter2
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].name
@@ -651,8 +651,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: messages.Array.data[1].message
-      value: can we talk about the political and economic state of the world right
-        now???
+      value: I'm doing fine. How 'bout yourself?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[2].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[2].message
+      value: I'm doing dandy. Especially now that we have all this gold in the bank!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[3].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[3].message
+      value: Well ain't that swell...
       objectReference: {fileID: 0}
     - target: {fileID: 3251192789042305458, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -931,6 +946,38 @@ PrefabInstance:
       propertyPath: fadeScript
       value: 
       objectReference: {fileID: 1232927901}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: actors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: audios.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: audios.Array.data[0]
+      value: 'Rcaist Jamall 1 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: actors.Array.data[0].name
+      value: Jamall Racist
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: actors.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2eb41db27a2d584fb3c2930033e759b, type: 3}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[0].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: messages.Array.data[0].message
+      value: Our town is filthy rich!
+      objectReference: {fileID: 0}
     - target: {fileID: 3251192789042305458, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.87
@@ -2393,6 +2440,10 @@ PrefabInstance:
       value: Bob Racist
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: actors.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2eb41db27a2d584fb3c2930033e759b, type: 3}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: messages.Array.data[0].actorId
       value: 0
       objectReference: {fileID: 0}
@@ -3071,6 +3122,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: musicSounds.Array.data[1].clip
       value: 
       objectReference: {fileID: 8300000, guid: e81cecad44b76854999975fafb4952dc, type: 3}
@@ -3093,6 +3148,62 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[1].name
       value: bartender1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1e281d15b6b0b04d87a6b4bd5ccdc4b, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[2].name
+      value: Not Racist Mary 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d656028f03aee91438c463f62774e722, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[3].name
+      value: Carter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 801827384c9d4544b8779f0ac5768485, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[4].name
+      value: bartender2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 170a247a658a61140b6e2ca89c4709b9, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[5].name
+      value: Carter2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ab4f6bb9b46faf40a64d7b60951bd65, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[6].name
+      value: Carter3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 81d50c60c27ae3f45a0fa3a19e000382, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[7].name
+      value: Sheriff1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26bbc1db1bc12d946823dd5864cf9ffb, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[8].name
+      value: 'Racist Jamall 1 '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3744,13 +3855,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: audios.Array.data[0]
+      value: Not Racist Mary 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
+      propertyPath: audios.Array.data[1]
+      value: 'Not Racist Mary '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].name
       value: Mary Not Racist
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: e2eb41db27a2d584fb3c2930033e759b, type: 3}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: messages.Array.data[0].actorId
       value: 0
@@ -4237,7 +4356,7 @@ MonoBehaviour:
   - actorId: 1
     message: My fault Original Gangster.
   actors:
-  - name: Deku
+  - name: 'Sheriff '
     sprite: {fileID: 21300000, guid: ceee22a4e9a434b409f3ad26a469faf9, type: 3}
   - name: Carter
     sprite: {fileID: 21300000, guid: 8c21d1563b61f864da1db5fc9187169f, type: 3}
@@ -4246,8 +4365,8 @@ MonoBehaviour:
   fadeScript: {fileID: 1232927901}
   pressF: {fileID: 1930477218}
   audios:
-  - d1
-  - d2
+  - Sheriff1
+  - Carter3
   agressiveStart: 1
   fightingWords: 0
 --- !u!1 &1992369212
