@@ -38,12 +38,13 @@ public class PlayerMovementScript : MonoBehaviour
             animator.SetFloat("Speed", movement.sqrMagnitude);
         }
         else
-        {
+        { //supposed to force the character into an idle animation
             animator.SetBool("forcedTransition", true);
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("IdleY", Input.GetAxisRaw("Vertical"));
         }
 
+        //idle animations setter
         if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
             animator.SetFloat("IdleX", Input.GetAxisRaw("Horizontal"));

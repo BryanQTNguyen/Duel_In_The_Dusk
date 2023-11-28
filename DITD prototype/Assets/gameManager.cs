@@ -19,11 +19,15 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject Character; //this is used to check the varibale damage is true
     [SerializeField] PlayerScript playerScript;
 
+    [SerializeField] GameObject sceneControllerObject;
+    [SerializeField] SceneController sceneController;
+
     //health stuff
     public int HealthCurrent;
     public int HealthMax = 100;
-    public PlayerHealth healthBar;
-
+    [SerializeField] PlayerHealth healthBarScript;
+    [SerializeField] GameObject healthBarObject;
+    
     //damage stuff
     public int regularShot = 33;
     public int instantKill = 100;
@@ -59,30 +63,28 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunType = 0;
-        Ammo = 6; //character starts with revolver
+        gunType = 0; //character starts with revolver
+        Ammo = 6;
+        healthBarObject = GameObject.FindWithTag("healthBar");
+        healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
         HealthCurrent = HealthMax;
-        healthBar.SetMaxHealth(HealthMax);
+        healthBarScript.SetMaxHealth(HealthMax);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HealthCurrent <= 0)
-        {
-            Death();
-        }
-        /* health bar test
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Damage(10);
-        }
-        */
+        //this is used to initialize certain variables when the player is in
         if (SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
-            == "Bank Interrior") //checking if the scene is playable
+    == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
+    SceneManager.GetActiveScene().name == "Barn-stable") //checking if the scene is playabl
         {
             Character = GameObject.FindWithTag("Player");
             playerScript = Character.GetComponent<PlayerScript>();
+            healthBarObject = GameObject.FindWithTag("healthBar");
+            healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
+            sceneControllerObject = GameObject.FindWithTag("sceneManager");
+            sceneController = sceneControllerObject.GetComponent<SceneController>();
             if (playerScript != null)
             {
                 Damage();
@@ -90,19 +92,40 @@ public class gameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Cannot locate the player");
+                Debug.Log("Cannot locate the player script");
             }
+            if (HealthCurrent <= 0)
+            {
+                Death();
+            }
+            else
+            {
+                healthBarScript.SetHealth(HealthCurrent);
+            }
+        }
+        else
+        {
+            Debug.Log("There is no player in this scene so I'm not loading");
         }
     }
     public void Damage() //damage function with a parameter for varying damages
     {
         if (playerScript.damageType == 1)
+        {
             HealthCurrent = HealthCurrent - regularShot;
+            playerScript.damageType = 0;
+        }
         if (playerScript.damageType == 2)
-            HealthCurrent = HealthCurrent - instantKill;
+        {
+            HealthCurrent = 0;
+            playerScript.damageType = 0;
+        }
         if (playerScript.damageType == 3)
+        {
             HealthCurrent = HealthCurrent - miniShot;
-        
+            playerScript.damageType = 0;
+        }
+
     }
     public void Bleed()
     {
@@ -112,6 +135,10 @@ public class gameManager : MonoBehaviour
 
     public void Death()
     {
-        //load ending screen
+        sceneController.lose();
+        //reset for next possible play through
+        HealthCurrent = HealthMax;
+        gunType = 0;
+        healthBarScript.SetMaxHealth(HealthMax);
     }
 }
