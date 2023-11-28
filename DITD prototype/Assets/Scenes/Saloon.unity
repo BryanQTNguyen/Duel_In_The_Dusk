@@ -960,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: audios.Array.data[0]
-      value: 'Rcaist Jamall 1 '
+      value: 'Racist Jamall 1 '
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].name
@@ -976,7 +976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: messages.Array.data[0].message
-      value: Our town is filthy rich!
+      value: Our town is filthy rich! I swear I'm not racist
       objectReference: {fileID: 0}
     - target: {fileID: 3251192789042305458, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3200,7 +3200,7 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[8].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 26bbc1db1bc12d946823dd5864cf9ffb, type: 3}
+      objectReference: {fileID: 8300000, guid: 95b9e4d8b28c98840930b70655d21722, type: 3}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[8].name
       value: 'Racist Jamall 1 '
