@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEditor;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -27,7 +30,15 @@ public class gameManager : MonoBehaviour
     public int HealthMax = 100;
     [SerializeField] PlayerHealth healthBarScript;
     [SerializeField] GameObject healthBarObject;
-    
+
+
+    //objective text and stuff
+    [SerializeField] TMP_Text objectiveText;
+    public int objectiveNumber;
+    [SerializeField] GameObject objectWithPro;
+    private string[] objectiveNames = { "Beat Cactus Tutorial (optional) or continue to saloon", "Find and rob the bank!", "Find a way out of the town",
+    "You now hate the train go kill it", "Escape with horses"};
+
     //damage stuff
     public int regularShot = 33;
     public int instantKill = 100;
@@ -107,6 +118,14 @@ public class gameManager : MonoBehaviour
         {
             Debug.Log("There is no player in this scene so I'm not loading");
         }
+
+        
+
+        if (objectiveNumber == 0)
+        {
+            objectiveText.text = objectiveNames[0];
+        }
+
     }
     public void Damage() //damage function with a parameter for varying damages
     {

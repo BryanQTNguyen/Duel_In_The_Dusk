@@ -16,6 +16,7 @@ TagManager:
   - Banker Boss
   - Sheriff Boss
   - healthBar
+  - objectiveList
   layers:
   - Default
   - TransparentFX
