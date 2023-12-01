@@ -2288,7 +2288,7 @@ PrefabInstance:
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8c21d1563b61f864da1db5fc9187169f, type: 3}
+      objectReference: {fileID: 21300000, guid: 1376dbfcd87288a4d83529e9af9efe20, type: 3}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[1].sprite
       value: 
@@ -3195,7 +3195,7 @@ PrefabInstance:
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8c21d1563b61f864da1db5fc9187169f, type: 3}
+      objectReference: {fileID: 21300000, guid: 1376dbfcd87288a4d83529e9af9efe20, type: 3}
     - target: {fileID: 2480667884197035938, guid: 5776c6118b8c31d40bc42a74575df8a3, type: 3}
       propertyPath: actors.Array.data[1].sprite
       value: 
@@ -3586,6 +3586,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 883932629}
     m_Modifications:
+    - target: {fileID: 3798990432475378554, guid: 8b1a00cb9c7f65242ac7adb2608dea15, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1376dbfcd87288a4d83529e9af9efe20, type: 3}
     - target: {fileID: 3798990432475378554, guid: 8b1a00cb9c7f65242ac7adb2608dea15, type: 3}
       propertyPath: m_Color.a
       value: 1
