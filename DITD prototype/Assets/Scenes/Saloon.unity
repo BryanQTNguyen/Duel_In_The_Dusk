@@ -1385,11 +1385,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1521759
+      value: -0.368
       objectReference: {fileID: 0}
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.8214436
+      value: -7.366
       objectReference: {fileID: 0}
     - target: {fileID: 233636699870708953, guid: f0aae46b0104ba14ab3ac2b013c8e020, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1706,11 +1706,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1521759
+      value: -0.368
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.8214436
+      value: -7.366
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3387,7 +3387,7 @@ Transform:
   m_GameObject: {fileID: 1609622193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1521759, y: -6.8214436, z: -10}
+  m_LocalPosition: {x: -0.368, y: -7.366, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4919,6 +4919,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 837868217}
     m_Modifications:
+    - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1993384290}
+    - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: no
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: nextSceneThing, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5478346164832369817, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEditor;
 using UnityEngine.UI;
+using System;
 
 public class gameManager : MonoBehaviour
 {
@@ -46,7 +47,25 @@ public class gameManager : MonoBehaviour
     private string[] objectiveNames = { "Beat Cactus Tutorial (optional) or continue to saloon", "Find and rob the bank!", "Find a way out of the town",
     "You now hate the train go kill it", "Escape with horses"};
 
+    //values for the location to transport the player
 
+    //outside the saloon
+    private float SaloonX = 67.22f;
+    private float SaloonY = -1.25f;
+
+    //outside the station
+    private float StationX = 92.2f;
+    private float StationY = -19.34f;
+
+    //outside the bank
+    private float BankX = 89.2f;
+    private float BankY = 18.54f;
+
+    public int SceneFrom;
+    //From saloon = 1
+    //From station = 2
+    //From Bank = 3
+    //From Barn = 4
 
 
     //Weapon variables 
@@ -87,6 +106,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //this is used to initialize certain variables when the player is in
         if (SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
     == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
@@ -132,8 +152,16 @@ public class gameManager : MonoBehaviour
         {
             Debug.Log("There is no player in this scene so I'm not loading"); //cannot find the proper script that identifies the player
         }
+        if (SceneManager.GetActiveScene().name == "SampleScene" && SceneFrom != 0)
+        {
+            if (SceneFrom == 1)
+            {
+                Character.transform.position = new Vector3(SaloonX, SaloonY,0);
+                SceneFrom = 0;
+            }
+        }
 
-        
+
         /*
         if (objectiveNumber == 0)
         {
@@ -196,5 +224,10 @@ public class gameManager : MonoBehaviour
         HealthCurrent = HealthMax;
         gunType = 0;
         healthBarScript.SetMaxHealth(HealthMax);
+    }
+
+    public void relocatePlayer()
+    {
+
     }
 }

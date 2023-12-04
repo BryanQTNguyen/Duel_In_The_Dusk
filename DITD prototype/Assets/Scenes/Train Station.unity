@@ -1808,6 +1808,7 @@ MonoBehaviour:
   objectiveText: {fileID: 23612002}
   objectiveNumber: 0
   objectWithPro: {fileID: 0}
+  SceneFrom: 0
   Ammo: 0
   gunType: 0
 --- !u!4 &452306281
@@ -3976,7 +3977,15 @@ PrefabInstance:
     - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2144235059}
+      objectReference: {fileID: 1068803884}
+    - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: no
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083114473732874535, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: nextSceneThing, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5478346164832369817, guid: 493fa8f4cf043a94890cf83fbe70db8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -20,5 +20,6 @@ public class nextScene : MonoBehaviour
         nextSceneName = gameObject.name;
         NextSceneThing.transitionOptions(nextSceneName);
         Debug.Log(nextSceneName);
+        Debug.Log("I hate you");
     }
 }
