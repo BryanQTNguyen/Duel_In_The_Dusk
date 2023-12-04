@@ -67,6 +67,7 @@ public class DialgoueManager : MonoBehaviour
             }
             else if(dialogueTrigger.isCutScene == true)
             {
+                muteDialogueAudio = true;
                 continueButton.gameObject.SetActive(true);
             }
             else if(dialogueTrigger.fightingWords == true)

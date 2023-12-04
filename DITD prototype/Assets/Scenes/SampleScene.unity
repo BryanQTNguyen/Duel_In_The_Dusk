@@ -5450,6 +5450,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6538511900132961817, guid: e3d87d7c104e89f4aba670164d117e03, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538511900132961817, guid: e3d87d7c104e89f4aba670164d117e03, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.006862715
+      objectReference: {fileID: 0}
     - target: {fileID: 7335305017768492397, guid: e3d87d7c104e89f4aba670164d117e03, type: 3}
       propertyPath: NextSceneThing
       value: 
