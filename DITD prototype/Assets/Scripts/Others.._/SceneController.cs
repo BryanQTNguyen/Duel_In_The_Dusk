@@ -78,10 +78,5 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadSceneAsync(sceneID);
     }
-    IEnumerator LoadSceneAdditive()
-    {
-        transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadSceneAsync(sceneID, LoadSceneMode.Additive);
-    }
+
 }
