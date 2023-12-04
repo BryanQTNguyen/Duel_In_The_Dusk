@@ -1,48 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class nextScene : MonoBehaviour
 {
-    [SerializeField] GameObject nextSceneCanvas;
-    [SerializeField] DialgoueManager manager;
-    public GameObject sceneObject;
-    public SceneController controller;
-    public bool SceneAdditive;
-    // Start is called before the first frame update
-    void Start()
-    {
-        nextSceneCanvas.SetActive(false);
-        sceneObject = GameObject.FindWithTag("sceneManager");
-        controller = sceneObject.GetComponent<SceneController>();
-    }
+    public string nextSceneName;
 
-
-    // Update is called once per frame
-    void Update()
+    [SerializeField] GameObject nextSceneThingObj;
+    [SerializeField] nextSceneThing NextSceneThing;
+    public void Update()
     {
         
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        manager.isActive = true;
-        nextSceneCanvas.SetActive(true);
-    }
-
-    public void yes()
-    {
-        if (SceneManager.GetActiveScene().name == "Train Station")
-        {
-            SceneAdditive = true;
-            controller.outsideWorld();
-        }
-
-    }
-    public void no()
-    {
-        manager.isActive = false;
-        nextSceneCanvas.SetActive(false);
+        nextSceneName = gameObject.name;
+        NextSceneThing.transitionOptions(nextSceneName);
+        Debug.Log(nextSceneName);
     }
 }

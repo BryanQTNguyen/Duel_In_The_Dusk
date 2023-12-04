@@ -25,11 +25,18 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject sceneControllerObject;
     [SerializeField] SceneController sceneController;
 
+    //bleedStuff
+    [SerializeField] GameObject BleedPanel;
+    private float bleedTimer;
+    public int bleedDamage = 2;
+
+
     //health stuff
     public int HealthCurrent;
     public int HealthMax = 100;
     [SerializeField] PlayerHealth healthBarScript;
     [SerializeField] GameObject healthBarObject;
+
 
 
     //objective text and stuff
@@ -39,13 +46,8 @@ public class gameManager : MonoBehaviour
     private string[] objectiveNames = { "Beat Cactus Tutorial (optional) or continue to saloon", "Find and rob the bank!", "Find a way out of the town",
     "You now hate the train go kill it", "Escape with horses"};
 
-    //damage stuff
-    public int regularShot = 33;
-    public int instantKill = 100;
-    public int bleedDamage = 2;
-    public int miniShot = 10;
 
-    public Rigidbody2D rb;
+
 
     //Weapon variables 
     public int Ammo;
@@ -90,43 +92,57 @@ public class gameManager : MonoBehaviour
     == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
     SceneManager.GetActiveScene().name == "Barn-stable") //checking if the scene is playabl
         {
-            Character = GameObject.FindWithTag("Player");
-            playerScript = Character.GetComponent<PlayerScript>();
-            healthBarObject = GameObject.FindWithTag("healthBar");
-            healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
-            sceneControllerObject = GameObject.FindWithTag("sceneManager");
-            sceneController = sceneControllerObject.GetComponent<SceneController>();
+            if (playerScript)
+            {
+                
+            }
+            else
+            {
+                Character = GameObject.FindWithTag("Player");
+                playerScript = Character.GetComponent<PlayerScript>();
+                healthBarObject = GameObject.FindWithTag("healthBar");
+                healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
+                sceneControllerObject = GameObject.FindWithTag("sceneManager");
+                sceneController = sceneControllerObject.GetComponent<SceneController>();
+                BleedPanel = GameObject.Find("Canvas/bleedPanel");
+            }
+            
             if (playerScript != null)
             {
-                Damage();
                 Bleed();
+
+
             }
             else
             {
                 Debug.Log("Cannot locate the player script");
             }
+
             if (HealthCurrent <= 0)
             {
                 Death();
             }
             else
             {
-                healthBarScript.SetHealth(HealthCurrent);
+                healthBarScript.SetHealth(HealthCurrent); //updating the healthBar
             }
+
         }
         else
         {
-            Debug.Log("There is no player in this scene so I'm not loading");
+            Debug.Log("There is no player in this scene so I'm not loading"); //cannot find the proper script that identifies the player
         }
 
         
-
+        /*
         if (objectiveNumber == 0)
         {
             objectiveText.text = objectiveNames[0];
         }
+        */
 
     }
+    /*
     public void Damage() //damage function with a parameter for varying damages
     {
         if (playerScript.damageType == 1)
@@ -146,10 +162,31 @@ public class gameManager : MonoBehaviour
         }
 
     }
+    */
+
+    public void Damage(int damageAmount)
+    {
+        HealthCurrent = HealthCurrent - damageAmount;
+    }
+
     public void Bleed()
     {
         if (playerScript.bleed == true)
-            HealthCurrent = HealthCurrent - bleedDamage;
+        {
+            BleedPanel.SetActive(true);
+            bleedTimer += Time.deltaTime;
+            if(bleedTimer >= 5)
+            {
+                HealthCurrent = HealthCurrent - bleedDamage;
+                bleedTimer = 0;
+            }
+        }
+        else
+        {
+            bleedTimer = 0;
+            BleedPanel.SetActive(false);
+        }
+            
     }
 
     public void Death()

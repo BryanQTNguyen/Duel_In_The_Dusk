@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -15,9 +17,6 @@ public class PlayerMovementScript : MonoBehaviour
 
     public DialgoueManager manager;
 
-    
-
-
     void Start()
     {
 
@@ -26,7 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update() //input
     {
-        if (manager.isActive == false)
+            if (manager.isActive == false)
         {
             animator.SetBool("forcedTransition", false);
             movement.x = Input.GetAxisRaw("Horizontal"); //tells us which horizontal direciton I am planning to face

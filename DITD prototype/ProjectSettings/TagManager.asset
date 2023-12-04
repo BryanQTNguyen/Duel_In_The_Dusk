@@ -17,6 +17,7 @@ TagManager:
   - Sheriff Boss
   - healthBar
   - objectiveList
+  - gameManager
   layers:
   - Default
   - TransparentFX

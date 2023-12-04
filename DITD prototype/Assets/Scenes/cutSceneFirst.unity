@@ -773,6 +773,7 @@ MonoBehaviour:
   - intro2
   - intro3
   agressiveStart: 0
+  fightingWords: 0
 --- !u!4 &653852961
 Transform:
   m_ObjectHideFlags: 0
@@ -1216,7 +1217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d78180dc520e7754d944571ddfd02133, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c606759c0d5f2db4194f8d6b680ac15f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start Game '
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
   m_sharedMaterial: {fileID: -4570479136430521874, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
@@ -189,8 +189,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293783029
-  m_fontColor: {r: 0.9622642, g: 0.9304913, b: 0.9304913, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -536,8 +536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371.72406, y: -47.5}
-  m_SizeDelta: {x: 426.6307, y: 95}
+  m_AnchoredPosition: {x: -341.9319, y: -71.19833}
+  m_SizeDelta: {x: 486.2151, y: 142.3967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549267603
 MonoBehaviour:
@@ -560,7 +560,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9528302, g: 0.4677342, b: 0.085395135, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -579,7 +579,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 31022943}
+  m_TargetGraphic: {fileID: 549267604}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -608,15 +608,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c37572eb7865b3c419ea85406f33ab4a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.size
-      value: 6
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: musicSounds.Array.data[0].name
@@ -766,6 +766,158 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[5].name
       value: intro2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59940a68778a05140a1bc9d313d780fc, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[6].name
+      value: intro3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ae464edb94a644b4284d38d3cac719e4, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[7].name
+      value: Not Racist Mary 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b8065eb9221d7246b4e8ea50e7ce0bb, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[8].name
+      value: racist bob 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 98e14b4d7e7f9c542a2492e0debb0aed, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[9].name
+      value: racist bob 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ee829d5c7fe2a14d947227a90e53d9d, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[10].name
+      value: bartender1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1e281d15b6b0b04d87a6b4bd5ccdc4b, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[11].name
+      value: Not Racist Mary 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d656028f03aee91438c463f62774e722, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[12].name
+      value: Carter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 801827384c9d4544b8779f0ac5768485, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[13].name
+      value: bartender2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 170a247a658a61140b6e2ca89c4709b9, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[14].name
+      value: Carter2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ab4f6bb9b46faf40a64d7b60951bd65, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[15].name
+      value: Carter3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[16].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 81d50c60c27ae3f45a0fa3a19e000382, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[16].name
+      value: Sheriff1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 95b9e4d8b28c98840930b70655d21722, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[17].name
+      value: 'Racist Jamall 1 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[18].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c56f2c45b457ab4fb87a7997239a94d, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[18].name
+      value: Racist Jamall 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[19].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9afae352e94ec1745810afaa0569c5cd, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[19].name
+      value: Carter4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[20].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3142775a886577e4783603978faf2b17, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[20].name
+      value: 'Racist Deputy 1 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c0d372b5441fde4bab47427ab085922, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[21].name
+      value: 'Carter5 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d157d183c68993845a6de5d17eec87ff, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[22].name
+      value: 'Racist Deputy 2 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[23].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f7b5ca2a7246e743aadf453fc667be5, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[23].name
+      value: Carter6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[24].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 238f06ee4192f014c91419af3b5f9352, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[24].name
+      value: 'Banker 1 '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -942,8 +1094,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 319.61377, y: -47.5}
-  m_SizeDelta: {x: 439.2275, y: 95}
+  m_AnchoredPosition: {x: 327, y: -71.497}
+  m_SizeDelta: {x: 486.21, y: 141.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052372626
 MonoBehaviour:
@@ -966,7 +1118,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9622642, g: 0.44561782, b: 0.13163051, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -985,7 +1137,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2055127759}
+  m_TargetGraphic: {fileID: 1052372627}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1014,15 +1166,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c37572eb7865b3c419ea85406f33ab4a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1285,7 +1437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit Game
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
   m_sharedMaterial: {fileID: -4570479136430521874, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
@@ -1294,8 +1446,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294440952
-  m_fontColor: {r: 0.9716981, g: 0.9671146, b: 0.9671146, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
