@@ -5,13 +5,22 @@ using UnityEngine.UI;
 using TMPro;
 public class DialgoueManager : MonoBehaviour
 {
+    //All the variables for the displaying dialgoue 
     public Image actorImage;
     public TMP_Text actorName;
     public string AudioToPlay;
     public TMP_Text messageText;
     public RectTransform backgroundBox;
+
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private GameObject continueButton;
+    
+    //combat stuff
+    [SerializeField] gameManager GameManger;
+    [SerializeField] SceneController controller;
+    public float privateEnemyType;
+
+
     public bool muteDialogueAudio;
     private string enemyTag;
     public bool callToCombatInGameManager;
@@ -73,7 +82,8 @@ public class DialgoueManager : MonoBehaviour
             else if(dialogueTrigger.fightingWords == true)
             {
                 enemyTag = gameObject.tag;
-                callToCombatInGameManager = true;
+                controller.combat();
+                privateEnemyType = GameManger.enemyType;
                 //check what type of enemy it is
                 //load the combat scene
             }

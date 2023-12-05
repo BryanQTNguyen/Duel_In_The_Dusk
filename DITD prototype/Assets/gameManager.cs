@@ -10,7 +10,6 @@ using System;
 public class gameManager : MonoBehaviour
 {
     public static gameManager Instance;
-    public float enemyType;
     /*
     1 = deputy enemy 
     2 = ranger enemy 
@@ -38,7 +37,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] PlayerHealth healthBarScript;
     [SerializeField] GameObject healthBarObject;
 
-
+    //combat stuff
+    public float enemyType;
+    [SerializeField] GameObject Enemy;
+    [SerializeField] enemyShootProb EnemyShootProb;
 
     //objective text and stuff
     [SerializeField] TMP_Text objectiveText;
@@ -152,12 +154,24 @@ public class gameManager : MonoBehaviour
         {
             Debug.Log("There is no player in this scene so I'm not loading"); //cannot find the proper script that identifies the player
         }
+
+        //relocate the player
         if (SceneManager.GetActiveScene().name == "SampleScene" && SceneFrom != 0)
         {
             if (SceneFrom == 1)
             {
                 Character.transform.position = new Vector3(SaloonX, SaloonY,0);
                 SceneFrom = 0;
+            }
+        }
+
+        //check enemy for combat scene
+        if(enemyType != 0)
+        {
+            if(SceneManager.GetActiveScene().name == "Combat")
+            {
+                Enemy = GameObject.Find("MainEnemy");
+                EnemyShootProb = GetComponent<enemyShootProb>();
             }
         }
 
