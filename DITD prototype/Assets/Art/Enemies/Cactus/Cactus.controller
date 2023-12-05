@@ -23,43 +23,43 @@ AnimatorStateMachine:
     m_Position: {x: -800, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4215632507266404515}
-    m_Position: {x: -850, y: 1090, z: 0}
+    m_Position: {x: -1230, y: 1060, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4880102289381182831}
-    m_Position: {x: -630, y: 1050, z: 0}
+    m_Position: {x: -1010, y: 1020, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7072719906204095658}
-    m_Position: {x: -920, y: 1020, z: 0}
+    m_Position: {x: -1300, y: 990, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1274322102410195285}
     m_Position: {x: 410, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1183609663662018301}
-    m_Position: {x: -470, y: 610, z: 0}
+    m_Position: {x: -850, y: 580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5206061846875886202}
-    m_Position: {x: -170, y: 620, z: 0}
+    m_Position: {x: -550, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7183862288533622886}
-    m_Position: {x: -240, y: 1400, z: 0}
+    m_Position: {x: -620, y: 1370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6703340764508046916}
-    m_Position: {x: 30, y: 1360, z: 0}
+    m_Position: {x: -350, y: 1330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4318010131079404889}
-    m_Position: {x: -580, y: 1370, z: 0}
+    m_Position: {x: -960, y: 1340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1781083922710102845}
-    m_Position: {x: 490, y: 670, z: 0}
+    m_Position: {x: -260, y: 970, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5529297639586268804}
-    m_Position: {x: 980, y: 580, z: 0}
+    m_Position: {x: 230, y: 880, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -719835030698205887}
-    m_Position: {x: 600, y: 410, z: 0}
+    m_Position: {x: -150, y: 710, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2147353977470729299}
-    m_Position: {x: 760, y: 670, z: 0}
+    m_Position: {x: 10, y: 970, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -736,7 +736,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Blend
     m_Type: 1
@@ -754,7 +754,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 0}
   - m_Name: deputy
     m_Type: 4

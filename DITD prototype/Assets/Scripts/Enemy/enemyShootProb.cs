@@ -1,6 +1,8 @@
 using Pathfinding.Util;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -13,11 +15,25 @@ public class enemyShootProb : MonoBehaviour
     [SerializeField] shake Shake;
 
     public int lives;
+
     public int fireIndex;
-    public int probOfLanding; //will their shot land?
+
+    public int probOfLanding; //will their shot land? This number will be randomized between 0-100
+    public int probOfLandingTarget;
+    public int bleedRate; 
+
+    public int headShotRate;
+
     public bool kill; //the player is dead que
+
     public bool secondChanceTime;
     public float secondChanceTimer;
+
+    //Different types of characters the rates for them
+    private int sheriffProb = 80; //landing the initial shot
+    private int sheriffHead = 10; //headshot rate
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +83,7 @@ public class enemyShootProb : MonoBehaviour
     private void enemyFire()
     {
         probOfLanding = Random.Range(0, 100);
-        if (probOfLanding <= 10)
+        if (probOfLanding <= headShotRate)
         {
             Debug.Log("Player got head shotted");
             Shake.enemyShotShake();
@@ -76,11 +92,22 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.enemyTurnToShoot = true;
 
         }
-
-        else if(probOfLanding > 10 && probOfLanding <= 70)
+        else if(probOfLanding > headShotRate && probOfLanding <= probOfLandingTarget)
         {
             Debug.Log("Player got hit with a crippling shot");
+            int bleedProbability = Random.Range(0, 100);
+            
+            if(bleedProbability <= bleedRate) // bleed controller
+            {
+                //set bleed to be true
+            }
+            else
+            {
+                bleedProbability = 0;
+            }
+
             Shake.enemyShotShake(); //shakes the screen
+
             kill = false;
             secondChanceTime = true;
             skillCheck.PlayerDamage();
