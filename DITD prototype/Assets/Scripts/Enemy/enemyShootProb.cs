@@ -9,10 +9,12 @@ using UnityEngine;
 public class enemyShootProb : MonoBehaviour
 {
     // references to other objects in the game
-    [SerializeField] SkillCheck skillCheck;
+    [SerializeField] SkillCheck skillCheck; 
     [SerializeField] checkScript CheckScript;
     [SerializeField] Animator anim;
     [SerializeField] shake Shake;
+    [SerializeField] GameObject GameManagerObj;
+    [SerializeField] gameManager GameManager;
 
     public int lives;
 
@@ -20,7 +22,8 @@ public class enemyShootProb : MonoBehaviour
 
     public int probOfLanding; //will their shot land? This number will be randomized between 0-100
     public int probOfLandingTarget;
-    public int bleedRate; 
+    public int bleedRate;
+    public int damage;
 
     public int headShotRate;
 
@@ -30,14 +33,40 @@ public class enemyShootProb : MonoBehaviour
     public float secondChanceTimer;
 
     //Different types of characters the rates for them
-    private int sheriffProb = 80; //landing the initial shot
-    private int sheriffHead = 10; //headshot rate
+    private int sheriffProb = 80; //landing another shot
+    private int sheriffHead = 20; //headshot rate
+    private int sheriffDamageAmount = 20;
+    private int sheriffLives = 5;
+    private int sheriffBleedRate = 50; 
 
+    private int bankerProb = 50;
+    private int bankerHead = 0;
+    private int bankerDamageAmount = 50;
+    private int bankerLives = 3;
+    private int bankerBleedRate = 5;
+
+    private int deputyProb = 70;
+    private int deptyHead = 5;
+    private int deptyDamageAmount = 10;
+    private int deptyLives = 1;
+    private int deptyBleedRate = 10;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameManagerObj = GameObject.Find("gameManager");
+        GameManager = GameManagerObj.GetComponent<gameManager>();
+        if(GameManager.enemyType != 0)
+        {
+            if(GameManager.enemyType == 1)
+            {
+
+            }
+        }else
+        {
+            Debug.Log("Something sus is going on here");
+        }
         enemyShootReset();
         secondChanceTime = false;
         secondChanceTimer = 0f;
@@ -46,6 +75,7 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             if (fireIndex == 0)

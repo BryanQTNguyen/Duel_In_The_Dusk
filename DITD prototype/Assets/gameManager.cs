@@ -41,6 +41,7 @@ public class gameManager : MonoBehaviour
     public float enemyType;
     [SerializeField] GameObject Enemy;
     [SerializeField] enemyShootProb EnemyShootProb;
+    [SerializeField] Animator enemyAnimator;
 
     //objective text and stuff
     [SerializeField] TMP_Text objectiveText;
@@ -127,6 +128,7 @@ public class gameManager : MonoBehaviour
                 sceneControllerObject = GameObject.FindWithTag("sceneManager");
                 sceneController = sceneControllerObject.GetComponent<SceneController>();
                 BleedPanel = GameObject.Find("Canvas/bleedPanel");
+                
             }
             
             if (playerScript != null)
@@ -172,6 +174,51 @@ public class gameManager : MonoBehaviour
             {
                 Enemy = GameObject.Find("MainEnemy");
                 EnemyShootProb = GetComponent<enemyShootProb>();
+                if(enemyType == 1)
+                {
+                    enemyAnimator.SetBool("deputy", true);
+                    //cutely also resets all other booleans to be safe
+                    enemyAnimator.SetBool("sheriff", false);
+                    enemyAnimator.SetBool("cactus", false);
+                    enemyAnimator.SetBool("banker", false);
+                    enemyAnimator.SetBool("ranger", false);
+                }
+                if (enemyType == 2)
+                {
+                    enemyAnimator.SetBool("ranger", true);
+                    //cutely also resets all other booleans to be safe
+                    enemyAnimator.SetBool("sheriff", false);
+                    enemyAnimator.SetBool("cactus", false);
+                    enemyAnimator.SetBool("banker", false);
+                    enemyAnimator.SetBool("deputy", false);
+                }
+                if (enemyType == 3)
+                {
+                    enemyAnimator.SetBool("cactus", true);
+                    //cutely also resets all other booleans to be safe
+                    enemyAnimator.SetBool("sheriff", false);
+                    enemyAnimator.SetBool("deputy", false);
+                    enemyAnimator.SetBool("banker", false);
+                    enemyAnimator.SetBool("ranger", false);
+                }
+                if (enemyType == 4)
+                {
+                    enemyAnimator.SetBool("banker", true);
+                    //cutely also resets all other booleans to be safe
+                    enemyAnimator.SetBool("sheriff", false);
+                    enemyAnimator.SetBool("cactus", false);
+                    enemyAnimator.SetBool("deputy", false);
+                    enemyAnimator.SetBool("ranger", false);
+                }
+                if (enemyType == 5)
+                {
+                    enemyAnimator.SetBool("sheriff", true);
+                    //cutely also resets all other booleans to be safe
+                    enemyAnimator.SetBool("deputy", false);
+                    enemyAnimator.SetBool("cactus", false);
+                    enemyAnimator.SetBool("banker", false);
+                    enemyAnimator.SetBool("ranger", false);
+                }
             }
         }
 

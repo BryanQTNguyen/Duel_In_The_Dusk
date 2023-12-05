@@ -666,6 +666,9 @@ MonoBehaviour:
   lives: 0
   fireIndex: 0
   probOfLanding: 0
+  probOfLandingTarget: 0
+  bleedRate: 0
+  headShotRate: 0
   kill: 0
   secondChanceTime: 0
   secondChanceTimer: 0
@@ -1151,6 +1154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314483598}
   - component: {fileID: 1314483597}
+  - component: {fileID: 1314483599}
   m_Layer: 0
   m_Name: Interior for Saloon
   m_TagString: Untagged
@@ -1225,6 +1229,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314483599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314483596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae4a340a25edac4d919a931e368f934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character: {fileID: 0}
+  playerScript: {fileID: 0}
+  sceneControllerObject: {fileID: 0}
+  sceneController: {fileID: 0}
+  BleedPanel: {fileID: 0}
+  bleedDamage: 2
+  HealthCurrent: 0
+  HealthMax: 100
+  healthBarScript: {fileID: 0}
+  healthBarObject: {fileID: 0}
+  enemyType: 0
+  Enemy: {fileID: 0}
+  EnemyShootProb: {fileID: 0}
+  objectiveText: {fileID: 0}
+  objectiveNumber: 0
+  objectWithPro: {fileID: 0}
+  SceneFrom: 0
+  Ammo: 0
+  gunType: 0
 --- !u!1 &1369560913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1271,7 @@ GameObject:
   - component: {fileID: 1369560915}
   - component: {fileID: 1369560914}
   - component: {fileID: 1369560916}
+  - component: {fileID: 1369560917}
   m_Layer: 0
   m_Name: Carter
   m_TagString: Untagged
@@ -1331,6 +1367,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1369560917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369560913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75016f47d1b63c749aeebff5c2a0261a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 0
+  regularShot: 33
+  instantKill: 100
+  miniShot: 10
+  bleed: 0
 --- !u!1001 &1394695359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1687,6 +1740,63 @@ MonoBehaviour:
   npcEnemy: 0
   copEnemy: 0
   bossEnemy: 1
+--- !u!1001 &1740603260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.22134
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.825428
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.785867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713552116539378987, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_Name
+      value: gameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
 --- !u!1 &1913305364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,3 +2599,4 @@ SceneRoots:
   - {fileID: 3596933766088028016}
   - {fileID: 1608906750}
   - {fileID: 1571416987}
+  - {fileID: 1740603260}
