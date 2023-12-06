@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public int instantKill = 100;
     public int miniShot = 10;
 
-    public bool bleed;
+    public bool bleed; //this bleed would be controlled by the gameManager
 
     // Start is called before the first frame update
     void Start()

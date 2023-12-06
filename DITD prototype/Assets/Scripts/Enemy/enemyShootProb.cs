@@ -62,16 +62,18 @@ public class enemyShootProb : MonoBehaviour
     private int cactusLives = 5;
     private int cactusBleedRate = 10;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         GameManagerObj = GameObject.Find("gameManager");
         GameManager = GameManagerObj.GetComponent<gameManager>();
-        if(GameManager.enemyType != 0)
+        if (GameManager.enemyType != 0) // this checks the enemy type and sets the proper variables accordingly 
         {
-            if(GameManager.enemyType == 1)
+            if (GameManager.enemyType == 1)
             {
-                probOfLandingTarget= deputyProb;
+                probOfLandingTarget = deputyProb;
                 bleedRate = deptyBleedRate;
                 damage = deptyDamageAmount;
                 headShotRate = deptyHead;
@@ -110,10 +112,11 @@ public class enemyShootProb : MonoBehaviour
 
             }
         }
-        else
+        else //this shows that no enemy type is being recorded meaning something sus is happening here
         {
             Debug.Log("Something sus is going on here");
         }
+
         enemyShootReset();
         secondChanceTime = false;
         secondChanceTimer = 0f;
@@ -127,8 +130,7 @@ public class enemyShootProb : MonoBehaviour
             if (fireIndex == 0)
             {
                 fireIndex++;
-                anim.SetTrigger("isShootEnemy");
-                enemyFire();
+                StartCoroutine(enemyShootAndAnimation());
             }
         }
 
@@ -138,6 +140,13 @@ public class enemyShootProb : MonoBehaviour
             anim.SetBool("isDeadEnemy", true);
         }
     }
+    private IEnumerator enemyShootAndAnimation()
+    {
+        anim.SetTrigger("isShootEnemy");
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
+        enemyFire();
+    }
+
 
     void FixedUpdate()
     {
@@ -163,38 +172,31 @@ public class enemyShootProb : MonoBehaviour
         {
             Debug.Log("Player got head shotted");
             Shake.enemyShotShake();
-
-            kill = true;
-            skillCheck.PlayerDamage();
-
             GameManager.Damage(damage*2);
-
-            skillCheck.enemyTurnToShoot = false;
-
+            if(GameManager.HealthCurrent > 0)
+            {
+                secondChanceTime = true;
+                skillCheck.enemyTurnToShoot = false;
+            }
         }
         else if(probOfLanding > headShotRate && probOfLanding <= probOfLandingTarget)
         {
             Debug.Log("Player got hit with a crippling shot");
-            
             int bleedProbability = Random.Range(0, 100);
-            
             if(bleedProbability <= bleedRate) // bleed controller
             {
-                
-                //set bleed to be true
+                GameManager.bleeding = true;
             }
             else
             {
                 bleedProbability = 0;
             }
-
             Shake.enemyShotShake(); //shakes the screen
-
-            kill = false;
-            secondChanceTime = true;
-            skillCheck.PlayerDamage();
-            skillCheck.enemyTurnToShoot = false;
-
+            if (GameManager.HealthCurrent > 0)
+            {
+                secondChanceTime = true;
+                skillCheck.enemyTurnToShoot = false;
+            }
         }
         else
         {
@@ -202,8 +204,6 @@ public class enemyShootProb : MonoBehaviour
             skillCheck.enemyTurnToShoot = false;
             secondChanceTime = true;
             enemyShootReset();
-
-
         }
     }
 

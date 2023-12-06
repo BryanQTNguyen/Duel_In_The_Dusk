@@ -29,6 +29,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject BleedPanel;
     private float bleedTimer;
     public int bleedDamage = 2;
+    public bool bleeding;
 
 
     //health stuff
@@ -139,8 +140,6 @@ public class gameManager : MonoBehaviour
             if (playerScript != null)
             {
                 Bleed();
-
-
             }
             else
             {
