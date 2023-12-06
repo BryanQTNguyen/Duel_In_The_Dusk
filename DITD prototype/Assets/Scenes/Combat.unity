@@ -221,6 +221,7 @@ RectTransform:
   - {fileID: 1913305365}
   - {fileID: 1609624494}
   - {fileID: 1394695360}
+  - {fileID: 1374208893}
   - {fileID: 243973602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -663,11 +664,14 @@ MonoBehaviour:
   CheckScript: {fileID: 946410198}
   anim: {fileID: 599392583}
   Shake: {fileID: 1608906749}
+  GameManagerObj: {fileID: 0}
+  GameManager: {fileID: 0}
   lives: 0
   fireIndex: 0
   probOfLanding: 0
   probOfLandingTarget: 0
   bleedRate: 0
+  damage: 0
   headShotRate: 0
   kill: 0
   secondChanceTime: 0
@@ -861,6 +865,103 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &1082300327
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 139553573}
+    m_Modifications:
+    - target: {fileID: 6494419062703489881, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_Name
+      value: bleedPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
 --- !u!1 &1125186296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1314483598}
   - component: {fileID: 1314483597}
-  - component: {fileID: 1314483599}
   m_Layer: 0
   m_Name: Interior for Saloon
   m_TagString: Untagged
@@ -1229,37 +1329,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1314483599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314483596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae4a340a25edac4d919a931e368f934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Character: {fileID: 0}
-  playerScript: {fileID: 0}
-  sceneControllerObject: {fileID: 0}
-  sceneController: {fileID: 0}
-  BleedPanel: {fileID: 0}
-  bleedDamage: 2
-  HealthCurrent: 0
-  HealthMax: 100
-  healthBarScript: {fileID: 0}
-  healthBarObject: {fileID: 0}
-  enemyType: 0
-  Enemy: {fileID: 0}
-  EnemyShootProb: {fileID: 0}
-  objectiveText: {fileID: 0}
-  objectiveNumber: 0
-  objectWithPro: {fileID: 0}
-  SceneFrom: 0
-  Ammo: 0
-  gunType: 0
 --- !u!1 &1369560913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1343,7 @@ GameObject:
   - component: {fileID: 1369560917}
   m_Layer: 0
   m_Name: Carter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1384,6 +1453,11 @@ MonoBehaviour:
   instantKill: 100
   miniShot: 10
   bleed: 0
+--- !u!224 &1374208893 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7525501673536412511, guid: 892dcafc7a9b4fa4497b4e2360cc9706, type: 3}
+  m_PrefabInstance: {fileID: 1082300327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1394695359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1476,6 +1550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 7116547730370087012, guid: a51ed21efacc04c479e57d558c28f62e, type: 3}
+      propertyPath: m_TagString
+      value: healthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 8354247290833491193, guid: a51ed21efacc04c479e57d558c28f62e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1545,6 +1623,10 @@ PrefabInstance:
     - target: {fileID: 6474650864040919891, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
       propertyPath: m_Name
       value: SceneController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474650864040919891, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
+      propertyPath: m_TagString
+      value: sceneManager
       objectReference: {fileID: 0}
     - target: {fileID: 6727211381540152835, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
       propertyPath: transitionAnim
@@ -1790,6 +1872,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713552116539378987, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: m_Name
+      value: gameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713552116539378987, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: m_TagString
       value: gameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []

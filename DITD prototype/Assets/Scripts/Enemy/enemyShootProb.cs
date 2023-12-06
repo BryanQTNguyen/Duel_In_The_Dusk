@@ -180,7 +180,7 @@ public class enemyShootProb : MonoBehaviour
             
             if(bleedProbability <= bleedRate) // bleed controller
             {
-                GameManager
+                
                 //set bleed to be true
             }
             else
