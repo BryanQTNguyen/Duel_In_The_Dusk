@@ -24,7 +24,6 @@ public class enemyShootProb : MonoBehaviour
     public int probOfLandingTarget;
     public int bleedRate;
     public int damage;
-
     public int headShotRate;
 
     public bool kill; //the player is dead que
@@ -51,6 +50,17 @@ public class enemyShootProb : MonoBehaviour
     private int deptyLives = 1;
     private int deptyBleedRate = 10;
 
+    private int rangerProb = 70;
+    private int rangerHead = 5;
+    private int rangerDamageAmount = 10;
+    private int rangerLives = 1;
+    private int rangerBleedRate = 10;
+
+    private int cactusProb = 70;
+    private int cactusHead = 10;
+    private int cactusDamageAmount = 1;
+    private int cactusLives = 5;
+    private int cactusBleedRate = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -61,9 +71,46 @@ public class enemyShootProb : MonoBehaviour
         {
             if(GameManager.enemyType == 1)
             {
+                probOfLandingTarget= deputyProb;
+                bleedRate = deptyBleedRate;
+                damage = deptyDamageAmount;
+                headShotRate = deptyHead;
 
             }
-        }else
+            if (GameManager.enemyType == 2)
+            {
+                probOfLandingTarget = deputyProb;
+                bleedRate = deptyBleedRate;
+                damage = deptyDamageAmount;
+                headShotRate = deptyHead;
+
+            }
+            if (GameManager.enemyType == 3)
+            {
+                probOfLandingTarget = deputyProb;
+                bleedRate = deptyBleedRate;
+                damage = deptyDamageAmount;
+                headShotRate = deptyHead;
+
+            }
+            if (GameManager.enemyType == 4)
+            {
+                probOfLandingTarget = deputyProb;
+                bleedRate = deptyBleedRate;
+                damage = deptyDamageAmount;
+                headShotRate = deptyHead;
+
+            }
+            if (GameManager.enemyType == 5)
+            {
+                probOfLandingTarget = deputyProb;
+                bleedRate = deptyBleedRate;
+                damage = deptyDamageAmount;
+                headShotRate = deptyHead;
+
+            }
+        }
+        else
         {
             Debug.Log("Something sus is going on here");
         }
@@ -75,7 +122,6 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             if (fireIndex == 0)
@@ -117,18 +163,24 @@ public class enemyShootProb : MonoBehaviour
         {
             Debug.Log("Player got head shotted");
             Shake.enemyShotShake();
+
             kill = true;
             skillCheck.PlayerDamage();
-            skillCheck.enemyTurnToShoot = true;
+
+            GameManager.Damage(damage*2);
+
+            skillCheck.enemyTurnToShoot = false;
 
         }
         else if(probOfLanding > headShotRate && probOfLanding <= probOfLandingTarget)
         {
             Debug.Log("Player got hit with a crippling shot");
+            
             int bleedProbability = Random.Range(0, 100);
             
             if(bleedProbability <= bleedRate) // bleed controller
             {
+                GameManager
                 //set bleed to be true
             }
             else

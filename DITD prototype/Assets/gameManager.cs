@@ -110,10 +110,15 @@ public class gameManager : MonoBehaviour
     void Update()
     {
 
+        if (HealthCurrent <= 0)
+        {
+            Death();
+        }
+
         //this is used to initialize certain variables when the player is in
         if (SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
     == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
-    SceneManager.GetActiveScene().name == "Barn-stable") //checking if the scene is playabl
+    SceneManager.GetActiveScene().name == "Barn-stable" || SceneManager.GetActiveScene().name =="Combat") //checking if the scene is playabl
         {
             if (playerScript)
             {
@@ -256,6 +261,10 @@ public class gameManager : MonoBehaviour
     public void Damage(int damageAmount)
     {
         HealthCurrent = HealthCurrent - damageAmount;
+        if(HealthCurrent <= 0)
+        {
+            Death();
+        }
     }
 
     public void Bleed()
