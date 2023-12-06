@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6978960714321028167}
   - component: {fileID: 6377805765835884604}
   m_Layer: 0
-  m_Name: Band-aid
+  m_Name: Bandage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
