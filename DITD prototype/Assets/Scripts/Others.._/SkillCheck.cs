@@ -18,7 +18,6 @@ public class SkillCheck : MonoBehaviour
     public GameObject shotArea;
     [SerializeField] private CanvasGroup canvasGroup; //will also work as a variable which keeps track of when its draw time
 
-
     public bool index; //this is used to determine which direction the marker faces
     public int barIndex = 0;
     public float markerSpeed;
@@ -38,10 +37,6 @@ public class SkillCheck : MonoBehaviour
 
     public bool enemyTurnToShoot = false;
 
-    //types of enemies and marker speed
-    public bool npcEnemy; //default
-    public bool copEnemy;
-    public bool bossEnemy;
 
 
     // Start is called before the first frame update
@@ -49,34 +44,16 @@ public class SkillCheck : MonoBehaviour
     {
         drawText.SetActive(false);
         reloadingText.SetActive(false);
-        drawTime = Random.Range(2, 10);
+        drawTime = Random.Range(4, 10); //when the draw will show (randomly between 4 to 10 seconds)
         canvasGroup.alpha = 0;
         fireTime = false;
+        barIndex = 0;
         mSlider.value = 0;
         playerShot = false; //did they shoot?
         index = false;
         timerActive = true;
         generateShotArea();
         playerIsDead = false;
-
-
-        //control the speed for different enemies
-        if (npcEnemy)
-        {
-            markerSpeed = 7f;
-        }
-        if (copEnemy)
-        {
-            markerSpeed = 9f;
-        }
-        if (bossEnemy)
-        {
-            markerSpeed = 10.5f;
-        }
-
-        //control the speed of the marker as the pressure increases
-
-
     }
 
     public void generateShotArea() //controls shoot area (orange thing)
@@ -91,53 +68,27 @@ public class SkillCheck : MonoBehaviour
         if(timerActive == true) //controls when the draw will happen
         {
             timer = timer + Time.deltaTime;
+            EnemyShootProb.enemyStatSet();
         }
         if(timer >= drawTime)
         {
             timerActive = false;
+            
             Draw();
         }
-        
-
-
-        if (playerIsDead == false) //is player alive? only run when they are alive
+        if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened
         {
-            if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened
+            if (Input.GetKeyDown("space")) //Player shoot
             {
-                if (Input.GetKeyDown("space")) //Player shoot
-                {
-                    playerShot = true;
-                    barIndex = 0;
-                    hideDraw();
+                playerShot = true;
+                barIndex = 0;
+                hideDraw();
 
 
-                    anim.SetTrigger("shot");
-                    Shake.playerRevolverShot();
-                }
-
-                if (mSlider.value == mSlider.maxValue) //controls the movement of the marker
-                {
-                    index = true;
-                }
-
-                if (mSlider.value == mSlider.minValue)
-                {
-                    index = false;
-                    barIndex++; //this index is used to control the count of how many times it had reached the min value
-
-                }
-
-                //controls it so that the player has a certain cycle of the bar to shoot
-                if (barIndex == 2)
-                {
-                    Debug.Log("The time to shoot is over");
-                    hideDraw();
-                    enemyTurnToShoot = true;
-                    //call some sort of boolean that will que the enemy to fire
-                }
+                anim.SetTrigger("shot");
+                Shake.playerRevolverShot();
             }
         }
-
 
         /*
         controls the main reload mechanic
@@ -160,7 +111,32 @@ public class SkillCheck : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(playerShot == false && canvasGroup.alpha == 1 && playerIsDead == false) //this just moves the marker on the bar
+        if (playerIsDead == false) //is player alive? only run when they are alive
+        {
+            if (canvasGroup.alpha == 1 || fireTime == true) //draw just happened
+            {
+                if (mSlider.value == mSlider.maxValue) //controls the movement of the marker
+                {
+                    index = true;
+                }
+
+                if (mSlider.value == mSlider.minValue)
+                {
+                    index = false;
+                    barIndex++; //this index is used to control the count of how many times it had reached the min value
+
+                }
+                //controls it so that the player has a certain cycle of the bar to shoot
+                if (barIndex == 3)
+                {
+                    Debug.Log("The time to shoot is over");
+                    hideDraw();
+                    enemyTurnToShoot = true;
+                    //call some sort of boolean that will que the enemy to fire
+                }
+            }
+        }
+        if (playerShot == false && canvasGroup.alpha == 1 && playerIsDead == false) //this just moves the marker on the bar
         {
             if (index == false)
             {
@@ -178,6 +154,7 @@ public class SkillCheck : MonoBehaviour
         if(drawIndex == 0 && playerIsDead == false)
         {
             Debug.Log("hi i am draw");
+            generateShotArea();
             drawText.SetActive(true);
             canvasGroup.alpha = 1;
             fireTime = true;
@@ -192,29 +169,6 @@ public class SkillCheck : MonoBehaviour
         canvasGroup.alpha = 0;
         fireTime = false;
         drawText.SetActive(false);
-    }
-
-    public void PlayerDamage() //damage mechanic
-    {
-        if (EnemyShootProb.kill == true || ShotsToKill == 3)
-        {
-            anim.SetBool("isDead", true);
-            playerIsDead = true;
-            Debug.Log("Player Has fallen");
-            hideDraw();
-            //game over 
-        }
-        else if(EnemyShootProb.kill == false)
-        {
-            //player got damaged
-            anim.SetTrigger("isDamage");
-            ShotsToKill++;
-            if(ShotsToKill == 3)
-            {
-                PlayerDamage();
-            }
-        }
-
     }
 
     public void secondChance()

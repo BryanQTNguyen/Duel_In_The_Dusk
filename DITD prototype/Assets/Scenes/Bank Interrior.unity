@@ -409,6 +409,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1486552292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &103361373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103361374}
+  m_Layer: 0
+  m_Name: zero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103361374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103361373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 824140166}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &202767932 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4759485973852771477, guid: 8b1a00cb9c7f65242ac7adb2608dea15, type: 3}
@@ -454,23 +486,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae4a340a25edac4d919a931e368f934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
   Character: {fileID: 0}
   playerScript: {fileID: 0}
   sceneControllerObject: {fileID: 0}
   sceneController: {fileID: 0}
+  BleedPanel: {fileID: 0}
+  bleedDamage: 2
+  bleeding: 0
   HealthCurrent: 0
   HealthMax: 100
   healthBarScript: {fileID: 0}
   healthBarObject: {fileID: 0}
+  enemyType: 0
+  Enemy: {fileID: 0}
+  enemyAnimator: {fileID: 0}
   objectiveText: {fileID: 0}
   objectiveNumber: 0
   objectWithPro: {fileID: 0}
-  regularShot: 33
-  instantKill: 100
-  bleedDamage: 2
-  miniShot: 10
-  rb: {fileID: 0}
+  SceneFrom: 0
   Ammo: 0
   gunType: 0
 --- !u!4 &237374844
@@ -3507,7 +3540,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 103361374}
     m_Modifications:
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3527,15 +3560,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 161945074089889407, guid: 5f3261836c8a8f44e985816aa849b80c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3938,7 +3971,6 @@ SceneRoots:
   - {fileID: 814585485}
   - {fileID: 1600620486}
   - {fileID: 575448613}
-  - {fileID: 1826124796}
   - {fileID: 1858409459}
   - {fileID: 744909088}
   - {fileID: 477513356}
@@ -3950,3 +3982,4 @@ SceneRoots:
   - {fileID: 1623032542}
   - {fileID: 237374844}
   - {fileID: 679169760}
+  - {fileID: 103361374}

@@ -37,12 +37,17 @@ public class gameManager : MonoBehaviour
     public int HealthMax = 100;
     [SerializeField] PlayerHealth healthBarScript;
     [SerializeField] GameObject healthBarObject;
+    private Animator characterAnimCombat;
+
 
     //combat stuff
     public float enemyType;
     [SerializeField] GameObject Enemy;
-    [SerializeField] enemyShootProb EnemyShootProb;
     [SerializeField] Animator enemyAnimator;
+
+    //after combat
+    public string lastKnownScene;
+    public Vector3 lastKnownPosition;
 
     //objective text and stuff
     [SerializeField] TMP_Text objectiveText;
@@ -75,11 +80,16 @@ public class gameManager : MonoBehaviour
     //Weapon variables 
     public int Ammo;
     public int gunType; // public variable made to inform other scripts that the player has this gun equipped
+
+    public bool RelocateAfterCombat = false;
+
+
+
     /*
-     0 = revolver 
-     1 = rifle
-     2 = shotgun
-     */
+0 = revolver 
+1 = rifle
+2 = shotgun
+*/
 
 
     private void Awake()
@@ -110,6 +120,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        relocatePlayer();
 
         if (HealthCurrent <= 0)
         {
@@ -162,14 +173,7 @@ public class gameManager : MonoBehaviour
         }
 
         //relocate the player
-        if (SceneManager.GetActiveScene().name == "SampleScene" && SceneFrom != 0)
-        {
-            if (SceneFrom == 1)
-            {
-                Character.transform.position = new Vector3(SaloonX, SaloonY,0);
-                SceneFrom = 0;
-            }
-        }
+
 
         //check enemy for combat scene
         if(enemyType != 0)
@@ -177,10 +181,11 @@ public class gameManager : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "Combat")
             {
                 Enemy = GameObject.Find("MainEnemy");
-                EnemyShootProb = GetComponent<enemyShootProb>();
+                enemyAnimator = Enemy.GetComponent<Animator>();
                 if(enemyType == 1)
                 {
                     enemyAnimator.SetBool("deputy", true);
+
                     //cutely also resets all other booleans to be safe
                     enemyAnimator.SetBool("sheriff", false);
                     enemyAnimator.SetBool("cactus", false);
@@ -190,6 +195,7 @@ public class gameManager : MonoBehaviour
                 if (enemyType == 2)
                 {
                     enemyAnimator.SetBool("ranger", true);
+
                     //cutely also resets all other booleans to be safe
                     enemyAnimator.SetBool("sheriff", false);
                     enemyAnimator.SetBool("cactus", false);
@@ -199,6 +205,7 @@ public class gameManager : MonoBehaviour
                 if (enemyType == 3)
                 {
                     enemyAnimator.SetBool("cactus", true);
+
                     //cutely also resets all other booleans to be safe
                     enemyAnimator.SetBool("sheriff", false);
                     enemyAnimator.SetBool("deputy", false);
@@ -208,6 +215,7 @@ public class gameManager : MonoBehaviour
                 if (enemyType == 4)
                 {
                     enemyAnimator.SetBool("banker", true);
+
                     //cutely also resets all other booleans to be safe
                     enemyAnimator.SetBool("sheriff", false);
                     enemyAnimator.SetBool("cactus", false);
@@ -217,6 +225,7 @@ public class gameManager : MonoBehaviour
                 if (enemyType == 5)
                 {
                     enemyAnimator.SetBool("sheriff", true);
+
                     //cutely also resets all other booleans to be safe
                     enemyAnimator.SetBool("deputy", false);
                     enemyAnimator.SetBool("cactus", false);
@@ -224,6 +233,10 @@ public class gameManager : MonoBehaviour
                     enemyAnimator.SetBool("ranger", false);
                 }
             }
+        }
+        else if (SceneManager.GetActiveScene().name == "Combat")
+        {
+            Debug.Log("wtf no enemy type");
         }
 
 
@@ -259,7 +272,11 @@ public class gameManager : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
+        Debug.Log("daamge is worfdsjakl");
         HealthCurrent = HealthCurrent - damageAmount;
+        healthBarObject = GameObject.FindWithTag("healthBar");
+        healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
+        healthBarScript.SetHealth(HealthCurrent);
         if(HealthCurrent <= 0)
         {
             Death();
@@ -288,15 +305,37 @@ public class gameManager : MonoBehaviour
 
     public void Death()
     {
+        
+        if(SceneManager.GetActiveScene().name == "Combat")
+        {
+            characterAnimCombat = Character.GetComponent<Animator>();
+        }
+        characterAnimCombat.SetTrigger("isDead");
+        StartCoroutine(deathSceneTrans());
+    }
+    private IEnumerator deathSceneTrans()
+    {
+        yield return new WaitForSeconds(3.13f);
         sceneController.lose();
-        //reset for next possible play through
-        HealthCurrent = HealthMax;
-        gunType = 0;
-        healthBarScript.SetMaxHealth(HealthMax);
+        Destroy(gameObject);
     }
 
     public void relocatePlayer()
     {
-
+        if (SceneManager.GetActiveScene().name == "SampleScene" && SceneFrom != 0)
+        {
+            if (SceneFrom == 1)
+            {
+                Character = GameObject.FindWithTag("Player");
+                Character.transform.position = new Vector3(SaloonX, SaloonY, 0);
+                SceneFrom = 0;
+            }
+        }
+        if (SceneManager.GetActiveScene().name != "Combat" && RelocateAfterCombat == true)
+        {
+            Character = GameObject.FindWithTag("Player");
+            Character.transform.position = lastKnownPosition;
+            RelocateAfterCombat = false;
+        }
     }
 }

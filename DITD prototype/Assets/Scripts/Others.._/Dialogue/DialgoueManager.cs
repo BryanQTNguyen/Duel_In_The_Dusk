@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class DialgoueManager : MonoBehaviour
 {
     //All the variables for the displaying dialgoue 
@@ -14,19 +16,21 @@ public class DialgoueManager : MonoBehaviour
 
     [SerializeField] private DialogueTrigger dialogueTrigger;
     [SerializeField] private GameObject continueButton;
-    
+
     //combat stuff
-    [SerializeField] gameManager GameManger;
+    [SerializeField] GameObject managerObj;
+    [SerializeField] gameManager manager;
     [SerializeField] SceneController controller;
     public float privateEnemyType;
+    [SerializeField] GameObject character;
 
 
     public bool muteDialogueAudio;
-    private string enemyTag;
     public bool callToCombatInGameManager;
     Message[] currentMessages;
     Actor[] currentActor;
     string[] currentAudio;
+    int currentEnemy;
     int activeMessage = 0;
     public bool isActive = false;
     public float typingSpeed;
@@ -34,16 +38,18 @@ public class DialgoueManager : MonoBehaviour
 
     public FadeScript fadeScript;
 
-    public void OpenDialogue(Message[] messages, Actor[] actors, string[] audios)
+    public void OpenDialogue(Message[] messages, Actor[] actors, string[] audios, int enemyIdentify)
     {
         fadeScript.ShowDialogue();
         currentMessages = messages;
         currentActor = actors;
         currentAudio = audios;
+        currentEnemy = enemyIdentify;
         activeMessage = 0;
         isActive = true;
         DisplayMessage();
     }
+
 
     void DisplayMessage()
     {
@@ -67,27 +73,29 @@ public class DialgoueManager : MonoBehaviour
         }
         else
         {
-            if (dialogueTrigger.isCutScene == false)
+            if (currentEnemy == 1 || currentEnemy == 2 || currentEnemy == 3 || currentEnemy == 4|| currentEnemy == 5)
+            {
+                managerObj = GameObject.Find("gameManager");
+                manager = managerObj.GetComponent<gameManager>();
+                manager.enemyType = currentEnemy;
+                manager.lastKnownScene = SceneManager.GetActiveScene().name;
+                character = GameObject.Find("Carter");
+                manager.lastKnownPosition = character.transform.position;
+                muteDialogueAudio = true;
+                controller.combat();
+                //check what type of enemy it is
+                //load the combat scene
+            }else if (dialogueTrigger.isCutScene == false)
             {
                 isActive = false;
                 fadeScript.HideDialogueFade();
                 muteDialogueAudio = true;
 
-            }
-            else if(dialogueTrigger.isCutScene == true)
+            }else if(dialogueTrigger.isCutScene == true)
             {
                 muteDialogueAudio = true;
                 continueButton.gameObject.SetActive(true);
             }
-            else if(dialogueTrigger.fightingWords == true)
-            {
-                enemyTag = gameObject.tag;
-                controller.combat();
-                privateEnemyType = GameManger.enemyType;
-                //check what type of enemy it is
-                //load the combat scene
-            }
-
         }
     }
     // Start is called before the first frame update

@@ -7,6 +7,31 @@ public class SceneController : MonoBehaviour
 {
     public Animator transitionAnim;
     public int sceneID;
+
+    public void searchScenes(string searched)
+    {
+        if (searched == "Saloon")
+            saloon();
+        if (searched == "Bank Interrior")
+            bank();
+        if (searched == "Barn-stable")
+            Debug.Log("you didn't set up barn yet");
+        if (searched == "Combat")
+            combat();
+        if (searched == "cutSceneFirst")
+            toFirstCutScene();
+        if (searched == "LoseScene")
+            lose();
+        if (searched == "MainMenu")
+            mainMenu();
+        if (searched == "SampleScene")
+            outsideWorld();
+        if (searched == "Train Station")
+            trainStation();
+        if (searched == "WinScene")
+            win();
+
+    }
     
     public void mainMenu()
     {

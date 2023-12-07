@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool isCutScene; //the main difference between isCutScene and a regular dialogue is that it starts up automatically and utilizes the continue button
     public Message[] messages;
     public Actor[] actors;
+    public int enemyIdentify; 
     public bool isInTalkingRange = false;
     public DialgoueManager manager;
     public FadeScript fadeScript;
@@ -27,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void StartDialogue()
     {
-        FindObjectOfType<DialgoueManager>().OpenDialogue(messages, actors, audios);
+        FindObjectOfType<DialgoueManager>().OpenDialogue(messages, actors, audios, enemyIdentify);
     }
 
     void Update()

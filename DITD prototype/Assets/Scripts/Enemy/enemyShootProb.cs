@@ -9,9 +9,11 @@ using UnityEngine;
 public class enemyShootProb : MonoBehaviour
 {
     // references to other objects in the game
+    [SerializeField] SceneController controller;
     [SerializeField] SkillCheck skillCheck; 
     [SerializeField] checkScript CheckScript;
     [SerializeField] Animator anim;
+    [SerializeField] Animator playerAnim;
     [SerializeField] shake Shake;
     [SerializeField] GameObject GameManagerObj;
     [SerializeField] gameManager GameManager;
@@ -19,6 +21,7 @@ public class enemyShootProb : MonoBehaviour
     public int lives;
 
     public int fireIndex;
+    private int livesIndex = 0;
 
     public int probOfLanding; //will their shot land? This number will be randomized between 0-100
     public int probOfLandingTarget;
@@ -35,13 +38,13 @@ public class enemyShootProb : MonoBehaviour
     private int sheriffProb = 80; //landing another shot
     private int sheriffHead = 20; //headshot rate
     private int sheriffDamageAmount = 20;
-    private int sheriffLives = 5;
+    private int sheriffLives = 4;
     private int sheriffBleedRate = 50; 
 
     private int bankerProb = 50;
     private int bankerHead = 0;
     private int bankerDamageAmount = 50;
-    private int bankerLives = 3;
+    private int bankerLives = 2;
     private int bankerBleedRate = 5;
 
     private int deputyProb = 70;
@@ -69,6 +72,16 @@ public class enemyShootProb : MonoBehaviour
     {
         GameManagerObj = GameObject.Find("gameManager");
         GameManager = GameManagerObj.GetComponent<gameManager>();
+        enemyStatSet();
+
+
+        enemyShootReset();
+        secondChanceTime = false;
+        secondChanceTimer = 0f;
+    }
+
+    public void enemyStatSet()
+    {
         if (GameManager.enemyType != 0) // this checks the enemy type and sets the proper variables accordingly 
         {
             if (GameManager.enemyType == 1)
@@ -77,54 +90,64 @@ public class enemyShootProb : MonoBehaviour
                 bleedRate = deptyBleedRate;
                 damage = deptyDamageAmount;
                 headShotRate = deptyHead;
+                lives = deptyLives;
+
 
             }
             if (GameManager.enemyType == 2)
             {
-                probOfLandingTarget = deputyProb;
-                bleedRate = deptyBleedRate;
-                damage = deptyDamageAmount;
-                headShotRate = deptyHead;
+                probOfLandingTarget = rangerProb;
+                bleedRate = rangerBleedRate;
+                damage = rangerDamageAmount;
+                headShotRate = rangerHead;
+                lives = rangerLives;
+
+
 
             }
             if (GameManager.enemyType == 3)
             {
-                probOfLandingTarget = deputyProb;
-                bleedRate = deptyBleedRate;
-                damage = deptyDamageAmount;
-                headShotRate = deptyHead;
+                probOfLandingTarget = cactusProb;
+                bleedRate = cactusBleedRate;
+                damage = cactusDamageAmount;
+                headShotRate = cactusHead;
+                lives = cactusLives;
+
+
 
             }
             if (GameManager.enemyType == 4)
             {
-                probOfLandingTarget = deputyProb;
-                bleedRate = deptyBleedRate;
-                damage = deptyDamageAmount;
-                headShotRate = deptyHead;
+                probOfLandingTarget = bankerProb;
+                bleedRate = bankerBleedRate;
+                damage = bankerDamageAmount;
+                headShotRate = bankerHead;
+                lives = bankerLives;
 
             }
             if (GameManager.enemyType == 5)
             {
-                probOfLandingTarget = deputyProb;
-                bleedRate = deptyBleedRate;
-                damage = deptyDamageAmount;
-                headShotRate = deptyHead;
-
+                probOfLandingTarget = sheriffProb;
+                bleedRate = sheriffBleedRate;
+                damage = sheriffDamageAmount;
+                headShotRate = sheriffHead;
+                lives = sheriffLives;
             }
         }
         else //this shows that no enemy type is being recorded meaning something sus is happening here
         {
             Debug.Log("Something sus is going on here");
         }
-
-        enemyShootReset();
-        secondChanceTime = false;
-        secondChanceTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager == null)
+        {
+            GameManagerObj = GameObject.Find("gameManager");
+            GameManager = GameManagerObj.GetComponent<gameManager>();
+        }
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             if (fireIndex == 0)
@@ -134,37 +157,56 @@ public class enemyShootProb : MonoBehaviour
             }
         }
 
-        if (CheckScript.playerShotAcc == true)
+        if (CheckScript.playerShotAcc == true) // check if player shot has landed
         {
-            skillCheck.enemyTurnToShoot = false;
-            anim.SetBool("isDeadEnemy", true);
+            if(livesIndex == 0)
+            {
+                StartCoroutine(playerAccurate());
+                livesIndex = 1;
+            }
+
+
         }
+    }
+    private IEnumerator playerAccurate()
+    {
+        yield return new WaitForSeconds(1f);
+        if (lives > 0)
+        {
+            lives = lives - 1;
+            secondChanceTime = true;
+            skillCheck.enemyTurnToShoot = false;
+            anim.SetTrigger("isDamageEnemy");
+            CheckScript.playerShotAcc = false;
+            livesIndex = 0;
+        }
+        else if (lives <= 0)
+        {
+            Debug.Log("died bruh");
+            skillCheck.enemyTurnToShoot = false;
+            StartCoroutine(deathAnim());
+        }
+    }
+    private IEnumerator deathAnim()
+    {
+        anim.SetBool("isDeadEnemy", true);
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(omgThisIsSoBad());
+
+    }
+    private IEnumerator omgThisIsSoBad()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.8f);
+        Debug.Log(anim.GetCurrentAnimatorStateInfo(0).length);
+        GameManager.RelocateAfterCombat = true;
+        controller.searchScenes(GameManager.lastKnownScene); //but here later on call something from the game manager which stores the proper scene to go into
     }
     private IEnumerator enemyShootAndAnimation()
     {
         anim.SetTrigger("isShootEnemy");
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
+        yield return new WaitForSeconds(2.5f);
         enemyFire();
     }
-
-
-    void FixedUpdate()
-    {
-        if (secondChanceTime)
-        {
-            secondChanceTimer = secondChanceTimer + Time.deltaTime;
-
-            if(secondChanceTimer >= 1.3f)
-            {
-                skillCheck.secondChance();
-                enemyShootReset();
-                secondChanceTime = false;
-                secondChanceTimer = 0f;
-            }
-        }
-    }
-
-
     private void enemyFire()
     {
         probOfLanding = Random.Range(0, 100);
@@ -172,18 +214,21 @@ public class enemyShootProb : MonoBehaviour
         {
             Debug.Log("Player got head shotted");
             Shake.enemyShotShake();
-            GameManager.Damage(damage*2);
-            if(GameManager.HealthCurrent > 0)
+            playerAnim.SetTrigger("isDamage");
+            GameManager.Damage(damage * 2);
+            if (GameManager.HealthCurrent > 0)
             {
                 secondChanceTime = true;
                 skillCheck.enemyTurnToShoot = false;
             }
         }
-        else if(probOfLanding > headShotRate && probOfLanding <= probOfLandingTarget)
+        else if (probOfLanding > headShotRate && probOfLanding <= probOfLandingTarget)
         {
             Debug.Log("Player got hit with a crippling shot");
+            playerAnim.SetTrigger("isDamage");
+            GameManager.Damage(damage);
             int bleedProbability = Random.Range(0, 100);
-            if(bleedProbability <= bleedRate) // bleed controller
+            if (bleedProbability <= bleedRate) // bleed controller
             {
                 GameManager.bleeding = true;
             }
@@ -206,6 +251,26 @@ public class enemyShootProb : MonoBehaviour
             enemyShootReset();
         }
     }
+
+
+    void FixedUpdate()
+    {
+        if (secondChanceTime)
+        {
+            secondChanceTimer = secondChanceTimer + Time.deltaTime;
+
+            if(secondChanceTimer >= 1.3f)
+            {
+                skillCheck.secondChance();
+                enemyShootReset();
+                secondChanceTime = false;
+                secondChanceTimer = 0f;
+            }
+        }
+    }
+
+
+    
 
     private void enemyShootReset()
     {

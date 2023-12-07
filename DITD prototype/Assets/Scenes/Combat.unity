@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &18190992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6727211381540152835, guid: d2c45bd25d5fa9a48b94ce2c5996bc51, type: 3}
+  m_PrefabInstance: {fileID: 1571416987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649c21778b8e1804fa406d4c505ea93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139553569
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +633,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a79cbbb152d52044887258e25f2e3f74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e0def459e6c1f74ca877c717c0edb93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -660,9 +671,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fc072f716d4194abe606154bce3fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 18190992}
   skillCheck: {fileID: 1609624497}
   CheckScript: {fileID: 946410198}
   anim: {fileID: 599392583}
+  playerAnim: {fileID: 1369560916}
   Shake: {fileID: 1608906749}
   GameManagerObj: {fileID: 0}
   GameManager: {fileID: 0}
@@ -1819,9 +1832,6 @@ MonoBehaviour:
   fireTime: 0
   drawIndex: 0
   enemyTurnToShoot: 0
-  npcEnemy: 0
-  copEnemy: 0
-  bossEnemy: 1
 --- !u!1001 &1740603260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1830,6 +1840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: enemyType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.22134

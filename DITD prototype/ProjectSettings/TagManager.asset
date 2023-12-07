@@ -70,3 +70,6 @@ TagManager:
   - name: Buildings Higher
     uniqueID: 599548245
     locked: 0
+  - name: HIGHER
+    uniqueID: 1535241271
+    locked: 0
