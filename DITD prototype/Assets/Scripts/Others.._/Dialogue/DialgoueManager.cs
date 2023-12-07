@@ -94,6 +94,7 @@ public class DialgoueManager : MonoBehaviour
             }else if(dialogueTrigger.isCutScene == true)
             {
                 muteDialogueAudio = true;
+                AudManager.Instance.PlayDialogue("Silence");
                 continueButton.gameObject.SetActive(true);
             }
         }

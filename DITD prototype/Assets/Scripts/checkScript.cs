@@ -63,14 +63,19 @@ public class checkScript : MonoBehaviour
             {
                 missText.SetActive(false);
                 EnemyShootProb.fireIndex = 0;
-                skillCheck.enemyTurnToShoot = true;
                 timerMiss = false;
                 timerMissValue = 0f;
                 i = 0;
+                StartCoroutine(enemyTurnToShoot());
             }
 
         }
         
+    }
+    private IEnumerator enemyTurnToShoot()
+    {
+        yield return new WaitForSeconds(0.5f);
+        skillCheck.enemyTurnToShoot = true;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

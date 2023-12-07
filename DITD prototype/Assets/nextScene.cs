@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
@@ -20,6 +19,5 @@ public class nextScene : MonoBehaviour
         nextSceneName = gameObject.name;
         NextSceneThing.transitionOptions(nextSceneName);
         Debug.Log(nextSceneName);
-        Debug.Log("I hate you");
     }
 }

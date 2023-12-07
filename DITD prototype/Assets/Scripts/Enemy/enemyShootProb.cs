@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class enemyShootProb : MonoBehaviour
@@ -143,11 +144,7 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager == null)
-        {
-            GameManagerObj = GameObject.Find("gameManager");
-            GameManager = GameManagerObj.GetComponent<gameManager>();
-        }
+ 
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             if (fireIndex == 0)
@@ -191,10 +188,10 @@ public class enemyShootProb : MonoBehaviour
     {
         anim.SetBool("isDeadEnemy", true);
         yield return new WaitForSeconds(0.3f);
-        StartCoroutine(omgThisIsSoBad());
+        StartCoroutine(deathAnim2());
 
     }
-    private IEnumerator omgThisIsSoBad()
+    private IEnumerator deathAnim2()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.8f);
         Debug.Log(anim.GetCurrentAnimatorStateInfo(0).length);
@@ -204,7 +201,13 @@ public class enemyShootProb : MonoBehaviour
     private IEnumerator enemyShootAndAnimation()
     {
         anim.SetTrigger("isShootEnemy");
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(enemyShootAndAnimation2());
+    }
+
+    private IEnumerator enemyShootAndAnimation2()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.6f);
         enemyFire();
     }
     private void enemyFire()

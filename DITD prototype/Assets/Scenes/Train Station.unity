@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Survive survive survive survive survive
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
   m_sharedMaterial: {fileID: -4570479136430521874, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Current Objective:'
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
   m_sharedMaterial: {fileID: -4570479136430521874, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
@@ -4288,7 +4288,7 @@ PrefabInstance:
     - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: objectiveText
       value: 
-      objectReference: {fileID: 23612002}
+      objectReference: {fileID: 0}
     - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.22134

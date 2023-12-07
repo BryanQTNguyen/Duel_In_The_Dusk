@@ -847,7 +847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.size
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: musicSounds.Array.data[0].name
@@ -1051,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 6b90253eda09dfc40adcfe4fc3e9d730, type: 3}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[24].name
-      value: cactus 1
+      value: 'cactus 1 '
       objectReference: {fileID: 0}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[25].clip
@@ -1067,7 +1067,23 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3cd6c0ef7ccd9a346b34c369af6a65d0, type: 3}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[26].name
-      value: cactus 2
+      value: 'cactus 2 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[27].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7aad7d7ca492a69489a6c3b15a527c40, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[27].name
+      value: Silence
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[28].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cd6c0ef7ccd9a346b34c369af6a65d0, type: 3}
+    - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
+      propertyPath: dialogueSound.Array.data[28].name
+      value: 'cactus 2 '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
