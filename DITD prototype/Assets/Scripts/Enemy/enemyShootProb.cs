@@ -18,6 +18,7 @@ public class enemyShootProb : MonoBehaviour
     [SerializeField] shake Shake;
     [SerializeField] GameObject GameManagerObj;
     [SerializeField] gameManager GameManager;
+    private int gameManagerIndex;
 
     public int lives;
 
@@ -144,7 +145,13 @@ public class enemyShootProb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        if(GameManager == null && gameManagerIndex == 0)
+        {
+            GameManagerObj = GameObject.Find("gameManager");
+            GameManager = GameManagerObj.GetComponent<gameManager>();
+            gameManagerIndex++;
+        }
+
         if (skillCheck.enemyTurnToShoot == true && fireIndex == 0)
         {
             if (fireIndex == 0)
@@ -201,13 +208,7 @@ public class enemyShootProb : MonoBehaviour
     private IEnumerator enemyShootAndAnimation()
     {
         anim.SetTrigger("isShootEnemy");
-        yield return new WaitForSeconds(0.3f);
-        StartCoroutine(enemyShootAndAnimation2());
-    }
-
-    private IEnumerator enemyShootAndAnimation2()
-    {
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - 0.6f);
+        yield return new WaitForSeconds(2.3f);
         enemyFire();
     }
     private void enemyFire()
@@ -262,7 +263,7 @@ public class enemyShootProb : MonoBehaviour
         {
             secondChanceTimer = secondChanceTimer + Time.deltaTime;
 
-            if(secondChanceTimer >= 1.3f)
+            if(secondChanceTimer >= 1f)
             {
                 skillCheck.secondChance();
                 enemyShootReset();

@@ -172,9 +172,6 @@ public class gameManager : MonoBehaviour
             Debug.Log("There is no player in this scene so I'm not loading"); //cannot find the proper script that identifies the player
         }
 
-        //relocate the player
-
-
         //check enemy for combat scene
         if(enemyType != 0)
         {
@@ -305,9 +302,9 @@ public class gameManager : MonoBehaviour
 
     public void Death()
     {
-        
         if(SceneManager.GetActiveScene().name == "Combat")
         {
+            Character = GameObject.FindWithTag("Player");
             characterAnimCombat = Character.GetComponent<Animator>();
         }
         characterAnimCombat.SetTrigger("isDead");
