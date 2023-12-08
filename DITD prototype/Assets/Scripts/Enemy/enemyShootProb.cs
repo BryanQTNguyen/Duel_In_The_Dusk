@@ -41,9 +41,9 @@ public class enemyShootProb : MonoBehaviour
     private int sheriffHead = 20; //headshot rate
     private int sheriffDamageAmount = 20;
     private int sheriffLives = 4;
-    private int sheriffBleedRate = 60; 
+    private int sheriffBleedRate = 80; 
 
-    private int bankerProb = 50;
+    private int bankerProb = 70;
     private int bankerHead = 0;
     private int bankerDamageAmount = 35;
     private int bankerLives = 3;
@@ -53,13 +53,13 @@ public class enemyShootProb : MonoBehaviour
     private int deptyHead = 5;
     private int deptyDamageAmount = 10;
     private int deptyLives = 2;
-    private int deptyBleedRate = 40;
+    private int deptyBleedRate = 60;
 
     private int rangerProb = 70;
     private int rangerHead = 5;
     private int rangerDamageAmount = 15;
     private int rangerLives = 2;
-    private int rangerBleedRate = 40;
+    private int rangerBleedRate = 60;
 
     private int cactusProb = 70;
     private int cactusHead = 10;

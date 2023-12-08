@@ -633,15 +633,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8a0c42f7ca812d341980a03b021f1c9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.1, y: 15}
+  m_Size: {x: 7.2, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &599392581
@@ -1421,8 +1421,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1535241271
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 83b7d5c14342238409d25df7bede2607, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1864,7 +1864,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: enemyType
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2634,15 +2634,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b81f752b17b3a4a853048e2aa3a747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playBackgroundMusic: 0
+  playBackgroundMusic: 1
   saloonMusic: 0
-  townMusic: 0
+  townMusic: 1
   bankMusic: 0
   stationMusic: 0
   horseMusic: 0
   mainMenusBG: 0
-  musicSounds: []
-  sfxSounds: []
+  musicSounds:
+  - name: SaloonBG
+    clip: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+  - name: TownBG
+    clip: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+  - name: BankBG
+    clip: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+  - name: StationBG
+    clip: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+  - name: HorseBG
+    clip: {fileID: 8300000, guid: e4476d3b55028424b80450e30ed5b4e0, type: 3}
+  - name: CombatBG
+    clip: {fileID: 8300000, guid: 710fc56857b650f4889d771466fe731f, type: 3}
+  sfxSounds:
+  - name: playerHit
+    clip: {fileID: 8300000, guid: 24439478dfefaca459ad233a8a37a213, type: 3}
+  - name: playerShot
+    clip: {fileID: 8300000, guid: 7a748f1e098cd4343ae7d3b3395f990b, type: 3}
+  - name: enemyMiss
+    clip: {fileID: 8300000, guid: 08af61c15e6e622479db94026755d16a, type: 3}
+  - name: enemyDies
+    clip: {fileID: 8300000, guid: 240c950e37c62214b95def2c5c4af43a, type: 3}
+  - name: bleeding
+    clip: {fileID: 8300000, guid: ce05982dd8ddf7a40a0d8a55a53e12c1, type: 3}
+  - name: bandages
+    clip: {fileID: 8300000, guid: 997147f655a110e4d9f0c3f663d50c45, type: 3}
   walkSound:
   - name: Walk
     clip: {fileID: 8300000, guid: ae8b1fb054bb1ca4e93574705da79c47, type: 3}
@@ -2655,6 +2679,64 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b94c9a8c1a17f37408401583ea2f78cc, type: 3}
   - name: d4
     clip: {fileID: 8300000, guid: e6d1e00a4b8d2454e9c7795f58ffc226, type: 3}
+  - name: intro
+    clip: {fileID: 8300000, guid: 9b2385e8d373dc548ae919a9e1fbf5c2, type: 3}
+  - name: intro2
+    clip: {fileID: 8300000, guid: e05953e2d575e9041b39b9c6a6ef9119, type: 3}
+  - name: intro3
+    clip: {fileID: 8300000, guid: 59940a68778a05140a1bc9d313d780fc, type: 3}
+  - name: Not Racist Mary 1
+    clip: {fileID: 8300000, guid: ae464edb94a644b4284d38d3cac719e4, type: 3}
+  - name: racist bob 1
+    clip: {fileID: 8300000, guid: 2b8065eb9221d7246b4e8ea50e7ce0bb, type: 3}
+  - name: racist bob 2
+    clip: {fileID: 8300000, guid: 98e14b4d7e7f9c542a2492e0debb0aed, type: 3}
+  - name: bartender1
+    clip: {fileID: 8300000, guid: 0ee829d5c7fe2a14d947227a90e53d9d, type: 3}
+  - name: Not Racist Mary 2
+    clip: {fileID: 8300000, guid: e1e281d15b6b0b04d87a6b4bd5ccdc4b, type: 3}
+  - name: Carter1
+    clip: {fileID: 8300000, guid: d656028f03aee91438c463f62774e722, type: 3}
+  - name: bartender2
+    clip: {fileID: 8300000, guid: 801827384c9d4544b8779f0ac5768485, type: 3}
+  - name: Carter2
+    clip: {fileID: 8300000, guid: 170a247a658a61140b6e2ca89c4709b9, type: 3}
+  - name: Carter3
+    clip: {fileID: 8300000, guid: 6ab4f6bb9b46faf40a64d7b60951bd65, type: 3}
+  - name: Sheriff1
+    clip: {fileID: 8300000, guid: 81d50c60c27ae3f45a0fa3a19e000382, type: 3}
+  - name: 'Racist Jamall 1 '
+    clip: {fileID: 8300000, guid: 95b9e4d8b28c98840930b70655d21722, type: 3}
+  - name: Racist Jamall 2
+    clip: {fileID: 8300000, guid: 4c56f2c45b457ab4fb87a7997239a94d, type: 3}
+  - name: Carter4
+    clip: {fileID: 8300000, guid: 9afae352e94ec1745810afaa0569c5cd, type: 3}
+  - name: 'Racist Deputy 1 '
+    clip: {fileID: 8300000, guid: 3142775a886577e4783603978faf2b17, type: 3}
+  - name: 'Carter5 '
+    clip: {fileID: 8300000, guid: 0c0d372b5441fde4bab47427ab085922, type: 3}
+  - name: 'Racist Deputy 2 '
+    clip: {fileID: 8300000, guid: d157d183c68993845a6de5d17eec87ff, type: 3}
+  - name: Carter6
+    clip: {fileID: 8300000, guid: 2f7b5ca2a7246e743aadf453fc667be5, type: 3}
+  - name: 'cactus 1 '
+    clip: {fileID: 8300000, guid: 6b90253eda09dfc40adcfe4fc3e9d730, type: 3}
+  - name: Carter7
+    clip: {fileID: 8300000, guid: 415cc84ad58e21e4e9a5841d3b0957f9, type: 3}
+  - name: 'cactus 2 '
+    clip: {fileID: 8300000, guid: 3cd6c0ef7ccd9a346b34c369af6a65d0, type: 3}
+  - name: Silence
+    clip: {fileID: 8300000, guid: 7aad7d7ca492a69489a6c3b15a527c40, type: 3}
+  - name: deputy3
+    clip: {fileID: 8300000, guid: e57296bc5e836e54b8f144131bd78f0b, type: 3}
+  - name: 'Banker 1 '
+    clip: {fileID: 8300000, guid: 238f06ee4192f014c91419af3b5f9352, type: 3}
+  - name: ranger1
+    clip: {fileID: 8300000, guid: 8398d2a6483417f45ad65f36fb18304b, type: 3}
+  - name: carter8
+    clip: {fileID: 8300000, guid: 6e7644b97ee0b784797f2b134a4cff2a, type: 3}
+  - name: ranger2
+    clip: {fileID: 8300000, guid: 03def3c52134df74488827ec194774f6, type: 3}
   musicSource: {fileID: 7047152805229863988}
   sfxSource: {fileID: 1366609699014187838}
   walkSource: {fileID: 100360449737402826}
