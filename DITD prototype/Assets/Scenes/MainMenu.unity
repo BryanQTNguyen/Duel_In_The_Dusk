@@ -1164,7 +1164,7 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[31].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6e7644b97ee0b784797f2b134a4cff2a, type: 3}
+      objectReference: {fileID: 8300000, guid: 03def3c52134df74488827ec194774f6, type: 3}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[31].name
       value: carter8
@@ -1172,7 +1172,7 @@ PrefabInstance:
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[32].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 03def3c52134df74488827ec194774f6, type: 3}
+      objectReference: {fileID: 8300000, guid: 6e7644b97ee0b784797f2b134a4cff2a, type: 3}
     - target: {fileID: 8745689858077118711, guid: 579e5b8d9899f1d429fba4380148c858, type: 3}
       propertyPath: dialogueSound.Array.data[32].name
       value: ranger2
