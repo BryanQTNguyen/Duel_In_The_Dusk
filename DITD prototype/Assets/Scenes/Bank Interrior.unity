@@ -557,6 +557,7 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   enemyAnimator: {fileID: 0}
   backgroundAnimator: {fileID: 0}
+  isLastFight: 0
   lastKnownScene: 
   lastKnownPosition: {x: 0, y: 0, z: 0}
   enemyToDeactivate: {fileID: 0}
@@ -566,6 +567,7 @@ MonoBehaviour:
   objectiveText: {fileID: 0}
   objectiveNumber: 0
   objectWithPro: {fileID: 0}
+  hasKey: 0
   SceneFrom: 0
   deputy1: {fileID: 0}
   deputy2: {fileID: 0}
@@ -580,7 +582,9 @@ MonoBehaviour:
   earlyGameProgress: 0
   agroGame: 0
   endGame: 0
+  lastFight: 0
   RelocateAfterCombat: 0
+  textStuff: {fileID: 0}
 --- !u!4 &237374844
 Transform:
   m_ObjectHideFlags: 0
@@ -2302,6 +2306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
+      propertyPath: textStuff
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2329507525996850873, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.22134

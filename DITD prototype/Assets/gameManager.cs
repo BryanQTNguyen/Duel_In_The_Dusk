@@ -48,6 +48,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] Animator enemyAnimator;
     private GameObject backgroundAnimatorObj;
     [SerializeField] Animator backgroundAnimator;
+    public bool isLastFight;
 
     //after combat
     public string lastKnownScene;
@@ -63,6 +64,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] GameObject objectWithPro;
     private string[] objectiveNames = { "Beat Cactus Tutorial (optional) or continue to saloon", "Find and rob the bank!", "Find a way out of the town",
     "You now hate the train go kill it", "Escape with horses"};
+
+    public bool hasKey = false;
 
     //values for the location to transport the player
 
@@ -83,6 +86,7 @@ public class gameManager : MonoBehaviour
     private float barnY = 19.39f;
 
     public int SceneFrom;
+
     //From saloon = 1
     //From station = 2
     //From Bank = 3
@@ -104,6 +108,7 @@ public class gameManager : MonoBehaviour
     public bool earlyGameProgress = false; //leave saloon
     public bool agroGame = false; //just robbed bank
     public bool endGame = false; //got to the horses
+    public bool lastFight = false;
 
 
 
@@ -118,7 +123,10 @@ public class gameManager : MonoBehaviour
 1 = rifle
 2 = shotgun
 */
-
+    //reminder
+    public GameObject textStuff;
+    private bool timerForText;
+    private float timer;
 
     private void Awake()
     {
@@ -141,6 +149,9 @@ public class gameManager : MonoBehaviour
         earlyGameProgress = false;
         agroGame = false;
         endGame = false;
+        lastFight = false;
+        hasKey = false;
+        isLastFight = false;
         healthBarObject = GameObject.FindWithTag("healthBar");
         healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
         HealthCurrent = HealthMax;
@@ -156,7 +167,8 @@ public class gameManager : MonoBehaviour
         {
             Death();
         }
-        if(SceneManager.GetActiveScene().name == "Bank Interrior" && enemiesToDeactivateBank.Count >= 1)
+      
+        if (SceneManager.GetActiveScene().name == "Bank Interrior" && enemiesToDeactivateBank.Count >= 1)
         {
             foreach (string enemyNames in enemiesToDeactivateBank)
             {
@@ -204,7 +216,7 @@ public class gameManager : MonoBehaviour
         //this is used to initialize certain variables when the player is in
         if (SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
     == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
-    SceneManager.GetActiveScene().name == "Barn-stable" || SceneManager.GetActiveScene().name =="Combat") //checking if the scene is playabl
+    SceneManager.GetActiveScene().name == "Barn-stable" || SceneManager.GetActiveScene().name =="Combat" || SceneManager.GetActiveScene().name == "lastFight") //checking if the scene is playabl
         {
             if (playerScript)
             {
@@ -348,6 +360,14 @@ public class gameManager : MonoBehaviour
 
 
                 }
+                if(lastKnownScene == "lastFight")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("outside", true);
+                }
                 if (lastKnownScene == "Saloon")
                 {
                     foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
@@ -469,6 +489,8 @@ public class gameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3.13f);
         sceneController.lose();
+        bleeding = false;
+        Debug.Log("hi");
         Destroy(gameObject);
     }
 
@@ -501,37 +523,49 @@ public class gameManager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name != "Combat" && RelocateAfterCombat == true)
         {
-            Character = GameObject.FindWithTag("Player");
-            Character.transform.position = lastKnownPosition;
+            if (isLastFight == true)
+            {
+                Debug.Log("hi");
+                bleeding = false;
+                Destroy(gameObject);
+            }
+            if(lastFight== false)
+            {
+                Character = GameObject.FindWithTag("Player");
+                Character.transform.position = lastKnownPosition;
 
-            if (enemyName != "cactus")
-            {
-                enemyToDeactivate = GameObject.Find(enemyName);
-                if (lastKnownScene == "Bank Interrior")
+                if (enemyName != "cactus")
                 {
-                    enemiesToDeactivateBank.Add(enemyName);
+                    enemyToDeactivate = GameObject.Find(enemyName);
+                    if (lastKnownScene == "Bank Interrior")
+                    {
+                        enemiesToDeactivateBank.Add(enemyName);
+                    }
+                    if (lastKnownScene == "SampleScene")
+                    {
+                        enemiesToDeactivateSS.Add(enemyName);
+                    }
+                    if (lastKnownScene == "Bank Interrior")
+                    {
+                        enemiesToDeactivateBarn.Add(enemyName);
+                    }
+                    enemyToDeactivate.SetActive(false);
                 }
-                if (lastKnownScene == "SampleScene")
+                if (enemyName == "banker")
                 {
-                    enemiesToDeactivateSS.Add(enemyName);
+                    agroGame = true;
                 }
-                if (lastKnownScene == "Bank Interrior")
+                if (enemyName == "rangerBank")
                 {
-                    enemiesToDeactivateBarn.Add(enemyName);
+                    endGame = true;
                 }
-                enemyToDeactivate.SetActive(false);
+                Character.transform.position = lastKnownPosition;
+
+                RelocateAfterCombat = false;
             }
-            if(enemyName == "banker")
-            {
-                agroGame = true;
-            }
-            if (enemyName == "rangerBank")
-            {
-                endGame = true;
-            }
-            Character.transform.position = lastKnownPosition;
+                
             
-            RelocateAfterCombat = false;
         }
+            
     }
 }

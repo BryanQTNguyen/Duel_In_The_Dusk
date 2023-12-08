@@ -54,10 +54,11 @@ public class DialogueTrigger : MonoBehaviour
 
         
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("fkdsjaf");
             isInTalkingRange = true;
             if (agressiveStart == false)
                 pressF.SetActive(true);

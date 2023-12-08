@@ -30,6 +30,10 @@ public class SceneController : MonoBehaviour
             trainStation();
         if (searched == "WinScene")
             win();
+        if(searched == "lastFight")
+        {
+            win();
+        }
 
     }
     
@@ -95,6 +99,11 @@ public class SceneController : MonoBehaviour
     public void barnStable()
     {
         sceneID = 10;
+        StartCoroutine(LoadScene());
+    }
+    public void lastFight()
+    {
+        sceneID = 11;
         StartCoroutine(LoadScene());
     }
     public void quitGame()

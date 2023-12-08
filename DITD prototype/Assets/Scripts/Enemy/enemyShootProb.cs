@@ -41,7 +41,7 @@ public class enemyShootProb : MonoBehaviour
     private int sheriffHead = 20; //headshot rate
     private int sheriffDamageAmount = 20;
     private int sheriffLives = 4;
-    private int sheriffBleedRate = 30; 
+    private int sheriffBleedRate = 60; 
 
     private int bankerProb = 50;
     private int bankerHead = 0;
@@ -128,6 +128,14 @@ public class enemyShootProb : MonoBehaviour
 
             }
             if (GameManager.enemyType == 5)
+            {
+                probOfLandingTarget = sheriffProb;
+                bleedRate = sheriffBleedRate;
+                damage = sheriffDamageAmount;
+                headShotRate = sheriffHead;
+                lives = sheriffLives;
+            }
+            if(GameManager.enemyType == 6)
             {
                 probOfLandingTarget = sheriffProb;
                 bleedRate = sheriffBleedRate;
