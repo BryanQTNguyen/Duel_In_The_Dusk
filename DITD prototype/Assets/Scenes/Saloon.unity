@@ -2126,8 +2126,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 413354173}
   - {fileID: 1134505643}
+  - {fileID: 413354173}
   - {fileID: 994174031}
   - {fileID: 1993384289}
   - {fileID: 660852129}
@@ -2456,6 +2456,63 @@ PolygonCollider2D:
       - {x: 1.1428163, y: 0.5451454}
       - {x: 0.9831071, y: 0.69447684}
   m_UseDelaunayMesh: 0
+--- !u!1001 &1022546267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.1148663
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7922325
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52664946325387833, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147054278017148254, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
+      propertyPath: m_Name
+      value: Bandage 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1e2134c715cf6c49b023f48afc7f73b, type: 3}
 --- !u!1 &1023674737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4640,6 +4697,7 @@ GameObject:
   - component: {fileID: 1985833645}
   - component: {fileID: 1985833648}
   - component: {fileID: 1985833647}
+  - component: {fileID: 1985833649}
   m_Layer: 0
   m_Name: sheriff
   m_TagString: Untagged
@@ -4784,6 +4842,7 @@ MonoBehaviour:
   - name: Carter
     sprite: {fileID: 21300000, guid: 1376dbfcd87288a4d83529e9af9efe20, type: 3}
   enemyIdentify: 0
+  enemyName: 
   isInTalkingRange: 0
   manager: {fileID: 472803732}
   fadeScript: {fileID: 1232927901}
@@ -4793,6 +4852,20 @@ MonoBehaviour:
   - Carter3
   agressiveStart: 1
   fightingWords: 0
+--- !u!114 &1985833649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985833644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d4865639ded94448b5e8b8396cf3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerObj: {fileID: 0}
+  GameManager: {fileID: 0}
 --- !u!1 &1992369212
 GameObject:
   m_ObjectHideFlags: 0
@@ -5444,3 +5517,4 @@ SceneRoots:
   - {fileID: 341972589}
   - {fileID: 783456111}
   - {fileID: 707029121}
+  - {fileID: 1022546267}

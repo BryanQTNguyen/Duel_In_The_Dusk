@@ -58,6 +58,8 @@ public class nextSceneThing : MonoBehaviour
         if(NextSceneNameSave == "SToSS")
         {
             controller.outsideWorld();
+            GameManager.earlyGame = false;
+            GameManager.earlyGameProgress = true;
             GameManager.SceneFrom = 1;
         }
 
@@ -70,7 +72,7 @@ public class nextSceneThing : MonoBehaviour
         }
 
         if (NextSceneNameSave == "SSToBR") //barn
-            controller.saloon();
+            controller.barnStable();
         if (NextSceneNameSave == "BRToSS")
         {
             controller.outsideWorld();

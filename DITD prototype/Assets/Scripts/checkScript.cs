@@ -34,12 +34,14 @@ public class checkScript : MonoBehaviour
         {
             if (notAccurate == false)
             {
+                AudManager.Instance.PlaySFX("playerShot");
                 Debug.Log("Shot Landed!"); //player accuracy descr
                 playerShotAcc = true;
                 shotIndex = 1;
             }
             else if (notAccurate == true)
             {
+                AudManager.Instance.PlaySFX("playerShot");
                 Debug.Log("Skill issue you missed");
                 skillCheck.playerShot = false;
                 playerShotAcc = false;

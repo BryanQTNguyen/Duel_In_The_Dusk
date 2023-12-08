@@ -18,6 +18,16 @@ TagManager:
   - healthBar
   - objectiveList
   - gameManager
+  - deputy1
+  - deputy2
+  - deputy3
+  - ranger4
+  - ranger 5
+  - banker
+  - sheriff
+  - deputyBank
+  - rangerBank
+  - cactus
   layers:
   - Default
   - TransparentFX

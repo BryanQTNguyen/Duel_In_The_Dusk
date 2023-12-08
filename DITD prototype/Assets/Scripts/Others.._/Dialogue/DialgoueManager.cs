@@ -31,6 +31,7 @@ public class DialgoueManager : MonoBehaviour
     Actor[] currentActor;
     string[] currentAudio;
     int currentEnemy;
+    string currentEnemySpecifics;
     int activeMessage = 0;
     public bool isActive = false;
     public float typingSpeed;
@@ -38,13 +39,14 @@ public class DialgoueManager : MonoBehaviour
 
     public FadeScript fadeScript;
 
-    public void OpenDialogue(Message[] messages, Actor[] actors, string[] audios, int enemyIdentify)
+    public void OpenDialogue(Message[] messages, Actor[] actors, string[] audios, int enemyIdentify, string enemyName)
     {
         fadeScript.ShowDialogue();
         currentMessages = messages;
         currentActor = actors;
         currentAudio = audios;
         currentEnemy = enemyIdentify;
+        currentEnemySpecifics = enemyName;
         activeMessage = 0;
         isActive = true;
         DisplayMessage();
@@ -78,13 +80,12 @@ public class DialgoueManager : MonoBehaviour
                 managerObj = GameObject.Find("gameManager");
                 manager = managerObj.GetComponent<gameManager>();
                 manager.enemyType = currentEnemy;
+                manager.enemyName = currentEnemySpecifics;
                 manager.lastKnownScene = SceneManager.GetActiveScene().name;
                 character = GameObject.Find("Carter");
                 manager.lastKnownPosition = character.transform.position;
                 muteDialogueAudio = true;
                 controller.combat();
-                //check what type of enemy it is
-                //load the combat scene
             }else if (dialogueTrigger.isCutScene == false)
             {
                 isActive = false;

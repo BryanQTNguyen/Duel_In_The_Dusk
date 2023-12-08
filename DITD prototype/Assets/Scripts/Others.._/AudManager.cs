@@ -54,8 +54,21 @@ public class AudManager : MonoBehaviour
     }
     public void Update()
     {
+        if(SceneManager.GetActiveScene().name == "Combat"){
+            if(musicSource.clip.name == "onehorsetown")
+            {
+                PlayMusic("CombatBG");
+            }
+        }
+        if(SceneManager.GetActiveScene().name != "Combat")
+        {
+            if(musicSource.clip.name == "lassolady" || musicSource.clip.name != "onehorsetown")
+            {
+                PlayMusic("TownBG");
+            }
+        }
         if (SceneManager.GetActiveScene().name == "cutSceneFirst" || SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
-            == "Bank Interrior" || SceneManager.GetActiveScene().name == "SampleScene")
+            == "Bank Interrior" || SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Saloon")
         {
             dialogueObject = GameObject.FindWithTag("dialogueManager");
             dialogueManager = dialogueObject.GetComponent<DialgoueManager>();

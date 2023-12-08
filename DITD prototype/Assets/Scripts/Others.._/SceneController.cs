@@ -15,7 +15,7 @@ public class SceneController : MonoBehaviour
         if (searched == "Bank Interrior")
             bank();
         if (searched == "Barn-stable")
-            Debug.Log("you didn't set up barn yet");
+            barnStable();
         if (searched == "Combat")
             combat();
         if (searched == "cutSceneFirst")
@@ -90,6 +90,11 @@ public class SceneController : MonoBehaviour
     public void instructions()
     {
         sceneID = 9;
+        StartCoroutine(LoadScene());
+    }
+    public void barnStable()
+    {
+        sceneID = 10;
         StartCoroutine(LoadScene());
     }
     public void quitGame()

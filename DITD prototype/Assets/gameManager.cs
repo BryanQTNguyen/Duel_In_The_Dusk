@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine.UI;
 using System;
+using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -42,12 +43,19 @@ public class gameManager : MonoBehaviour
 
     //combat stuff
     public float enemyType;
+    public string enemyName;
     [SerializeField] GameObject Enemy;
     [SerializeField] Animator enemyAnimator;
+    private GameObject backgroundAnimatorObj;
+    [SerializeField] Animator backgroundAnimator;
 
     //after combat
     public string lastKnownScene;
     public Vector3 lastKnownPosition;
+    public GameObject enemyToDeactivate;
+    public List<string> enemiesToDeactivateBank = new List<string>();
+    public List<string> enemiesToDeactivateSS = new List<string>();
+    public List<string> enemiesToDeactivateBarn = new List<string>();
 
     //objective text and stuff
     [SerializeField] TMP_Text objectiveText;
@@ -70,16 +78,36 @@ public class gameManager : MonoBehaviour
     private float BankX = 89.2f;
     private float BankY = 18.54f;
 
+    //outside the barn
+    private float barnX = 45.78f;
+    private float barnY = 19.39f;
+
     public int SceneFrom;
     //From saloon = 1
     //From station = 2
     //From Bank = 3
     //From Barn = 4
 
+    //different types of enemies and stuff
+    [SerializeField] GameObject deputy1;
+    [SerializeField] GameObject deputy2;
+    [SerializeField] GameObject deputy3;
+    [SerializeField] GameObject ranger4;
+    [SerializeField] GameObject ranger5;
+    [SerializeField] GameObject banker;
+    [SerializeField] GameObject sheriff;
+    [SerializeField] GameObject deputyBank;
+    [SerializeField] GameObject rangerBank;
 
-    //Weapon variables 
-    public int Ammo;
-    public int gunType; // public variable made to inform other scripts that the player has this gun equipped
+    //story variables
+    public bool earlyGame = true; //where nothing happened yet just silly
+    public bool earlyGameProgress = false; //leave saloon
+    public bool agroGame = false; //just robbed bank
+    public bool endGame = false; //got to the horses
+
+
+
+
 
     public bool RelocateAfterCombat = false;
 
@@ -109,8 +137,10 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunType = 0; //character starts with revolver
-        Ammo = 6;
+        earlyGame = true;
+        earlyGameProgress = false;
+        agroGame = false;
+        endGame = false;
         healthBarObject = GameObject.FindWithTag("healthBar");
         healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
         HealthCurrent = HealthMax;
@@ -126,7 +156,51 @@ public class gameManager : MonoBehaviour
         {
             Death();
         }
+        if(SceneManager.GetActiveScene().name == "Bank Interrior" && enemiesToDeactivateBank.Count >= 1)
+        {
+            foreach (string enemyNames in enemiesToDeactivateBank)
+            {
+                // Find the GameObject by name
+                GameObject gameObjectToDeactivate = GameObject.Find(enemyNames);
 
+                // Check if the GameObject is found
+                if (gameObjectToDeactivate != null)
+                {
+                    // Deactivate the GameObject
+                    gameObjectToDeactivate.SetActive(false);
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "SampleScene" && enemiesToDeactivateSS.Count >= 1)
+        {
+            foreach (string enemyNames2 in enemiesToDeactivateSS)
+            {
+                // Find the GameObject by name
+                GameObject gameObjectToDeactivate2 = GameObject.Find(enemyNames2);
+
+                // Check if the GameObject is found
+                if (gameObjectToDeactivate2 != null)
+                {
+                    // Deactivate the GameObject
+                    gameObjectToDeactivate2.SetActive(false);
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "Sample Scene" && enemiesToDeactivateBarn.Count >= 1)
+        {
+            foreach (string enemyNames3 in enemiesToDeactivateBarn)
+            {
+                // Find the GameObject by name
+                GameObject gameObjectToDeactivate3 = GameObject.Find(enemyNames3);
+
+                // Check if the GameObject is found
+                if (gameObjectToDeactivate3 != null)
+                {
+                    // Deactivate the GameObject
+                    gameObjectToDeactivate3.SetActive(false);
+                }
+            }
+        }
         //this is used to initialize certain variables when the player is in
         if (SceneManager.GetActiveScene().name == "Train Station" || SceneManager.GetActiveScene().name
     == "Bank Interrior" || SceneManager.GetActiveScene().name == "Saloon" || SceneManager.GetActiveScene().name == "SampleScene" || 
@@ -147,7 +221,7 @@ public class gameManager : MonoBehaviour
                 BleedPanel = GameObject.Find("Canvas/bleedPanel");
                 
             }
-            
+         
             if (playerScript != null)
             {
                 Bleed();
@@ -166,6 +240,38 @@ public class gameManager : MonoBehaviour
                 healthBarScript.SetHealth(HealthCurrent); //updating the healthBar
             }
 
+            if (SceneManager.GetActiveScene().name == "SampleScene" && agroGame == false)
+            {
+                if(deputy1 == null)
+                {
+                    Debug.Log("hhioifdjspijfds");
+                    deputy1 = GameObject.Find("deputy1");
+                    deputy2 = GameObject.Find("deputy2");
+                    deputy3 = GameObject.Find("deputy3");
+                    ranger4 = GameObject.Find("ranger4");
+                    ranger5 = GameObject.Find("ranger5");
+
+                }
+                if (deputy1.active == true)
+                {
+                    Debug.Log("dfsfds");
+                    deputy1.SetActive(false);
+                    deputy2.SetActive(false);
+                    deputy3.SetActive(false);
+                    ranger4.SetActive(false);
+                    ranger5.SetActive(false);
+                }
+
+
+            }else if (SceneManager.GetActiveScene().name == "Bank Interrior" && earlyGame == true)
+            {
+                if (deputyBank == null)
+                {
+                    deputyBank = GameObject.Find("deputyBank");
+                }
+            }
+
+
         }
         else
         {
@@ -179,6 +285,8 @@ public class gameManager : MonoBehaviour
             {
                 Enemy = GameObject.Find("MainEnemy");
                 enemyAnimator = Enemy.GetComponent<Animator>();
+                backgroundAnimatorObj = GameObject.Find("interiorArt");
+                backgroundAnimator = backgroundAnimatorObj.GetComponent<Animator>();
                 if(enemyType == 1)
                 {
                     enemyAnimator.SetBool("deputy", true);
@@ -229,6 +337,53 @@ public class gameManager : MonoBehaviour
                     enemyAnimator.SetBool("banker", false);
                     enemyAnimator.SetBool("ranger", false);
                 }
+                if (lastKnownScene == "SampleScene")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("outside", true);
+                    
+
+
+                }
+                if (lastKnownScene == "Saloon")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("saloon", true);
+                    
+                }
+                if (lastKnownScene == "Train Station")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("trainStation", true);
+                    
+                }
+                if (lastKnownScene == "Barn-stable")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("barn", true);
+                    
+                }
+                if (lastKnownScene == "Bank Interrior")
+                {
+                    foreach (AnimatorControllerParameter parameter in backgroundAnimator.parameters)
+                    {
+                        backgroundAnimator.SetBool(parameter.name, false);
+                    }
+                    backgroundAnimator.SetBool("bank", true);
+                    
+                }
             }
         }
         else if (SceneManager.GetActiveScene().name == "Combat")
@@ -269,7 +424,6 @@ public class gameManager : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        Debug.Log("daamge is worfdsjakl");
         HealthCurrent = HealthCurrent - damageAmount;
         healthBarObject = GameObject.FindWithTag("healthBar");
         healthBarScript = healthBarObject.GetComponent<PlayerHealth>();
@@ -282,13 +436,14 @@ public class gameManager : MonoBehaviour
 
     public void Bleed()
     {
-        if (playerScript.bleed == true)
+        if (bleeding == true)
         {
             BleedPanel.SetActive(true);
             bleedTimer += Time.deltaTime;
             if(bleedTimer >= 5)
             {
                 HealthCurrent = HealthCurrent - bleedDamage;
+                AudManager.Instance.PlaySFX("playerHit");
                 bleedTimer = 0;
             }
         }
@@ -325,6 +480,22 @@ public class gameManager : MonoBehaviour
             {
                 Character = GameObject.FindWithTag("Player");
                 Character.transform.position = new Vector3(SaloonX, SaloonY, 0);
+                
+                SceneFrom = 0;
+                
+            }
+            if(SceneFrom == 3)
+            {
+                Character = GameObject.FindWithTag("Player");
+                Character.transform.position = new Vector3(BankX, BankY, 0);
+                
+                SceneFrom = 0;
+                
+            }
+            if (SceneFrom == 4)
+            {
+                Character = GameObject.FindWithTag("Player");
+                Character.transform.position = new Vector3(barnX, barnY, 0);
                 SceneFrom = 0;
             }
         }
@@ -332,6 +503,34 @@ public class gameManager : MonoBehaviour
         {
             Character = GameObject.FindWithTag("Player");
             Character.transform.position = lastKnownPosition;
+
+            if (enemyName != "cactus")
+            {
+                enemyToDeactivate = GameObject.Find(enemyName);
+                if (lastKnownScene == "Bank Interrior")
+                {
+                    enemiesToDeactivateBank.Add(enemyName);
+                }
+                if (lastKnownScene == "SampleScene")
+                {
+                    enemiesToDeactivateSS.Add(enemyName);
+                }
+                if (lastKnownScene == "Bank Interrior")
+                {
+                    enemiesToDeactivateBarn.Add(enemyName);
+                }
+                enemyToDeactivate.SetActive(false);
+            }
+            if(enemyName == "banker")
+            {
+                agroGame = true;
+            }
+            if (enemyName == "rangerBank")
+            {
+                endGame = true;
+            }
+            Character.transform.position = lastKnownPosition;
+            
             RelocateAfterCombat = false;
         }
     }

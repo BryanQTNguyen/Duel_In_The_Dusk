@@ -1218,7 +1218,11 @@ MonoBehaviour:
     Continue through the story!
 
     In combat, time
-    your marker to land on the orange area in order to make an accurate shot!'
+    your marker to land on the orange area in order to make an accurate shot!
+
+    If
+    your screen turns all red. You are bleeding. Look for bandages to stop the bleeding
+    damage!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}
   m_sharedMaterial: {fileID: -4570479136430521874, guid: a6b23c576df74984a83a9f50b2b17736, type: 2}

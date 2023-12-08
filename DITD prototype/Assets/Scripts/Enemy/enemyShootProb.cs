@@ -41,25 +41,25 @@ public class enemyShootProb : MonoBehaviour
     private int sheriffHead = 20; //headshot rate
     private int sheriffDamageAmount = 20;
     private int sheriffLives = 4;
-    private int sheriffBleedRate = 50; 
+    private int sheriffBleedRate = 30; 
 
     private int bankerProb = 50;
     private int bankerHead = 0;
-    private int bankerDamageAmount = 50;
-    private int bankerLives = 2;
+    private int bankerDamageAmount = 35;
+    private int bankerLives = 3;
     private int bankerBleedRate = 5;
 
     private int deputyProb = 70;
     private int deptyHead = 5;
     private int deptyDamageAmount = 10;
-    private int deptyLives = 1;
-    private int deptyBleedRate = 10;
+    private int deptyLives = 2;
+    private int deptyBleedRate = 40;
 
     private int rangerProb = 70;
     private int rangerHead = 5;
-    private int rangerDamageAmount = 10;
-    private int rangerLives = 1;
-    private int rangerBleedRate = 10;
+    private int rangerDamageAmount = 15;
+    private int rangerLives = 2;
+    private int rangerBleedRate = 40;
 
     private int cactusProb = 70;
     private int cactusHead = 10;
@@ -188,6 +188,7 @@ public class enemyShootProb : MonoBehaviour
         {
             Debug.Log("died bruh");
             skillCheck.enemyTurnToShoot = false;
+            AudManager.Instance.PlaySFX("enemyDies");
             StartCoroutine(deathAnim());
         }
     }
@@ -217,6 +218,7 @@ public class enemyShootProb : MonoBehaviour
         if (probOfLanding <= headShotRate)
         {
             Debug.Log("Player got head shotted");
+            AudManager.Instance.PlaySFX("playerHit");
             Shake.enemyShotShake();
             playerAnim.SetTrigger("isDamage");
             GameManager.Damage(damage * 2);
@@ -230,6 +232,7 @@ public class enemyShootProb : MonoBehaviour
         {
             Debug.Log("Player got hit with a crippling shot");
             playerAnim.SetTrigger("isDamage");
+            AudManager.Instance.PlaySFX("playerHit");
             GameManager.Damage(damage);
             int bleedProbability = Random.Range(0, 100);
             if (bleedProbability <= bleedRate) // bleed controller
@@ -250,6 +253,7 @@ public class enemyShootProb : MonoBehaviour
         else
         {
             Debug.Log("Miss!");
+            AudManager.Instance.PlaySFX("enemyMiss");
             skillCheck.enemyTurnToShoot = false;
             secondChanceTime = true;
             enemyShootReset();
