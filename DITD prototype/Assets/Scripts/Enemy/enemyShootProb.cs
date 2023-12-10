@@ -45,9 +45,9 @@ public class enemyShootProb : MonoBehaviour
 
     private int bankerProb = 70;
     private int bankerHead = 0;
-    private int bankerDamageAmount = 35;
+    private int bankerDamageAmount = 45;
     private int bankerLives = 3;
-    private int bankerBleedRate = 5;
+    private int bankerBleedRate = 50;
 
     private int deputyProb = 70;
     private int deptyHead = 5;

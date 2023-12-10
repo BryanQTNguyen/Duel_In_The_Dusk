@@ -27,6 +27,7 @@ public class OMGSILLYARROW : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && GameManager.agroGame == true)
         {
+            AudManager.Instance.PlaySFX("collectKey");
             gameObject.SetActive(false);
             GameManager.hasKey = true;
 

@@ -109,7 +109,7 @@ public class gameManager : MonoBehaviour
     public bool agroGame = false; //just robbed bank
     public bool endGame = false; //got to the horses
     public bool lastFight = false;
-
+    [SerializeField] GameObject arrowKey;
 
 
 
@@ -161,6 +161,19 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            if(arrowKey == null)
+                arrowKey = GameObject.Find("arrow");
+            if (agroGame == true && hasKey == false)
+            {
+                arrowKey.SetActive(true);
+            }
+            else if(arrowKey.active== true)
+            {
+                arrowKey.SetActive(false);
+            }
+        }
         relocatePlayer();
 
         if (HealthCurrent <= 0)
@@ -171,6 +184,21 @@ public class gameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Bank Interrior" && enemiesToDeactivateBank.Count >= 1)
         {
             foreach (string enemyNames in enemiesToDeactivateBank)
+            {
+                // Find the GameObject by name
+                GameObject gameObjectToDeactivate = GameObject.Find(enemyNames);
+
+                // Check if the GameObject is found
+                if (gameObjectToDeactivate != null)
+                {
+                    // Deactivate the GameObject
+                    gameObjectToDeactivate.SetActive(false);
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "Barn-stable" && enemiesToDeactivateBarn.Count >= 1)
+        {
+            foreach (string enemyNames in enemiesToDeactivateBarn)
             {
                 // Find the GameObject by name
                 GameObject gameObjectToDeactivate = GameObject.Find(enemyNames);
@@ -545,7 +573,7 @@ public class gameManager : MonoBehaviour
                     {
                         enemiesToDeactivateSS.Add(enemyName);
                     }
-                    if (lastKnownScene == "Bank Interrior")
+                    if (lastKnownScene == "Barn-stable")
                     {
                         enemiesToDeactivateBarn.Add(enemyName);
                     }
