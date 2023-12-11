@@ -764,6 +764,8 @@ MonoBehaviour:
   actors:
   - name: 
     sprite: {fileID: 0}
+  enemyIdentify: 0
+  enemyName: 
   isInTalkingRange: 0
   manager: {fileID: 1575221147}
   fadeScript: {fileID: 1575221146}
@@ -1217,7 +1219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c606759c0d5f2db4194f8d6b680ac15f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e5adb899d8c2d14fbaf226526e589f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
