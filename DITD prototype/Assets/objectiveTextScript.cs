@@ -21,9 +21,10 @@ public class objectiveTextScript : MonoBehaviour
         if(GameManager == null)
         {
             gameManagerObj = GameObject.Find("gameManager");
-            GameManager = gameManagerObj.GetComponent<gameManager>();
+            if(gameManagerObj != null)
+                GameManager = gameManagerObj.GetComponent<gameManager>();
         }
-        if(GameManager != null)
+        if (GameManager != null)
         {
             if(GameManager.earlyGame == true)
             {

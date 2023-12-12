@@ -161,7 +161,9 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "SampleScene")
+        healthBarScript.SetHealth(HealthCurrent);
+
+        if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             if(arrowKey == null)
                 arrowKey = GameObject.Find("arrow");
@@ -500,6 +502,10 @@ public class gameManager : MonoBehaviour
             bleedTimer = 0;
             BleedPanel.SetActive(false);
         }
+        if(HealthCurrent <= 0)
+        {
+            Death();
+        }
             
     }
 
@@ -509,8 +515,8 @@ public class gameManager : MonoBehaviour
         {
             Character = GameObject.FindWithTag("Player");
             characterAnimCombat = Character.GetComponent<Animator>();
+            characterAnimCombat.SetTrigger("isDead");
         }
-        characterAnimCombat.SetTrigger("isDead");
         StartCoroutine(deathSceneTrans());
     }
     private IEnumerator deathSceneTrans()
