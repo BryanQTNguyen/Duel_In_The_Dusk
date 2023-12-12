@@ -33,7 +33,7 @@ public class bandages : MonoBehaviour
             if(GameManager.bleeding == true || GameManager.HealthCurrent < 100)
             {
                 GameManager.bleeding = false;
-                GameManager.HealthCurrent = GameManager.HealthCurrent + 15;
+                GameManager.HealthCurrent = GameManager.HealthCurrent + 10;
                 AudManager.Instance.PlaySFX("bandages");
                 gameObject.SetActive(false);
             }

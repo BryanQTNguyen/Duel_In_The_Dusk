@@ -38,7 +38,7 @@ public class enemyShootProb : MonoBehaviour
 
     //Different types of characters the rates for them
     private int sheriffProb = 80; //landing another shot
-    private int sheriffHead = 20; //headshot rate
+    private int sheriffHead = 50; //headshot rate
     private int sheriffDamageAmount = 20;
     private int sheriffLives = 4;
     private int sheriffBleedRate = 80; 

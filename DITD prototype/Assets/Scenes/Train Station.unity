@@ -3982,7 +3982,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: bleedDamage
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 532563325160265168, guid: 4c1aad5989fd12c47981b86624fbd30f, type: 3}
       propertyPath: objectiveText
