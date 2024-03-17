@@ -29,3 +29,5 @@ Job Diaz: Lead Animator
 **Updated Itch.io:**
 
 https://bryannguyen.itch.io/duel-in-the-dust
+
+In order to download and run the game download the files from said link and extract the zip folder when finished downloading. 
