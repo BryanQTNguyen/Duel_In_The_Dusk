@@ -14,7 +14,7 @@ Space Bar - Dialogue and SHOOT!
 
 F - Interact (NPCs, Pickups)
 
-This is a 2D unity project created by 4 members:
+**This is a 2D unity project created by 4 members:**
 
 Bryan Nguyen: Lead Programmer
 
@@ -26,6 +26,6 @@ Niko Castro: Level Designer
 
 Job Diaz: Lead Animator 
 
-Updated Itch.io: 
+**Updated Itch.io:**
 
 https://bryannguyen.itch.io/duel-in-the-dust
