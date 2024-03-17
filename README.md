@@ -20,3 +20,6 @@ Izabella Buskevicius: Character Designer
 Keisha Dela Pena: Environment Designer
 Niko Castro: Level Designer
 Job Diaz: Lead Animator 
+
+Updated Itch.io: 
+https://bryannguyen.itch.io/duel-in-the-dust
