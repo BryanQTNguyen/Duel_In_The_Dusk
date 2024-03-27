@@ -1,4 +1,4 @@
-# Duel_In_The_Dusk
+# Duel_In_The_Dust
 2023-2024 Highschool School Year
 
 You finally come across Richville...
